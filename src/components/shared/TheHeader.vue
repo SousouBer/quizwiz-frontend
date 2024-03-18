@@ -9,11 +9,13 @@
           />
         </a>
       </div>
-      <a
-        href="#"
-        class="text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-        >Quizzes</a
-      >
+      <div>
+        <a
+          href="#"
+          class="text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
+          >Quizzes</a
+        >
+      </div>
     </div>
     <div class="flex justify-center items-center gap-1">
       <button
