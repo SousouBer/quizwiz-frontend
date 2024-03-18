@@ -23,6 +23,13 @@
       </section>
       <div class="absolute bottom-0 right-0 transform translate-y-1/3">
         <div class="relative">
+          <div class="absolute heading-position">
+            <h1 class="text-white text-7xl font-bold leading-12">
+              Our mission is<br />
+              to entertain<br />
+              & educate.
+            </h1>
+          </div>
           <img
             src="../assets/images/black-background.svg"
             alt="Black background"
@@ -49,4 +56,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.heading-position {
+  transform: translate(55%, 75%);
+}
+</style>
