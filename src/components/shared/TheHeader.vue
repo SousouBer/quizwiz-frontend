@@ -18,20 +18,22 @@
       </div>
     </div>
     <div class="flex justify-center items-center gap-1">
-      <button
-        class="text-white bg-black rounded px-6 py-3 text-sm font-bold hover:bg-gray-900 transition-colors duration-300 ease-in-out"
+      <base-button class="text-white bg-black hover:bg-gray-900"
+        >Sign up</base-button
       >
-        Sign up
-      </button>
-      <button
-        class="text-blue-500 font-bold text-sm px-6 py-3 hover:text-blue-600 transition-colors duration-300 ease-in-out"
+      <base-button class="text-blue-500 hover:text-blue-600"
+        >Log in</base-button
       >
-        Log in
-      </button>
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+import BaseButton from "../ui/buttons/BaseButton.vue";
+
+export default {
+  components: {
+    BaseButton,
+  },
+};
 </script>
