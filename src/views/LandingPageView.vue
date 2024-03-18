@@ -9,17 +9,17 @@
             alt="Quiz wiz Title Logo"
           />
         </div>
-        <p class="text-4xl font-semibold text-gray-500">
+        <h2 class="text-4xl font-semibold text-gray-500">
           Play with us, Explore with us
-        </p>
+        </h2>
       </section>
       <section class="px-24 bg-orange-500 flex flex-col py-14">
         <span class="text-8xl font-black text-white">200+</span>
-        <span class="text-5xl font-black text-white">Quiz games</span>
+        <h3 class="text-5xl font-black text-white">Quiz games</h3>
       </section>
       <section class="px-24 bg-blue-500 flex flex-col py-10">
         <span class="text-8xl font-black text-white">25+</span>
-        <span class="text-5xl font-black text-white">Different genre</span>
+        <h3 class="text-5xl font-black text-white">Different genre</h3>
       </section>
       <div class="absolute bottom-0 right-0 transform translate-y-1/3">
         <div class="relative">
