@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.landing-person-img {
+  transform: translate(-10%, -70%);
+}
