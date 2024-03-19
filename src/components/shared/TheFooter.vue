@@ -1,22 +1,9 @@
 <template>
   <footer class="px-24 py-8 flex gap-20">
-    <div>
-      <a href="#">
-        <img
-          src="/src/assets/images/quizwiz-header-logo.svg"
-          alt="Quiz wiz Logo"
-        />
-      </a>
-    </div>
+    <link-quiz-wiz-main></link-quiz-wiz-main>
     <div>
       <h4 class="text-sm font-semibold mb-4">Content</h4>
-      <div>
-        <a
-          href="#"
-          class="text-xs text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-          >Quizzes</a
-        >
-      </div>
+      <link-quizzes class="text-xs"></link-quizzes>
     </div>
     <div>
       <h4 class="text-sm font-semibold mb-4">Contact us</h4>
@@ -29,24 +16,22 @@
     </div>
     <div>
       <h4 class="text-sm font-semibold mb-4">Social media</h4>
-      <div class="mb-4">
-        <a
-          href="#"
-          class="text-xs text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-          >Facebook</a
-        >
-      </div>
-      <div>
-        <a
-          href="#"
-          class="text-xs text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-          >LinkedIn</a
-        >
-      </div>
+      <link-social-media link="#">Facebook</link-social-media>
+      <link-social-media link="#">Linked In</link-social-media>
     </div>
   </footer>
 </template>
 
 <script>
-export default {};
+import LinkSocialMedia from "../LinkSocialMedia.vue";
+import LinkQuizzes from "../ui/links/LinkQuizzes.vue";
+import LinkQuizWizMain from "../ui/links/LinkQuizWizMain.vue";
+
+export default {
+  components: {
+    LinkSocialMedia,
+    LinkQuizzes,
+    LinkQuizWizMain,
+  },
+};
 </script>
