@@ -12,6 +12,7 @@ export default {
         "grayish-blue": "#667085",
         "light-gray": "#D0D5DD",
         "cerulean-blue": "#4B69FD",
+        "pale-yellow": "#FEF6E7",
       },
       width: {
         "custom-45": "45%",
