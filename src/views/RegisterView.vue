@@ -1,24 +1,13 @@
 <template>
   <main class="flex flex-row">
-    <section
-      class="bg-paleBlue h-screen flex items-center justify-start w-custom-45"
-    >
+    <auth-cover-section>
       <img
         src="../assets/images/registration-cover.svg"
-        alt="Registration cover"
+        alt="Registration Cover"
       />
-    </section>
-    <section class="p-16 pr-56 pt-14 flex-grow">
-      <div class="flex flex-row items-center gap-2 mb-12">
-        <div class="w-4 h-4">
-          <img
-            class="h-full w-full"
-            src="../assets/images/icons/back-arrow.svg"
-            alt="Back icon"
-          />
-        </div>
-        <span class="font-medium text-sm">Back</span>
-      </div>
+    </auth-cover-section>
+    <auth-form-section>
+      <back-link></back-link>
       <div class="px-4">
         <h1 class="text-3xl font-extrabold mb-12">Create account</h1>
         <form>
@@ -29,7 +18,6 @@
               >Username</base-label
             >
             <base-input
-              class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border border-light-gray"
               inputType="text"
               inputId="username"
               inputName="username"
@@ -43,7 +31,6 @@
               >Email</base-label
             >
             <base-input
-              class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border border-light-gray"
               inputType="email"
               inputId="email"
               inputName="email"
@@ -57,11 +44,11 @@
               >Create a password</base-label
             >
             <base-input
-              class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border border-light-gray"
               inputType="password"
               inputId="password"
               inputName="password"
               inputPlaceholder="Must be 8 characters"
+              :isPasswordInput="true"
             ></base-input>
           </div>
           <div class="flex flex-col mb-4">
@@ -71,11 +58,11 @@
               >Confirm password</base-label
             >
             <base-input
-              class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border border-light-gray"
               inputType="password"
               inputId="confirm_password"
               inputName="confirm_password"
               inputPlaceholder="Must be 8 characters"
+              :isPasswordInput="true"
             ></base-input>
           </div>
           <div class="flex flex-row gap-3 my-6">
@@ -104,18 +91,24 @@
           </div>
         </form>
       </div>
-    </section>
+    </auth-form-section>
   </main>
 </template>
 
 <script>
 import BaseInput from "../components/ui/form/BaseInput.vue";
 import BaseLabel from "../components/ui/form/BaseLabel.vue";
+import AuthCoverSection from "../components/ui/AuthCoverSection.vue";
+import AuthFormSection from "../components/ui/AuthFormSection.vue";
+import BackLink from "../components/ui/links/BackLink.vue";
 
 export default {
   components: {
     BaseInput,
     BaseLabel,
+    BackLink,
+    AuthCoverSection,
+    AuthFormSection,
   },
 };
 </script>
