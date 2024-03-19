@@ -6,6 +6,19 @@ export default {
       lineHeight: {
         12: "1.2",
       },
+      colors: {
+        paleBlue: "#EAFAFE",
+        charcoal: "#344054",
+        "grayish-blue": "#667085",
+        "light-gray": "#D0D5DD",
+        "cerulean-blue": "#4B69FD",
+      },
+      width: {
+        "custom-45": "45%",
+      },
+      padding: {
+        4.5: "1.125rem",
+      },
     },
   },
   plugins: [],
