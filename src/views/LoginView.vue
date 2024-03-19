@@ -7,7 +7,7 @@
       <back-link></back-link>
       <div class="px-4">
         <div class="flex gap-2 mb-12">
-          <h1 class="text-3xl font-extrabold">Hi, Welcome!</h1>
+          <form-header>Hi, Welcome!</form-header>
           <img
             src="../assets/images/icons/login-wave-icon.svg"
             alt="Wave icon"
@@ -57,12 +57,7 @@
             </div>
             <a class="text-sm" href="#">Forgot password?</a>
           </div>
-
-          <button
-            class="bg-black text-white w-full hover:bg-gray-600 text-base font-semibold py-4 rounded-xl transition-colors duration-300 ease-in-out my-4"
-          >
-            Log in
-          </button>
+          <form-button-submit>Log in</form-button-submit>
           <div class="mt-4">
             <span class="text-sm"
               >Don't have an account?
@@ -83,6 +78,8 @@ import AuthFormSection from "../components/ui/AuthFormSection.vue";
 import BackLink from "../components/ui/links/BackLink.vue";
 import BaseInput from "../components/ui/form/BaseInput.vue";
 import BaseLabel from "../components/ui/form/BaseLabel.vue";
+import FormHeader from "../components/ui/form/FormHeader.vue";
+import FormButtonSubmit from "../components/ui/form/FormButtonSubmit.vue";
 
 export default {
   components: {
@@ -91,6 +88,8 @@ export default {
     BackLink,
     BaseInput,
     BaseLabel,
+    FormHeader,
+    FormButtonSubmit,
   },
 };
 </script>

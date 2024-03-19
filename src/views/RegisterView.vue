@@ -9,7 +9,7 @@
     <auth-form-section>
       <back-link></back-link>
       <div class="px-4">
-        <h1 class="text-3xl font-extrabold mb-12">Create account</h1>
+        <form-header class="mb-12">Create account</form-header>
         <form>
           <div class="flex flex-col mb-4">
             <base-label
@@ -76,11 +76,7 @@
               >I accept the terms and privacy policy</base-label
             >
           </div>
-          <button
-            class="bg-black text-white w-full hover:bg-gray-600 text-base font-semibold py-4 rounded-xl transition-colors duration-300 ease-in-out my-4"
-          >
-            Sign up
-          </button>
+          <form-button-submit>Sign up</form-button-submit>
           <div class="mt-4">
             <span class="text-sm"
               >Already have an account?
@@ -101,6 +97,8 @@ import BaseLabel from "../components/ui/form/BaseLabel.vue";
 import AuthCoverSection from "../components/ui/AuthCoverSection.vue";
 import AuthFormSection from "../components/ui/AuthFormSection.vue";
 import BackLink from "../components/ui/links/BackLink.vue";
+import FormHeader from "../components/ui/form/FormHeader.vue";
+import FormButtonSubmit from "../components/ui/form/FormButtonSubmit.vue";
 
 export default {
   components: {
@@ -109,6 +107,8 @@ export default {
     BackLink,
     AuthCoverSection,
     AuthFormSection,
+    FormHeader,
+    FormButtonSubmit,
   },
 };
 </script>
