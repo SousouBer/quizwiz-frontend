@@ -15,11 +15,7 @@
         </div>
         <form>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="email"
-              >Email address</base-label
-            >
+            <base-label labelFor="email">Email address</base-label>
             <base-input
               inputType="email"
               inputId="email"
@@ -28,11 +24,7 @@
             ></base-input>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="password"
-              >Password</base-label
-            >
+            <base-label labelFor="password">Password</base-label>
             <base-input
               inputType="password"
               inputId="password"
@@ -49,9 +41,7 @@
                 inputName="remember_me"
                 inputPlaceholder="Remember me"
               ></base-input>
-              <base-label
-                class="text-sm text-charcoal font-normal pb-2"
-                labelFor="remember_me"
+              <base-label labelFor="remember_me"
                 >Remember for 30 days</base-label
               >
             </div>

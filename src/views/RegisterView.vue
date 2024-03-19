@@ -12,11 +12,7 @@
         <form-header class="mb-12">Create account</form-header>
         <form>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="username"
-              >Username</base-label
-            >
+            <base-label labelFor="username">Username</base-label>
             <base-input
               inputType="text"
               inputId="username"
@@ -25,11 +21,7 @@
             ></base-input>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="email"
-              >Email</base-label
-            >
+            <base-label labelFor="email">Email</base-label>
             <base-input
               inputType="email"
               inputId="email"
@@ -38,11 +30,7 @@
             ></base-input>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="password"
-              >Create a password</base-label
-            >
+            <base-label labelFor="password">Create a password</base-label>
             <base-input
               inputType="password"
               inputId="password"
@@ -52,9 +40,7 @@
             ></base-input>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label
-              class="text-sm text-charcoal font-normal pb-2"
-              labelFor="confirm_password"
+            <base-label labelFor="confirm_password"
               >Confirm password</base-label
             >
             <base-input
