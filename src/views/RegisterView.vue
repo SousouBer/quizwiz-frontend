@@ -1,12 +1,12 @@
 <template>
   <main class="flex flex-row">
-    <section-auth-cover>
+    <section-auth-image-layout>
       <img
         src="@/assets/images/registration-cover.svg"
         alt="Registration Cover"
       />
-    </section-auth-cover>
-    <section-auth-form>
+    </section-auth-image-layout>
+    <section-auth-form-layout>
       <link-back></link-back>
       <div class="px-4">
         <heading-form class="mb-12">Create account</heading-form>
@@ -73,15 +73,15 @@
           </div>
         </form>
       </div>
-    </section-auth-form>
+    </section-auth-form-layout>
   </main>
 </template>
 
 <script>
 import InputBase from "../components/ui/form/InputBase.vue";
 import LabelBase from "../components/ui/form/LabelBase.vue";
-import SectionAuthCover from "../components/ui/SectionAuthCover.vue";
-import SectionAuthForm from "../components/ui/SectionAuthForm.vue";
+import SectionAuthImageLayout from "../components/layouts/SectionAuthImageLayout.vue";
+import SectionAuthFormLayout from "../components/layouts/SectionAuthFormLayout.vue";
 import LinkBack from "../components/ui/links/LinkBack.vue";
 import HeadingForm from "../components/ui/form/HeadingForm.vue";
 import ButtonSubmit from "../components/ui/form/ButtonSubmit.vue";
@@ -91,8 +91,8 @@ export default {
     InputBase,
     LabelBase,
     LinkBack,
-    SectionAuthCover,
-    SectionAuthForm,
+    SectionAuthImageLayout,
+    SectionAuthFormLayout,
     HeadingForm,
     ButtonSubmit,
   },

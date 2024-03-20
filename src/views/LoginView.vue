@@ -1,9 +1,9 @@
 <template>
   <main class="flex flex-row">
-    <section-auth-cover class="bg-pale-yellow justify-center">
+    <section-auth-image-layout class="bg-pale-yellow justify-center">
       <img src="@/assets/images/login-cover.svg" alt="Login Cover" />
-    </section-auth-cover>
-    <section-auth-form>
+    </section-auth-image-layout>
+    <section-auth-form-layout>
       <link-back></link-back>
       <div class="px-4">
         <div class="flex gap-2 mb-12">
@@ -58,13 +58,13 @@
           </div>
         </form>
       </div>
-    </section-auth-form>
+    </section-auth-form-layout>
   </main>
 </template>
 
 <script>
-import SectionAuthCover from "../components/ui/SectionAuthCover.vue";
-import SectionAuthForm from "../components/ui/SectionAuthForm.vue";
+import SectionAuthImageLayout from "../components/layouts/SectionAuthImageLayout.vue";
+import SectionAuthFormLayout from "../components/layouts/SectionAuthFormLayout.vue";
 import LinkBack from "../components/ui/links/LinkBack.vue";
 import InputBase from "../components/ui/form/InputBase.vue";
 import LabelBase from "../components/ui/form/LabelBase.vue";
@@ -73,8 +73,8 @@ import ButtonSubmit from "../components/ui/form/ButtonSubmit.vue";
 
 export default {
   components: {
-    SectionAuthCover,
-    SectionAuthForm,
+    SectionAuthImageLayout,
+    SectionAuthFormLayout,
     LinkBack,
     InputBase,
     LabelBase,
