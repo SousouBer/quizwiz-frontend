@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-row">
     <section-auth-cover class="bg-pale-yellow justify-center">
-      <img src="../assets/images/login-cover.svg" alt="Login Cover" />
+      <img src="@/assets/images/login-cover.svg" alt="Login Cover" />
     </section-auth-cover>
     <section-auth-form>
       <link-back></link-back>
@@ -9,7 +9,7 @@
         <div class="flex gap-2 mb-12">
           <heading-form>Hi, Welcome!</heading-form>
           <img
-            src="../assets/images/icons/login-wave-icon.svg"
+            src="@/assets/images/icons/login-wave-icon.svg"
             alt="Wave icon"
           />
         </div>

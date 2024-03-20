@@ -2,7 +2,7 @@
   <main class="flex flex-row">
     <section-auth-cover>
       <img
-        src="../assets/images/registration-cover.svg"
+        src="@/assets/images/registration-cover.svg"
         alt="Registration Cover"
       />
     </section-auth-cover>

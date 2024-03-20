@@ -14,7 +14,7 @@
     >
       <img
         class="w-full h-full"
-        src="../../../assets/images/icons/eye-open.svg"
+        src="@/assets/images/icons/eye-open.svg"
         alt="Eye icon"
       />
     </div>

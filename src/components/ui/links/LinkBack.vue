@@ -3,7 +3,7 @@
     <div class="w-4 h-4">
       <img
         class="h-full w-full"
-        src="../../../assets/images/icons/back-arrow.svg"
+        src="@/assets/images/icons/back-arrow.svg"
         alt="Back icon"
       />
     </div>
