@@ -63,13 +63,13 @@
 </template>
 
 <script>
-import SectionAuthImageLayout from "../components/layouts/SectionAuthImageLayout.vue";
-import SectionAuthFormLayout from "../components/layouts/SectionAuthFormLayout.vue";
-import LinkBack from "../components/ui/links/LinkBack.vue";
-import InputBase from "../components/ui/form/InputBase.vue";
-import LabelBase from "../components/ui/form/LabelBase.vue";
-import HeadingForm from "../components/ui/form/HeadingForm.vue";
-import ButtonSubmit from "../components/ui/form/ButtonSubmit.vue";
+import SectionAuthImageLayout from "@/components/layouts/SectionAuthImageLayout.vue";
+import SectionAuthFormLayout from "@/components/layouts/SectionAuthFormLayout.vue";
+import LinkBack from "@/components/ui/links/LinkBack.vue";
+import InputBase from "@/components/ui/form/InputBase.vue";
+import LabelBase from "@/components/ui/form/LabelBase.vue";
+import HeadingForm from "@/components/ui/form/HeadingForm.vue";
+import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 
 export default {
   components: {
