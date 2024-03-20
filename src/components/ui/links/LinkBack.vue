@@ -1,5 +1,5 @@
 <template>
-  <a class="flex flex-row items-center gap-2 mb-12">
+  <a class="cursor-pointer flex flex-row items-center gap-2 mb-12">
     <div class="w-4 h-4">
       <img
         class="h-full w-full"

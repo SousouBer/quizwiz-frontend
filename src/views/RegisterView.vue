@@ -1,68 +1,68 @@
 <template>
   <main class="flex flex-row">
-    <auth-cover-section>
+    <section-auth-cover>
       <img
         src="../assets/images/registration-cover.svg"
         alt="Registration Cover"
       />
-    </auth-cover-section>
-    <auth-form-section>
-      <back-link></back-link>
+    </section-auth-cover>
+    <section-auth-form>
+      <link-back></link-back>
       <div class="px-4">
-        <form-header class="mb-12">Create account</form-header>
+        <heading-form class="mb-12">Create account</heading-form>
         <form>
           <div class="flex flex-col mb-4">
-            <base-label labelFor="username">Username</base-label>
-            <base-input
+            <label-base labelFor="username">Username</label-base>
+            <input-base
               inputType="text"
               inputId="username"
               inputName="username"
               inputPlaceholder="Your username"
-            ></base-input>
+            ></input-base>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label labelFor="email">Email</base-label>
-            <base-input
+            <label-base labelFor="email">Email</label-base>
+            <input-base
               inputType="email"
               inputId="email"
               inputName="email"
               inputPlaceholder="email@gmail.com"
-            ></base-input>
+            ></input-base>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label labelFor="password">Create a password</base-label>
-            <base-input
+            <label-base labelFor="password">Create a password</label-base>
+            <input-base
               inputType="password"
               inputId="password"
               inputName="password"
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
-            ></base-input>
+            ></input-base>
           </div>
           <div class="flex flex-col mb-4">
-            <base-label labelFor="confirm_password"
-              >Confirm password</base-label
+            <label-base labelFor="confirm_password"
+              >Confirm password</label-base
             >
-            <base-input
+            <input-base
               inputType="password"
               inputId="confirm_password"
               inputName="confirm_password"
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
-            ></base-input>
+            ></input-base>
           </div>
           <div class="flex flex-row gap-3 my-6">
-            <base-input
+            <input-base
               class="w-5 h-5"
               inputType="radio"
               inputId="terms_and_policy"
               inputName="terms_and_policy"
-            ></base-input>
-            <base-label labelFor="terms_and_policy"
-              >I accept the terms and privacy policy</base-label
+            ></input-base>
+            <label-base labelFor="terms_and_policy"
+              >I accept the terms and privacy policy</label-base
             >
           </div>
-          <form-button-submit>Sign up</form-button-submit>
+          <button-submit>Sign up</button-submit>
           <div class="mt-4">
             <span class="text-sm"
               >Already have an account?
@@ -73,28 +73,28 @@
           </div>
         </form>
       </div>
-    </auth-form-section>
+    </section-auth-form>
   </main>
 </template>
 
 <script>
-import BaseInput from "../components/ui/form/BaseInput.vue";
-import BaseLabel from "../components/ui/form/BaseLabel.vue";
-import AuthCoverSection from "../components/ui/AuthCoverSection.vue";
-import AuthFormSection from "../components/ui/AuthFormSection.vue";
-import BackLink from "../components/ui/links/BackLink.vue";
-import FormHeader from "../components/ui/form/FormHeader.vue";
-import FormButtonSubmit from "../components/ui/form/FormButtonSubmit.vue";
+import InputBase from "../components/ui/form/InputBase.vue";
+import LabelBase from "../components/ui/form/LabelBase.vue";
+import SectionAuthCover from "../components/ui/SectionAuthCover.vue";
+import SectionAuthForm from "../components/ui/SectionAuthForm.vue";
+import LinkBack from "../components/ui/links/LinkBack.vue";
+import HeadingForm from "../components/ui/form/HeadingForm.vue";
+import ButtonSubmit from "../components/ui/form/ButtonSubmit.vue";
 
 export default {
   components: {
-    BaseInput,
-    BaseLabel,
-    BackLink,
-    AuthCoverSection,
-    AuthFormSection,
-    FormHeader,
-    FormButtonSubmit,
+    InputBase,
+    LabelBase,
+    LinkBack,
+    SectionAuthCover,
+    SectionAuthForm,
+    HeadingForm,
+    ButtonSubmit,
   },
 };
 </script>
