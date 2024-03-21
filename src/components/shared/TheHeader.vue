@@ -1,5 +1,7 @@
 <template>
-  <header class="flex justify-between items-center px-24 py-4 border-b">
+  <header
+    class="flex justify-between items-center px-24 py-4 border-b relative"
+  >
     <div class="flex items-center gap-14">
       <div>
         <a href="#">
@@ -54,10 +56,36 @@
         </div>
       </div>
       <div>
-        <img
-          src="/src/assets/images/unauthenticated-user-icon.svg"
-          alt="Unauthenticated user icon"
-        />
+        <div class="cursor-pointer" @click="openLogoutModal">
+          <img
+            src="/src/assets/images/unauthenticated-user-icon.svg"
+            alt="Unauthenticated user icon"
+          />
+        </div>
+        <div
+          v-if="showLogoutModal"
+          class="absolute top-0 right-0 transform -translate-x-1/4 translate-y-1/4 w-80 bg-white border p-7 border-red-600"
+        >
+          <div class="mb-4">
+            <img
+              src="/src/assets/images/unauthenticated-user-icon.svg"
+              alt="User image"
+            />
+          </div>
+          <div class="flex justify-between">
+            <div class="flex flex-col justify-center gap-1">
+              <span class="font-semibold text-sm">Soso Beriashvili</span>
+              <span class="text-sm">sosoberiashvili@gmail.com</span>
+            </div>
+            <div class="flex items-end justify-end">
+              <img
+                class="cursor-pointer"
+                src="/src/assets/images/logout-icon.svg"
+                alt="Logout icon"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -74,6 +102,7 @@ export default {
   data() {
     return {
       isFirstFocused: false,
+      showLogoutModal: false,
       searchInput: "",
     };
   },
@@ -85,6 +114,9 @@ export default {
     closeInputField() {
       this.isFirstFocused = false;
       this.searchInput = "";
+    },
+    openLogoutModal() {
+      this.showLogoutModal = true;
     },
   },
 };
