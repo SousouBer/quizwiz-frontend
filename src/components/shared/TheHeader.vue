@@ -3,21 +3,8 @@
     class="flex justify-between items-center px-24 py-4 border-b relative"
   >
     <div class="flex items-center gap-14">
-      <div>
-        <a href="#">
-          <img
-            src="@/assets/images/quizwiz-header-logo.svg"
-            alt="Quiz wiz Logo"
-          />
-        </a>
-      </div>
-      <div>
-        <a
-          href="#"
-          class="text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-          >Quizzes</a
-        >
-      </div>
+      <link-quiz-wiz-main></link-quiz-wiz-main>
+      <link-quizzes></link-quizzes>
     </div>
     <button-burger-menu class="md:hidden"></button-burger-menu>
     <modal-auth-burger-menu class="hidden"></modal-auth-burger-menu>
@@ -82,6 +69,8 @@ import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
 import ModalLogoutBurgerMenu from "@/components/ui/modals/ModalLogoutBurgerMenu.vue";
 import ButtonBurgerMenu from "@/components/ui/buttons/ButtonBurgerMenu.vue";
+import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
+import LinkQuizWizMain from "@/components/ui/links/LinkQuizWizMain.vue";
 
 export default {
   components: {
@@ -90,6 +79,8 @@ export default {
     ModalAuthBurgerMenu,
     ModalLogoutBurgerMenu,
     ButtonBurgerMenu,
+    LinkQuizWizMain,
+    LinkQuizzes,
   },
 
   data() {
