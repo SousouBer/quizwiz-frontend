@@ -23,11 +23,11 @@
     <modal-auth-burger-menu class="hidden"></modal-auth-burger-menu>
     <modal-logout-burger-menu class="hidden"></modal-logout-burger-menu>
     <div class="flex justify-center items-center gap-1">
-      <base-button class="text-white bg-black hover:bg-gray-900"
-        >Sign up</base-button
+      <button-base class="text-white bg-black hover:bg-gray-900"
+        >Sign up</button-base
       >
-      <base-button class="text-blue-500 hover:text-blue-600"
-        >Log in</base-button
+      <button-base class="text-blue-500 hover:text-blue-600"
+        >Log in</button-base
       >
     </div>
     <div class="hidden md:flex justify-center items-center gap-1">
@@ -78,14 +78,14 @@
 
 <script>
 import ModalLogout from "@/components/ui/modals/ModalLogout.vue";
-import BaseButton from "@/components/ui/buttons/BaseButton.vue";
+import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
 import ModalLogoutBurgerMenu from "@/components/ui/modals/ModalLogoutBurgerMenu.vue";
 import ButtonBurgerMenu from "@/components/ui/buttons/ButtonBurgerMenu.vue";
 
 export default {
   components: {
-    BaseButton,
+    ButtonBase,
     ModalLogout,
     ModalAuthBurgerMenu,
     ModalLogoutBurgerMenu,
