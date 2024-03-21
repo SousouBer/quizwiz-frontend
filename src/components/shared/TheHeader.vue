@@ -19,7 +19,18 @@
         >
       </div>
     </div>
+    <button-burger-menu class="md:hidden"></button-burger-menu>
+    <modal-auth-burger-menu class="hidden"></modal-auth-burger-menu>
+    <modal-logout-burger-menu class="hidden"></modal-logout-burger-menu>
     <div class="flex justify-center items-center gap-1">
+      <base-button class="text-white bg-black hover:bg-gray-900"
+        >Sign up</base-button
+      >
+      <base-button class="text-blue-500 hover:text-blue-600"
+        >Log in</base-button
+      >
+    </div>
+    <div class="hidden md:flex justify-center items-center gap-1">
       <div
         :class="{ 'active-searchbar': isFirstFocused }"
         class="w-28 border border-transparent h-11 overflow-hidden transition-all duration-300 ease-out"
@@ -63,30 +74,6 @@
           />
         </div>
         <modal-logout v-if="showLogoutModal"></modal-logout>
-        <!-- <div
-          v-if="showLogoutModal"
-          class="absolute top-0 right-0 transform -translate-x-1/4 translate-y-1/4 w-80 bg-white border p-7 border-red-600"
-        >
-          <div class="mb-4">
-            <img
-              src="/src/assets/images/unauthenticated-user-icon.svg"
-              alt="User image"
-            />
-          </div>
-          <div class="flex justify-between">
-            <div class="flex flex-col justify-center gap-1">
-              <span class="font-semibold text-sm">Soso Beriashvili</span>
-              <span class="text-sm">sosoberiashvili@gmail.com</span>
-            </div>
-            <div class="flex items-end justify-end">
-              <img
-                class="cursor-pointer"
-                src="/src/assets/images/logout-icon.svg"
-                alt="Logout icon"
-              />
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </header>
@@ -94,12 +81,18 @@
 
 <script>
 import ModalLogout from "../ui/modals/ModalLogout.vue";
-// import BaseButton from "../ui/buttons/BaseButton.vue";
+import BaseButton from "../ui/buttons/BaseButton.vue";
+import ModalAuthBurgerMenu from "../ui/modals/ModalAuthBurgerMenu.vue";
+import ModalLogoutBurgerMenu from "../ui/modals/ModalLogoutBurgerMenu.vue";
+import ButtonBurgerMenu from "../ui/buttons/ButtonBurgerMenu.vue";
 
 export default {
   components: {
-    // BaseButton,
+    BaseButton,
     ModalLogout,
+    ModalAuthBurgerMenu,
+    ModalLogoutBurgerMenu,
+    ButtonBurgerMenu,
   },
 
   data() {
