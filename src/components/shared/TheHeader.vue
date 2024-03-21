@@ -62,7 +62,8 @@
             alt="Unauthenticated user icon"
           />
         </div>
-        <div
+        <modal-logout v-if="showLogoutModal"></modal-logout>
+        <!-- <div
           v-if="showLogoutModal"
           class="absolute top-0 right-0 transform -translate-x-1/4 translate-y-1/4 w-80 bg-white border p-7 border-red-600"
         >
@@ -85,18 +86,20 @@
               />
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ModalLogout from "../ui/modals/ModalLogout.vue";
 // import BaseButton from "../ui/buttons/BaseButton.vue";
 
 export default {
   components: {
     // BaseButton,
+    ModalLogout,
   },
 
   data() {
