@@ -4,7 +4,7 @@
   >
     <div class="mb-4">
       <img
-        src="/src/assets/images/unauthenticated-user-icon.svg"
+        src="@/assets/images/unauthenticated-user-icon.svg"
         alt="User image"
       />
     </div>
@@ -16,7 +16,7 @@
       <div class="flex items-end justify-end">
         <img
           class="cursor-pointer"
-          src="/src/assets/images/logout-icon.svg"
+          src="@/assets/images/logout-icon.svg"
           alt="Logout icon"
         />
       </div>

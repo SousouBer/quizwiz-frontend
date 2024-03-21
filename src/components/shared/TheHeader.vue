@@ -6,7 +6,7 @@
       <div>
         <a href="#">
           <img
-            src="/src/assets/images/quizwiz-header-logo.svg"
+            src="@/assets/images/quizwiz-header-logo.svg"
             alt="Quiz wiz Logo"
           />
         </a>
@@ -42,7 +42,7 @@
             <div class="flex items-center justify-center">
               <img
                 class="w-full h-full"
-                src="/src/assets/images/search-quizzes-icon.svg"
+                src="@/assets/images/search-quizzes-icon.svg"
                 alt="Search icon"
               />
             </div>
@@ -59,17 +59,14 @@
             @click="closeInputField"
             class="close-input border-l h-full rounded-tr-10 rounded-br-10 flex items-center justify-center w-12 cursor-pointer"
           >
-            <img
-              src="/src/assets/images/hide-input-x.svg"
-              alt="Hide input icon"
-            />
+            <img src="@/assets/images/hide-input-x.svg" alt="Hide input icon" />
           </div>
         </div>
       </div>
       <div>
         <div class="cursor-pointer" @click="openLogoutModal">
           <img
-            src="/src/assets/images/unauthenticated-user-icon.svg"
+            src="@/assets/images/unauthenticated-user-icon.svg"
             alt="Unauthenticated user icon"
           />
         </div>
@@ -80,11 +77,11 @@
 </template>
 
 <script>
-import ModalLogout from "../ui/modals/ModalLogout.vue";
-import BaseButton from "../ui/buttons/BaseButton.vue";
-import ModalAuthBurgerMenu from "../ui/modals/ModalAuthBurgerMenu.vue";
-import ModalLogoutBurgerMenu from "../ui/modals/ModalLogoutBurgerMenu.vue";
-import ButtonBurgerMenu from "../ui/buttons/ButtonBurgerMenu.vue";
+import ModalLogout from "@/components/ui/modals/ModalLogout.vue";
+import BaseButton from "@/components/ui/buttons/BaseButton.vue";
+import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
+import ModalLogoutBurgerMenu from "@/components/ui/modals/ModalLogoutBurgerMenu.vue";
+import ButtonBurgerMenu from "@/components/ui/buttons/ButtonBurgerMenu.vue";
 
 export default {
   components: {
