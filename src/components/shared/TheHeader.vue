@@ -7,9 +7,9 @@
       <link-quizzes></link-quizzes>
     </div>
     <button-burger-menu class="md:hidden"></button-burger-menu>
-    <modal-auth-burger-menu class="hidden"></modal-auth-burger-menu>
-    <modal-logout-burger-menu class="hidden"></modal-logout-burger-menu>
-    <div class="flex justify-center items-center gap-1">
+    <modal-auth-burger-menu class="hidden z-10"></modal-auth-burger-menu>
+    <modal-logout-burger-menu class="z-10"></modal-logout-burger-menu>
+    <div class="hidden md:flex justify-center items-center gap-1">
       <button-base class="text-white bg-black hover:bg-gray-900"
         >Sign up</button-base
       >
