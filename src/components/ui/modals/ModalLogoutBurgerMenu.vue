@@ -3,24 +3,16 @@
     <div>
       <div class="flex flex-col gap-8 mb-6">
         <div class="flex justify-between items-center">
-          <link-quiz-wiz-main></link-quiz-wiz-main>
+          <icon-quiz-wiz-main></icon-quiz-wiz-main>
           <div class="w-6 h-6">
-            <img
-              class="h-full w-full"
-              src="@/assets/images/hide-input-x.svg"
-              alt="Hide modal icon"
-            />
+            <icon-x></icon-x>
           </div>
         </div>
         <link-quizzes></link-quizzes>
       </div>
       <div class="flex flex-row gap-4 items-center">
         <div class="w-16">
-          <img
-            class="w-full h-full"
-            src="/src/assets/images/unauthenticated-user-icon.svg"
-            alt="User image"
-          />
+          <icon-x></icon-x>
         </div>
         <div class="flex flex-col">
           <span class="text-base font-semibold">Soso Beriashvili</span>
@@ -35,15 +27,17 @@
 </template>
 
 <script>
-import LinkQuizWizMain from "@/components/ui/links/LinkQuizWizMain.vue";
 import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
+import IconX from "@/components/icons/IconX.vue";
+import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 
 export default {
   components: {
-    LinkQuizWizMain,
     LinkQuizzes,
     ButtonBase,
+    IconQuizWizMain,
+    IconX,
   },
 };
 </script>

@@ -3,10 +3,7 @@
     class="absolute top-0 right-0 transform -translate-x-1/4 translate-y-1/4 w-80 bg-white border p-7 border-red-600"
   >
     <div class="mb-4">
-      <img
-        src="@/assets/images/unauthenticated-user-icon.svg"
-        alt="User image"
-      />
+      <icon-unauthenticated-user></icon-unauthenticated-user>
     </div>
     <div class="flex justify-between">
       <div class="flex flex-col justify-center gap-1">
@@ -14,16 +11,20 @@
         <span class="text-sm">sosoberiashvili@gmail.com</span>
       </div>
       <div class="flex items-end justify-end">
-        <img
-          class="cursor-pointer"
-          src="@/assets/images/logout-icon.svg"
-          alt="Logout icon"
-        />
+        <icon-logout></icon-logout>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
+import IconLogout from "@/components/icons/IconLogout.vue";
+
+export default {
+  components: {
+    IconUnauthenticatedUser,
+    IconLogout,
+  },
+};
 </script>

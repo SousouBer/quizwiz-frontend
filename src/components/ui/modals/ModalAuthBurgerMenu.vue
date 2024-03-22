@@ -2,13 +2,9 @@
   <div class="absolute top-0 left-0 bg-white w-3/4 flex flex-col p-6">
     <div class="flex flex-col gap-8 mb-6">
       <div class="flex justify-between items-center">
-        <link-quiz-wiz-main></link-quiz-wiz-main>
+        <icon-quiz-wiz-main></icon-quiz-wiz-main>
         <div class="w-6 h-6">
-          <img
-            class="h-full w-full"
-            src="@/assets/images/hide-input-x.svg"
-            alt="Hide modal icon"
-          />
+          <icon-x class></icon-x>
         </div>
       </div>
       <link-quizzes></link-quizzes>
@@ -27,15 +23,17 @@
 </template>
 
 <script>
-import LinkQuizWizMain from "@/components/ui/links/LinkQuizWizMain.vue";
 import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
+import IconX from "@/components/icons/IconX.vue";
+import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 
 export default {
   components: {
-    LinkQuizWizMain,
+    IconQuizWizMain,
     LinkQuizzes,
     ButtonBase,
+    IconX,
   },
 };
 </script>

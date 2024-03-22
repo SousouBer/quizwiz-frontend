@@ -1,6 +1,6 @@
 <template>
   <footer class="px-24 py-8 flex gap-20">
-    <link-quiz-wiz-main></link-quiz-wiz-main>
+    <icon-quiz-wiz-main></icon-quiz-wiz-main>
     <div>
       <h4 class="text-sm font-semibold mb-4">Content</h4>
       <link-quizzes class="text-xs"></link-quizzes>
@@ -23,15 +23,15 @@
 </template>
 
 <script>
-import LinkSocialMedia from "../LinkSocialMedia.vue";
-import LinkQuizzes from "../ui/links/LinkQuizzes.vue";
-import LinkQuizWizMain from "../ui/links/LinkQuizWizMain.vue";
+import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
+import LinkSocialMedia from "@/components/LinkSocialMedia.vue";
+import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 
 export default {
   components: {
     LinkSocialMedia,
     LinkQuizzes,
-    LinkQuizWizMain,
+    IconQuizWizMain,
   },
 };
 </script>
