@@ -1,13 +1,14 @@
 <template>
   <div
+    @click="closeModal"
     class="absolute top-0 left-0 bg-gray-800 bg-opacity-50 backdrop-blur h-screen w-screen"
   >
-    <div class="bg-white w-3/4 flex flex-col p-6">
+    <div @click.stop class="bg-white w-3/4 flex flex-col p-6">
       <div class="flex flex-col gap-6 mb-6">
         <div class="flex justify-between items-center border-b pb-4">
           <icon-quiz-wiz-main></icon-quiz-wiz-main>
           <div class="w-6 h-6">
-            <icon-x class="w-full h-full"></icon-x>
+            <icon-x @click="closeModal" class="w-full h-full"></icon-x>
           </div>
         </div>
         <link-quizzes class="font-semibold"></link-quizzes>
@@ -38,6 +39,12 @@ export default {
     LinkQuizzes,
     ButtonBase,
     IconX,
+  },
+
+  methods: {
+    closeModal() {
+      this.$emit("close-modal");
+    },
   },
 };
 </script>

@@ -15,6 +15,7 @@
       ></icon-burger-menu>
     </div>
     <modal-auth-burger-menu
+      @close-modal="closeLogoutModal"
       v-if="showLogoutModal"
       class="z-10"
     ></modal-auth-burger-menu>
@@ -114,6 +115,12 @@ export default {
     openLogoutModal() {
       this.showLogoutModal = true;
       document.body.classList.add("overflow-hidden");
+    },
+    closeLogoutModal() {
+      console.log("clicked");
+
+      this.showLogoutModal = false;
+      document.body.classList.remove("overflow-hidden");
     },
   },
 };
