@@ -16,6 +16,7 @@ export default {
         "light-pink": "#FCE7F1",
         "vibrant-orange": "#FF5613",
         "saturated-blue": "#4B69FD",
+        "medium-dark-gray": "#667085",
       },
       width: {
         "custom-45": "45%",

@@ -23,9 +23,9 @@
         /></landing-person-and-background>
       </section>
       <section
-        class="ms:px-24 bg-vibrant-orange flex flex-col gap-4 py-14 px-10"
+        class="sm:px-24 bg-vibrant-orange flex flex-col gap-4 py-14 px-10"
       >
-        <span class="text-7xl ms:text-8xl font-black text-white">200+</span>
+        <span class="text-7xl sm:text-8xl font-black text-white">200+</span>
         <div>
           <div class="flex flex-row gap-5 items-center">
             <router-link
