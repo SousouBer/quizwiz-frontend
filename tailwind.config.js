@@ -13,6 +13,7 @@ export default {
         "light-gray": "#D0D5DD",
         "cerulean-blue": "#4B69FD",
         "pale-yellow": "#FEF6E7",
+        "light-pink": "#FCE7F1",
       },
       width: {
         "custom-45": "45%",
