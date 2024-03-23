@@ -2,16 +2,25 @@
   <div>
     <the-header></the-header>
     <main class="relative overflow-hidden">
-      <section class="px-24 pt-6 pb-32">
-        <div>
+      <section
+        class="h-screen overflow-hidden md:h-auto py-6 px-16 md:px-24 md:pt-6 md:pb-32 relative"
+      >
+        <div class="w-72 sm:w-1/2">
           <img
+            class="w-full"
             src="../assets/images/quizwiz-title.svg"
             alt="Quiz wiz Title Logo"
           />
         </div>
-        <h2 class="text-4xl font-semibold text-gray-500">
+        <h2 class="text-lg sm:text-4xl font-semibold text-gray-500">
           Play with us, Explore with us
         </h2>
+        <landing-person-and-background class="sm:hidden">
+          <img
+            class="w-full"
+            src="@/assets/images/black-background-mobile.svg"
+            alt="Black background"
+        /></landing-person-and-background>
       </section>
       <section class="px-24 bg-orange-500 flex flex-col py-14">
         <span class="text-8xl font-black text-white">200+</span>
@@ -21,27 +30,13 @@
         <span class="text-8xl font-black text-white">25+</span>
         <h3 class="text-5xl font-black text-white">Different genre</h3>
       </section>
-      <div class="absolute bottom-0 right-0 transform translate-y-1/3">
-        <div class="relative">
-          <div class="absolute heading-position">
-            <h1 class="text-white text-7xl font-bold leading-12">
-              Our mission is<br />
-              to entertain<br />
-              & educate.
-            </h1>
-          </div>
-          <img
-            src="../assets/images/black-background.svg"
-            alt="Black background"
-          />
-          <div class="absolute top-0 right-0 landing-person-img">
-            <img
-              src="../assets/images/landing-person.svg"
-              alt="Landing Person"
-            />
-          </div>
-        </div>
-      </div>
+      <landing-person-and-background class="hidden sm:block">
+        <img
+          class="w-full"
+          src="@/assets/images/black-background.svg"
+          alt="Black background"
+        />
+      </landing-person-and-background>
     </main>
     <the-footer></the-footer>
   </div>
@@ -50,14 +45,9 @@
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
+import LandingPersonAndBackground from "@/components/LandingPersonAndBackground.vue";
 
 export default {
-  components: { TheHeader, TheFooter },
+  components: { TheHeader, TheFooter, LandingPersonAndBackground },
 };
 </script>
-
-<style scoped>
-.heading-position {
-  transform: translate(55%, 75%);
-}
-</style>

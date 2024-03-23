@@ -1,15 +1,17 @@
 <template>
   <header
-    class="flex justify-between items-center px-24 py-4 border-b relative"
+    class="flex justify-between items-center p-4 border-b relative md:px-24"
   >
     <div class="flex items-center gap-14">
-      <icon-quiz-wiz-main></icon-quiz-wiz-main>
-      <link-quizzes></link-quizzes>
+      <div class="w-24">
+        <icon-quiz-wiz-main class="h-full w-full"></icon-quiz-wiz-main>
+      </div>
+      <link-quizzes class="hidden md:block"></link-quizzes>
     </div>
     <div>
       <icon-burger-menu
         @click="openLogoutModal"
-        class="cursor-pointer"
+        class="cursor-pointer md:hidden"
       ></icon-burger-menu>
     </div>
     <modal-auth-burger-menu class="hidden z-2"></modal-auth-burger-menu>

@@ -1,5 +1,5 @@
 <template>
-  <footer class="px-24 py-8 flex gap-20">
+  <footer class="px-24 py-8 flex flex-col gap-20 sm:flex-row">
     <icon-quiz-wiz-main></icon-quiz-wiz-main>
     <div>
       <h4 class="text-sm font-semibold mb-4">Content</h4>
