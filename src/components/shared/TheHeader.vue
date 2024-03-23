@@ -14,9 +14,15 @@
         class="cursor-pointer md:hidden"
       ></icon-burger-menu>
     </div>
-    <modal-auth-burger-menu class="hidden z-2"></modal-auth-burger-menu>
+    <modal-auth-burger-menu
+      v-if="showLogoutModal"
+      class="z-10"
+    ></modal-auth-burger-menu>
     <modal-logout-burger-menu class="hidden z-2"></modal-logout-burger-menu>
-    <div class="hidden md:flex justify-center items-center gap-1">
+    <div
+      v-if="$route.path !== '/landing'"
+      class="hidden md:flex justify-center items-center gap-1"
+    >
       <button-base class="text-white bg-black hover:bg-gray-900"
         >Sign up</button-base
       >
@@ -107,7 +113,7 @@ export default {
     },
     openLogoutModal() {
       this.showLogoutModal = true;
-      console.log("clicked");
+      document.body.classList.add("overflow-hidden");
     },
   },
 };

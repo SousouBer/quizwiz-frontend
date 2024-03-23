@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a
-      href="#"
-      class="text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
-      >Quizzes</a
+    <router-link
+      to="/landing"
+      class="text-dark-blue-gray text-lg font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
+      >Quizzes</router-link
     >
   </div>
 </template>

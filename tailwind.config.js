@@ -10,6 +10,7 @@ export default {
         paleBlue: "#EAFAFE",
         charcoal: "#344054",
         "grayish-blue": "#667085",
+        "dark-blue-gray": "#101828",
         "light-gray": "#D0D5DD",
         "cerulean-blue": "#4B69FD",
         "pale-yellow": "#FEF6E7",
@@ -17,6 +18,7 @@ export default {
         "vibrant-orange": "#FF5613",
         "saturated-blue": "#4B69FD",
         "medium-dark-gray": "#667085",
+        "very-light-gray": "#F6F6F7",
       },
       width: {
         "custom-45": "45%",
