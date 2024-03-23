@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-row">
     <section-auth-image-layout
-      class="bg-light-pink flex items-center justify-center"
+      class="flex items-center justify-center bg-light-pink"
     >
       <img
         src="@/assets/images/reset-password-cover.svg"

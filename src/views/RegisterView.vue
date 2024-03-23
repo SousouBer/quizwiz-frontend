@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-row">
-    <section-auth-image-layout>
+    <section-auth-image-layout class="bg-paleBlue">
       <img
         src="@/assets/images/registration-cover.svg"
         alt="Registration Cover"
