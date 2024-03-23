@@ -14,6 +14,8 @@ export default {
         "cerulean-blue": "#4B69FD",
         "pale-yellow": "#FEF6E7",
         "light-pink": "#FCE7F1",
+        "vibrant-orange": "#FF5613",
+        "saturated-blue": "#4B69FD",
       },
       width: {
         "custom-45": "45%",
