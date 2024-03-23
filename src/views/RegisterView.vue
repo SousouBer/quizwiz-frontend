@@ -63,15 +63,8 @@
             >
           </div>
           <button-submit>Sign up</button-submit>
-          <div class="mt-4">
-            <span class="text-sm"
-              >Already have an account?
-              <a href="#" class="text-cerulean-blue font-semibold text-sm"
-                >Log in</a
-              ></span
-            >
-          </div>
         </form>
+        <link-authentication auth="login" link="/login"></link-authentication>
       </div>
     </section-auth-form-layout>
   </main>
@@ -85,6 +78,7 @@ import SectionAuthFormLayout from "@/components/layouts/SectionAuthFormLayout.vu
 import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import LinkAuthentication from "@/components/shared/LinkAuthentication.vue";
 
 export default {
   components: {
@@ -95,6 +89,7 @@ export default {
     SectionAuthFormLayout,
     HeadingForm,
     ButtonSubmit,
+    LinkAuthentication,
   },
 };
 </script>

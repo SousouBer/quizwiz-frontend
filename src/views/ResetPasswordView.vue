@@ -39,14 +39,7 @@
         </div>
         <button-submit>Reset password</button-submit>
       </form>
-      <div class="mt-4">
-        <span class="text-sm"
-          >Already have an account?
-          <a href="#" class="text-cerulean-blue font-semibold text-sm"
-            >Log in</a
-          ></span
-        >
-      </div>
+      <link-authentication auth="login" link="/login"></link-authentication>
     </section-auth-form-layout>
   </main>
 </template>
@@ -59,6 +52,7 @@ import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import LinkAuthentication from "@/components/shared/LinkAuthentication.vue";
 
 export default {
   components: {
@@ -69,6 +63,7 @@ export default {
     InputBase,
     LabelBase,
     ButtonSubmit,
+    LinkAuthentication,
   },
 };
 </script>

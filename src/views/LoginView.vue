@@ -48,15 +48,11 @@
             <a class="text-sm" href="#">Forgot password?</a>
           </div>
           <button-submit>Log in</button-submit>
-          <div class="mt-4">
-            <span class="text-sm"
-              >Don't have an account?
-              <a href="#" class="text-cerulean-blue font-semibold text-sm"
-                >Sign up</a
-              ></span
-            >
-          </div>
         </form>
+        <link-authentication
+          auth="register"
+          link="/register"
+        ></link-authentication>
       </div>
     </section-auth-form-layout>
   </main>
@@ -70,6 +66,7 @@ import InputBase from "@/components/ui/form/InputBase.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import LinkAuthentication from "@/components/shared/LinkAuthentication.vue";
 
 export default {
   components: {
@@ -80,6 +77,7 @@ export default {
     LabelBase,
     HeadingForm,
     ButtonSubmit,
+    LinkAuthentication,
   },
 };
 </script>
