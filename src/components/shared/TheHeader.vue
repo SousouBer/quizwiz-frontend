@@ -1,30 +1,120 @@
 <template>
-  <header class="flex justify-between items-center px-24 py-4 border-b">
+  <header
+    class="flex justify-between items-center px-24 py-4 border-b relative"
+  >
     <div class="flex items-center gap-14">
-      <link-quiz-wiz-main></link-quiz-wiz-main>
+      <icon-quiz-wiz-main></icon-quiz-wiz-main>
       <link-quizzes></link-quizzes>
     </div>
-    <div class="flex justify-center items-center gap-1">
-      <base-button class="text-white bg-black hover:bg-gray-900"
-        >Sign up</base-button
+    <div>
+      <icon-burger-menu
+        @click="openLogoutModal"
+        class="cursor-pointer"
+      ></icon-burger-menu>
+    </div>
+    <modal-auth-burger-menu class="hidden z-2"></modal-auth-burger-menu>
+    <modal-logout-burger-menu class="hidden z-2"></modal-logout-burger-menu>
+    <div class="hidden md:flex justify-center items-center gap-1">
+      <button-base class="text-white bg-black hover:bg-gray-900"
+        >Sign up</button-base
       >
-      <base-button class="text-blue-500 hover:text-blue-600"
-        >Log in</base-button
+      <button-base class="text-blue-500 hover:text-blue-600"
+        >Log in</button-base
       >
+    </div>
+    <div class="hidden md:flex justify-center items-center gap-1">
+      <div
+        :class="{ 'active-searchbar': isFirstFocused }"
+        class="w-28 border border-transparent h-11 overflow-hidden transition-all duration-300 ease-out"
+      >
+        <div
+          class="flex flex-row items-center justify-center h-full transition-all duration-300 ease-out"
+        >
+          <div class="flex items-center justify-center gap-1 px-4 w-full">
+            <div class="flex items-center justify-center">
+              <icon-search class="w-full h-full"></icon-search>
+            </div>
+            <input
+              @focus="toggleElement"
+              v-model="searchInput"
+              class="bg-transparent placeholder:text-sm w-full placeholder:px-1 outline-none transition-all duration-300 ease-out"
+              type="text"
+              placeholder="Search"
+            />
+          </div>
+          <div
+            v-if="isFirstFocused"
+            @click="closeInputField"
+            class="close-input border-l h-full rounded-tr-10 rounded-br-10 flex items-center justify-center w-12 cursor-pointer"
+          >
+            <icon-x></icon-x>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cursor-pointer" @click="openLogoutModal">
+          <icon-unauthenticated-user></icon-unauthenticated-user>
+        </div>
+        <modal-logout v-if="showLogoutModal"></modal-logout>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
-import BaseButton from "../ui/buttons/BaseButton.vue";
-import LinkQuizzes from "../ui/links/LinkQuizzes.vue";
-import LinkQuizWizMain from "../ui/links/LinkQuizWizMain.vue";
+import ModalLogout from "@/components/ui/modals/ModalLogout.vue";
+import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
+import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
+import ModalLogoutBurgerMenu from "@/components/ui/modals/ModalLogoutBurgerMenu.vue";
+import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
+import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
+import IconX from "@/components/icons/IconX.vue";
+import IconSearch from "@/components/icons/IconSearch.vue";
+import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
+import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 
 export default {
   components: {
-    BaseButton,
+    ButtonBase,
+    ModalLogout,
+    ModalAuthBurgerMenu,
+    ModalLogoutBurgerMenu,
+    IconQuizWizMain,
     LinkQuizzes,
-    LinkQuizWizMain,
+    IconBurgerMenu,
+    IconX,
+    IconSearch,
+    IconUnauthenticatedUser,
+  },
+
+  data() {
+    return {
+      isFirstFocused: false,
+      showLogoutModal: false,
+      searchInput: "",
+    };
+  },
+
+  methods: {
+    toggleElement() {
+      this.isFirstFocused = true;
+    },
+    closeInputField() {
+      this.isFirstFocused = false;
+      this.searchInput = "";
+    },
+    openLogoutModal() {
+      this.showLogoutModal = true;
+      console.log("clicked");
+    },
   },
 };
 </script>
+
+<style scoped>
+.active-searchbar {
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 24rem;
+}
+</style>
