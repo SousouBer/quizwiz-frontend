@@ -36,7 +36,10 @@
         <div class="cursor-pointer" @click="openLogoutModal">
           <icon-unauthenticated-user></icon-unauthenticated-user>
         </div>
-        <modal-logout v-if="showLogoutModal"></modal-logout>
+        <modal-logout
+          v-if="showLogoutModal"
+          @close-logout-modal="closeLogoutModal"
+        ></modal-logout>
       </div>
     </div>
   </header>
@@ -67,6 +70,7 @@ export default {
   data() {
     return {
       showBurgerAuthModal: false,
+      showLogoutModal: false,
     };
   },
 
@@ -78,6 +82,12 @@ export default {
     closeBurgerAuthModal() {
       this.showBurgerAuthModal = false;
       document.body.classList.remove("overflow-hidden");
+    },
+    openLogoutModal() {
+      this.showLogoutModal = true;
+    },
+    closeLogoutModal() {
+      this.showLogoutModal = false;
     },
   },
 };
