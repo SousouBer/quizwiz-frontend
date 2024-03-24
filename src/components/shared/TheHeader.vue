@@ -10,16 +10,15 @@
     </div>
     <div>
       <icon-burger-menu
-        @click="openLogoutModal"
+        @click="openBurgerAuthModal"
         class="cursor-pointer md:hidden"
       ></icon-burger-menu>
     </div>
     <modal-auth-burger-menu
-      @close-modal="closeLogoutModal"
-      v-if="showLogoutModal"
+      @close-auth-modal="closeBurgerAuthModal"
+      v-if="showBurgerAuthModal"
       class="z-10"
     ></modal-auth-burger-menu>
-    <modal-logout-burger-menu class="hidden z-2"></modal-logout-burger-menu>
     <div
       v-if="$route.path !== '/landing'"
       class="hidden md:flex justify-center items-center gap-1"
@@ -74,7 +73,6 @@
 import ModalLogout from "@/components/ui/modals/ModalLogout.vue";
 import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
-import ModalLogoutBurgerMenu from "@/components/ui/modals/ModalLogoutBurgerMenu.vue";
 import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 import IconX from "@/components/icons/IconX.vue";
@@ -87,7 +85,6 @@ export default {
     ButtonBase,
     ModalLogout,
     ModalAuthBurgerMenu,
-    ModalLogoutBurgerMenu,
     IconQuizWizMain,
     LinkQuizzes,
     IconBurgerMenu,
@@ -99,7 +96,7 @@ export default {
   data() {
     return {
       isFirstFocused: false,
-      showLogoutModal: false,
+      showBurgerAuthModal: false,
       searchInput: "",
     };
   },
@@ -112,14 +109,12 @@ export default {
       this.isFirstFocused = false;
       this.searchInput = "";
     },
-    openLogoutModal() {
-      this.showLogoutModal = true;
+    openBurgerAuthModal() {
+      this.showBurgerAuthModal = true;
       document.body.classList.add("overflow-hidden");
     },
-    closeLogoutModal() {
-      console.log("clicked");
-
-      this.showLogoutModal = false;
+    closeBurgerAuthModal() {
+      this.showBurgerAuthModal = false;
       document.body.classList.remove("overflow-hidden");
     },
   },
