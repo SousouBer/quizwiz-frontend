@@ -31,34 +31,7 @@
       >
     </div>
     <div class="hidden md:flex justify-center items-center gap-1">
-      <div
-        :class="{ 'active-searchbar': isFirstFocused }"
-        class="w-28 border border-transparent h-11 overflow-hidden transition-all duration-300 ease-out"
-      >
-        <div
-          class="flex flex-row items-center justify-center h-full transition-all duration-300 ease-out"
-        >
-          <div class="flex items-center justify-center gap-1 px-4 w-full">
-            <div class="flex items-center justify-center">
-              <icon-search class="w-full h-full"></icon-search>
-            </div>
-            <input
-              @focus="toggleElement"
-              v-model="searchInput"
-              class="bg-transparent placeholder:text-sm w-full placeholder:px-1 outline-none transition-all duration-300 ease-out"
-              type="text"
-              placeholder="Search"
-            />
-          </div>
-          <div
-            v-if="isFirstFocused"
-            @click="closeInputField"
-            class="close-input border-l h-full rounded-tr-10 rounded-br-10 flex items-center justify-center w-12 cursor-pointer"
-          >
-            <icon-x></icon-x>
-          </div>
-        </div>
-      </div>
+      <input-search></input-search>
       <div>
         <div class="cursor-pointer" @click="openLogoutModal">
           <icon-unauthenticated-user></icon-unauthenticated-user>
@@ -75,10 +48,9 @@ import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
 import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
-import IconX from "@/components/icons/IconX.vue";
-import IconSearch from "@/components/icons/IconSearch.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
 import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
+import InputSearch from "@/components/InputSearch.vue";
 
 export default {
   components: {
@@ -88,27 +60,17 @@ export default {
     IconQuizWizMain,
     LinkQuizzes,
     IconBurgerMenu,
-    IconX,
-    IconSearch,
     IconUnauthenticatedUser,
+    InputSearch,
   },
 
   data() {
     return {
-      isFirstFocused: false,
       showBurgerAuthModal: false,
-      searchInput: "",
     };
   },
 
   methods: {
-    toggleElement() {
-      this.isFirstFocused = true;
-    },
-    closeInputField() {
-      this.isFirstFocused = false;
-      this.searchInput = "";
-    },
     openBurgerAuthModal() {
       this.showBurgerAuthModal = true;
       document.body.classList.add("overflow-hidden");
@@ -120,11 +82,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.active-searchbar {
-  border: 1px solid gray;
-  border-radius: 10px;
-  width: 24rem;
-}
-</style>

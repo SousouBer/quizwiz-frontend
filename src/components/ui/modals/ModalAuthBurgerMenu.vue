@@ -1,8 +1,5 @@
 <template>
-  <div
-    @click="closeAuthModal"
-    class="absolute top-0 left-0 bg-gray-800 bg-opacity-50 backdrop-blur h-screen w-screen"
-  >
+  <background-blurr-layout @click="closeAuthModal">
     <div @click.stop class="bg-white w-3/4 flex flex-col p-6">
       <div class="flex flex-col gap-6">
         <div class="flex justify-between items-center border-b pb-4">
@@ -44,7 +41,7 @@
         >
       </div>
     </div>
-  </div>
+  </background-blurr-layout>
 </template>
 
 <script>
@@ -53,6 +50,7 @@ import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import IconX from "@/components/icons/IconX.vue";
 import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
+import BackgroundBlurrLayout from "@/components/layouts/BackgroundBlurrLayout.vue";
 
 export default {
   components: {
@@ -61,6 +59,7 @@ export default {
     ButtonBase,
     IconX,
     IconUnauthenticatedUser,
+    BackgroundBlurrLayout,
   },
 
   data() {
