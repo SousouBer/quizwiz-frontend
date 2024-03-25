@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import LandingPageView from "@/views/LandingPageView.vue";
+import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
 import ForgotPasswordView from "@/views/ForgotPasswordView.vue";
@@ -27,7 +27,7 @@ const router = createRouter({
     },
     {
       path: "/landing",
-      component: LandingPageView,
+      component: LandingView,
     },
   ],
 });

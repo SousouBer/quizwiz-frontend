@@ -1,5 +1,5 @@
 <template>
-  <background-blurr-layout @click="closeAuthModal">
+  <layout-blurr @click="closeAuthModal">
     <div @click.stop class="bg-white w-3/4 flex flex-col p-6">
       <div class="flex flex-col gap-6">
         <div class="flex justify-between items-center border-b pb-4">
@@ -44,7 +44,7 @@
     <div class="bg-white z-10">
       <form-registration></form-registration>
     </div>
-  </background-blurr-layout>
+  </layout-blurr>
 </template>
 
 <script>
@@ -53,7 +53,7 @@ import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
 import IconX from "@/components/icons/IconX.vue";
 import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
-import BackgroundBlurrLayout from "@/components/layouts/BackgroundBlurrLayout.vue";
+import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
 import FormRegistration from "@/components/shared/FormRegistration.vue";
 
 export default {
@@ -63,7 +63,7 @@ export default {
     ButtonBase,
     IconX,
     IconUnauthenticatedUser,
-    BackgroundBlurrLayout,
+    LayoutBlurr,
     FormRegistration,
   },
 

@@ -15,12 +15,12 @@
         <h2 class="text-lg sm:text-4xl font-semibold text-gray-500">
           Play with us, Explore with us
         </h2>
-        <landing-person-and-background class="sm:hidden">
+        <landing-section-background class="sm:hidden">
           <img
             class="w-full"
             src="@/assets/images/black-background-mobile.svg"
             alt="Black background"
-        /></landing-person-and-background>
+        /></landing-section-background>
       </section>
       <section
         class="sm:px-24 bg-vibrant-orange flex flex-col gap-4 py-14 px-10"
@@ -54,13 +54,13 @@
           <icon-show-more-quizzes class="sm:hidden"></icon-show-more-quizzes>
         </div>
       </section>
-      <landing-person-and-background class="hidden sm:block">
+      <landing-section-background class="hidden sm:block">
         <img
           class="w-full"
           src="@/assets/images/black-background.svg"
           alt="Black background"
         />
-      </landing-person-and-background>
+      </landing-section-background>
     </main>
     <the-footer></the-footer>
   </div>
@@ -69,14 +69,14 @@
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
-import LandingPersonAndBackground from "@/components/LandingPersonAndBackground.vue";
+import LandingSectionBackground from "@/components/LandingSectionBackground.vue";
 import IconShowMoreQuizzes from "@/components/icons/IconShowMoreQuizzes.vue";
 
 export default {
   components: {
     TheHeader,
     TheFooter,
-    LandingPersonAndBackground,
+    LandingSectionBackground,
     IconShowMoreQuizzes,
   },
 };

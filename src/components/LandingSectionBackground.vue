@@ -15,9 +15,9 @@
       </div>
 
       <div
-        class="absolute top-0 right-0 w-3/4 sm:landing-person-img -translate-x-16 -translate-y-2/3"
+        class="absolute top-0 right-0 w-3/4 sm:landing-img -translate-x-16 -translate-y-2/3"
       >
-        <img src="@/assets/images/landing-person.svg" alt="Landing Person" />
+        <img src="@/assets/images/landing-img.svg" alt="Landing image" />
       </div>
     </div>
   </div>
@@ -36,11 +36,11 @@ export default {};
   transform: translate(55%, 75%);
 }
 
-.landing-person-img {
+.landing-img {
   transform: translate(-10%, -70%);
 }
 
-.landing-person-img-mobile {
+.landing-img-mobile {
   width: 75%;
   transform: translate(-4rem, 65%);
 }
