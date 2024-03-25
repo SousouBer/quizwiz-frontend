@@ -1,5 +1,5 @@
 <template>
-  <section class="p-16 pr-56 pt-14 flex-grow">
+  <section class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
     <slot></slot>
   </section>
 </template>

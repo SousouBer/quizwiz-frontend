@@ -11,22 +11,27 @@ const router = createRouter({
   routes: [
     {
       path: "/register",
+      name: "register",
       component: RegisterView,
     },
     {
       path: "/login",
+      name: "login",
       component: LoginView,
     },
     {
       path: "/forgot-password",
+      name: "forgotPassword",
       component: ForgotPasswordView,
     },
     {
       path: "/reset-password",
+      name: "resetPassword",
       component: ResetPasswordView,
     },
     {
       path: "/landing",
+      name: "landing",
       component: LandingView,
     },
   ],
