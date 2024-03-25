@@ -52,7 +52,7 @@ import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
-import LinkAuthentication from "@/components/shared/LinkAuthentication.vue";
+import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 
 export default {
   components: {

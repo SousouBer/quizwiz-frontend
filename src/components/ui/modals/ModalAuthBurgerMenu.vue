@@ -41,9 +41,6 @@
         >
       </div>
     </div>
-    <div class="bg-white z-10">
-      <form-registration></form-registration>
-    </div>
   </layout-blurr>
 </template>
 
@@ -54,7 +51,6 @@ import IconX from "@/components/icons/IconX.vue";
 import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
 import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
-import FormRegistration from "@/components/shared/FormRegistration.vue";
 
 export default {
   components: {
@@ -64,7 +60,6 @@ export default {
     IconX,
     IconUnauthenticatedUser,
     LayoutBlurr,
-    FormRegistration,
   },
 
   data() {
