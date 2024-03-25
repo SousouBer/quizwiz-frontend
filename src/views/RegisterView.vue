@@ -1,12 +1,14 @@
 <template>
   <main class="flex flex-row">
-    <section-auth-image-layout class="bg-paleBlue">
+    <div
+      class="bg-paleBlue h-screen items-center justify-start w-custom-45 hidden lg:flex"
+    >
       <img
         src="@/assets/images/registration-cover.svg"
         alt="Registration Cover"
       />
-    </section-auth-image-layout>
-    <section-auth-form-layout>
+    </div>
+    <div class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
       <link-back></link-back>
       <div class="px-4">
         <div class="sm:justify-start flex justify-center">
@@ -22,13 +24,11 @@
         auth="login"
         link="/login"
       ></link-authentication>
-    </section-auth-form-layout>
+    </div>
   </main>
 </template>
 
 <script>
-import SectionAuthImageLayout from "@/components/layouts/SectionAuthImageLayout.vue";
-import SectionAuthFormLayout from "@/components/layouts/SectionAuthFormLayout.vue";
 import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
@@ -38,8 +38,6 @@ import TheForm from "@/components/ui/form/TheForm.vue";
 export default {
   components: {
     LinkBack,
-    SectionAuthImageLayout,
-    SectionAuthFormLayout,
     HeadingForm,
     TheForm,
     LinkAuthentication,

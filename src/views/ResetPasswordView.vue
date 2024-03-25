@@ -1,14 +1,14 @@
 <template>
   <main class="flex flex-row">
-    <section-auth-image-layout
-      class="bg-light-pink flex items-center justify-center"
+    <div
+      class="bg-light-pink items-center justify-center h-screen w-custom-45 hidden lg:flex"
     >
       <img
         src="@/assets/images/reset-password-cover.svg"
         alt="Reset Password Cover"
       />
-    </section-auth-image-layout>
-    <section-auth-form-layout>
+    </div>
+    <div class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
       <link-back></link-back>
       <div class="flex flex-col gap-4 mb-12">
         <heading-form>Reset password</heading-form>
@@ -40,13 +40,11 @@
         <button-submit>Reset password</button-submit>
       </form>
       <link-authentication auth="login" link="/login"></link-authentication>
-    </section-auth-form-layout>
+    </div>
   </main>
 </template>
 
 <script>
-import SectionAuthFormLayout from "@/components/layouts/SectionAuthFormLayout.vue";
-import SectionAuthImageLayout from "@/components/layouts/SectionAuthImageLayout.vue";
 import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
@@ -56,8 +54,6 @@ import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 
 export default {
   components: {
-    SectionAuthFormLayout,
-    SectionAuthImageLayout,
     LinkBack,
     HeadingForm,
     InputBase,
