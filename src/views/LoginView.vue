@@ -10,10 +10,7 @@
       <div class="px-4">
         <div class="flex gap-2 sm:mb-12 justify-center sm:justify-start">
           <heading-form>Hi, Welcome!</heading-form>
-          <img
-            src="@/assets/images/icons/login-wave-icon.svg"
-            alt="Wave icon"
-          />
+          <icon-hand></icon-hand>
         </div>
         <div class="sm:hidden flex justify-center mb-6">
           <link-authentication
@@ -74,6 +71,7 @@ import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import IconHand from "@/components/icons/IconHand.vue";
 
 export default {
   components: {
@@ -83,6 +81,7 @@ export default {
     InputBase,
     LabelBase,
     ButtonSubmit,
+    IconHand,
   },
 };
 </script>
