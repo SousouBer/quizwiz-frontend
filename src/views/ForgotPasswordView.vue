@@ -1,15 +1,16 @@
 <template>
-  <main class="flex flex-row">
-    <div
-      class="items-center justify-center bg-light-pink h-screen w-custom-45 hidden lg:flex"
-    >
-      <img
-        src="@/assets/images/reset-password-cover.svg"
-        alt="Reset Password Cover"
-      />
-    </div>
-    <div class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
-      <link-back></link-back>
+  <layouts-form>
+    <template #imageContent>
+      <div
+        class="items-center justify-center bg-light-pink h-screen w-custom-45 hidden lg:flex"
+      >
+        <img
+          src="@/assets/images/reset-password-cover.svg"
+          alt="Reset Password Cover"
+        />
+      </div>
+    </template>
+    <template #default>
       <div class="flex flex-col gap-4 mb-12">
         <heading-form>Forgot password?</heading-form>
         <span
@@ -29,24 +30,24 @@
         </div>
         <button-submit>Send</button-submit>
       </form>
-    </div>
-  </main>
+    </template>
+  </layouts-form>
 </template>
 
 <script>
-import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
+import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
-import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 
 export default {
   components: {
-    LinkBack,
     HeadingForm,
+    ButtonSubmit,
     InputBase,
     LabelBase,
-    ButtonSubmit,
+    LayoutsForm,
   },
 };
 </script>

@@ -1,12 +1,13 @@
 <template>
-  <main class="flex flex-row">
-    <div
-      class="bg-pale-yellow justify-center h-screen items-center w-custom-45 hidden lg:flex"
-    >
-      <img src="@/assets/images/login-cover.svg" alt="Login Cover" />
-    </div>
-    <div class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
-      <link-back></link-back>
+  <layouts-form>
+    <template #imageContent>
+      <div
+        class="bg-pale-yellow justify-center h-screen items-center w-custom-45 hidden lg:flex"
+      >
+        <img src="@/assets/images/login-cover.svg" alt="Login Cover" />
+      </div>
+    </template>
+    <template #default>
       <div class="px-4">
         <div class="flex gap-2 sm:mb-12 justify-center sm:justify-start">
           <heading-form>Hi, Welcome!</heading-form>
@@ -60,28 +61,28 @@
           link="/register"
         ></link-authentication>
       </div>
-    </div>
-  </main>
+    </template>
+  </layouts-form>
 </template>
 
 <script>
-import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
+import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 
 export default {
   components: {
-    LinkBack,
     HeadingForm,
     LinkAuthentication,
     InputBase,
     LabelBase,
     ButtonSubmit,
     IconHand,
+    LayoutsForm,
   },
 };
 </script>

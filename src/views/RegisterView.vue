@@ -1,15 +1,16 @@
 <template>
-  <main class="flex flex-row">
-    <div
-      class="bg-paleBlue h-screen items-center justify-start w-custom-45 hidden lg:flex"
-    >
-      <img
-        src="@/assets/images/registration-cover.svg"
-        alt="Registration Cover"
-      />
-    </div>
-    <div class="p-4 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
-      <link-back></link-back>
+  <layouts-form>
+    <template #imageContent>
+      <div
+        class="bg-paleBlue h-screen items-center justify-start w-custom-45 hidden lg:flex"
+      >
+        <img
+          src="@/assets/images/registration-cover.svg"
+          alt="Registration Cover"
+        />
+      </div>
+    </template>
+    <template #default>
       <div class="px-4">
         <div class="sm:justify-start flex justify-center">
           <heading-form class="sm:mb-12">Create account</heading-form>
@@ -77,26 +78,26 @@
         auth="login"
         link="/login"
       ></link-authentication>
-    </div>
-  </main>
+    </template>
+  </layouts-form>
 </template>
 
 <script>
-import LinkBack from "@/components/ui/links/LinkBack.vue";
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
+import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 
 export default {
   components: {
-    LinkBack,
     HeadingForm,
     LinkAuthentication,
     InputBase,
     LabelBase,
     ButtonSubmit,
+    LayoutsForm,
   },
 };
 </script>
