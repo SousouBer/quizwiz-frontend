@@ -11,7 +11,7 @@
 <script>
 import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
 import LinksBurgerMenu from "@/components/ui/links/LinksBurgerMenu.vue";
-import LogoutBurgerMenu from "@/components/ui/LogoutBurgerMenu.vue";
+import LogoutBurgerMenu from "@/components/shared/LogoutBurgerMenu.vue";
 import LinksLanding from "@/components/ui/links/LinksLanding.vue";
 
 export default {

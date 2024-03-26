@@ -15,12 +15,12 @@
         <h2 class="text-lg sm:text-4xl font-semibold text-gray-500">
           Play with us, Explore with us
         </h2>
-        <layout-landing class="sm:hidden">
+        <layouts-landing class="sm:hidden">
           <img
             class="w-full"
             src="@/assets/images/black-background-mobile.svg"
             alt="Black background"
-        /></layout-landing>
+        /></layouts-landing>
       </section>
       <section
         class="sm:px-24 bg-vibrant-orange flex flex-col gap-4 py-14 px-10"
@@ -54,13 +54,13 @@
           <icon-show-more-quizzes class="sm:hidden"></icon-show-more-quizzes>
         </div>
       </section>
-      <layout-landing class="hidden sm:block">
+      <layouts-landing class="hidden sm:block">
         <img
           class="w-full"
           src="@/assets/images/black-background.svg"
           alt="Black background"
         />
-      </layout-landing>
+      </layouts-landing>
     </main>
     <the-footer></the-footer>
   </div>
@@ -69,14 +69,14 @@
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
-import LayoutLanding from "@/components/layouts/LayoutLanding.vue";
+import LayoutsLanding from "@/components/layouts/LayoutsLanding.vue";
 import IconShowMoreQuizzes from "@/components/icons/IconShowMoreQuizzes.vue";
 
 export default {
   components: {
     TheHeader,
     TheFooter,
-    LayoutLanding,
+    LayoutsLanding,
     IconShowMoreQuizzes,
   },
 };

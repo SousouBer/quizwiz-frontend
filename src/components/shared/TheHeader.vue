@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import ModalLogout from "@/components/ui/modals/ModalLogout.vue";
+import ModalLogout from "@/components/shared/ModalLogout.vue";
 import ButtonBase from "@/components/ui/buttons/ButtonBase.vue";
-import ModalAuthBurgerMenu from "@/components/ui/modals/ModalAuthBurgerMenu.vue";
+import ModalAuthBurgerMenu from "@/components/shared/ModalAuthBurgerMenu.vue";
 import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
