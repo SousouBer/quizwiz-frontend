@@ -59,10 +59,5 @@ export default {
 </script>
 
 <style scoped>
-.active-searchbar {
-  border: 1px solid #d0d5dd;
-  border-radius: 10px;
-  width: 24rem;
-  margin-right: 1.75rem;
-}
+@import "@/assets/styles/StylesInputSearch.css";
 </style>

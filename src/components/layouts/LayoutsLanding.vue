@@ -28,20 +28,5 @@ export default {};
 </script>
 
 <style scoped>
-.heading-position-mobile {
-  transform: translate(3rem, 6rem);
-}
-
-.heading-position {
-  transform: translate(55%, 75%);
-}
-
-.landing-img {
-  transform: translate(-10%, -70%);
-}
-
-.landing-img-mobile {
-  width: 75%;
-  transform: translate(-4rem, 65%);
-}
+@import "@/assets/styles/StylesLayoutsLanding.css";
 </style>
