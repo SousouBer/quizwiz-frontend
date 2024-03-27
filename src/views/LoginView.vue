@@ -1,68 +1,64 @@
 <template>
-  <layouts-form>
-    <template #imageContent>
-      <div
-        class="bg-pale-yellow justify-center h-screen items-center w-custom-45 hidden lg:flex"
-      >
-        <img src="@/assets/images/login-cover.svg" alt="Login Cover" />
-      </div>
-    </template>
-    <template #default>
+  <main class="flex flex-row">
+    <LayoutsAuthImage
+      class="justify-center"
+      srcLink="/images/login-cover.svg"
+    />
+    <layouts-form>
       <div class="px-4">
         <div class="flex gap-2 sm:mb-12 justify-center sm:justify-start">
           <heading-form>Hi, Welcome!</heading-form>
-          <icon-hand></icon-hand>
+          <iconHand />
         </div>
         <div class="sm:hidden flex justify-center mb-6">
-          <link-authentication
-            auth="register"
-            link="/register"
-          ></link-authentication>
+          <LinkAuthentication auth="register" link="/register" />
         </div>
         <form>
           <div class="flex flex-col mb-4">
             <label-base labelFor="email">Email address</label-base>
-            <input-base
+            <inputBase
               inputType="email"
               inputId="email"
               inputName="email"
               inputPlaceholder="Your email"
-            ></input-base>
+            />
           </div>
           <div class="flex flex-col mb-4">
             <label-base labelFor="password">Password</label-base>
-            <input-base
+            <inputBase
               inputType="password"
               inputId="password"
               inputName="password"
               inputPlaceholder="Your Password"
               :isPasswordInput="true"
-            ></input-base>
+            />
           </div>
           <div class="flex justify-between py-2">
             <div class="flex gap-3 items-center">
-              <input-base
+              <inputBase
                 inputType="radio"
                 inputId="remember_me"
                 inputName="remember_me"
                 inputPlaceholder="Remember me"
-              ></input-base>
+              />
               <label-base labelFor="remember_me"
                 >Remember for 30 days</label-base
               >
             </div>
-            <a class="text-sm" href="#">Forgot password?</a>
+            <router-link to="forgotPassword" class="text-sm"
+              >Forgot password?</router-link
+            >
           </div>
           <button-submit>Log in</button-submit>
         </form>
-        <link-authentication
+        <LinkAuthentication
           class="hidden sm:block"
           auth="register"
           link="/register"
-        ></link-authentication>
+        />
       </div>
-    </template>
-  </layouts-form>
+    </layouts-form>
+  </main>
 </template>
 
 <script>
@@ -73,6 +69,7 @@ import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
+import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
 
 export default {
   components: {
@@ -83,6 +80,7 @@ export default {
     ButtonSubmit,
     IconHand,
     LayoutsForm,
+    LayoutsAuthImage,
   },
 };
 </script>
