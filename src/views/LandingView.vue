@@ -1,6 +1,6 @@
 <template>
   <div>
-    <the-header></the-header>
+    <TheHeader />
     <main class="relative overflow-hidden">
       <div
         class="h-screen overflow-hidden md:h-auto py-6 px-16 md:px-24 md:pt-6 md:pb-32 relative"
@@ -29,9 +29,7 @@
           >
             Quiz games
           </router-link>
-          <icon-show-more-quizzes
-            class="w-20 sm:hidden"
-          ></icon-show-more-quizzes>
+          <icon-show-more-quizzes class="w-20 sm:hidden" />
         </div>
       </div>
       <div
@@ -45,9 +43,7 @@
           >
             Different genre
           </router-link>
-          <icon-show-more-quizzes
-            class="sm:hidden w-20"
-          ></icon-show-more-quizzes>
+          <icon-show-more-quizzes class="sm:hidden w-20" />
         </div>
       </div>
       <layouts-landing class="hidden sm:block">
@@ -58,7 +54,7 @@
         />
       </layouts-landing>
     </main>
-    <the-footer></the-footer>
+    <TheFooter />
   </div>
 </template>
 

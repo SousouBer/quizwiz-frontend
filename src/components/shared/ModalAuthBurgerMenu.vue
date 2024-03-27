@@ -1,9 +1,9 @@
 <template>
   <layout-blurr @click="closeAuthModal">
     <div @click.stop class="bg-white w-3/4 flex flex-col p-6">
-      <links-burger-menu @close-modal="closeAuthModal"></links-burger-menu>
-      <logout-burger-menu v-if="isAuthenticated"></logout-burger-menu>
-      <links-landing v-if="!isAuthenticated"></links-landing>
+      <links-burger-menu @close-modal="closeAuthModal" />
+      <logout-burger-menu v-if="isAuthenticated" />
+      <links-landing v-if="!isAuthenticated" />
     </div>
   </layout-blurr>
 </template>

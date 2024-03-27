@@ -4,21 +4,21 @@
   >
     <div class="flex items-center gap-14">
       <div class="w-24">
-        <icon-quiz-wiz-main class="h-full w-full"></icon-quiz-wiz-main>
+        <icon-quiz-wiz-main class="h-full w-full" />
       </div>
-      <link-quizzes class="hidden md:block"></link-quizzes>
+      <link-quizzes class="hidden md:block" />
     </div>
     <div>
       <icon-burger-menu
         @click="openBurgerAuthModal"
         class="cursor-pointer md:hidden"
-      ></icon-burger-menu>
+      />
     </div>
     <modal-auth-burger-menu
       @close-auth-modal="closeBurgerAuthModal"
       v-if="showBurgerAuthModal"
       class="z-10"
-    ></modal-auth-burger-menu>
+    />
     <div
       v-if="$route.path !== '/landing'"
       class="hidden md:flex justify-center items-center gap-1"
@@ -31,15 +31,15 @@
       >
     </div>
     <div class="hidden md:flex justify-center items-center gap-1">
-      <input-search></input-search>
+      <inputSearch />
       <div>
         <div class="cursor-pointer" @click="openLogoutModal">
-          <icon-unauthenticated-user></icon-unauthenticated-user>
+          <icon-unauthenticated-user />
         </div>
         <modal-logout
           v-if="showLogoutModal"
           @close-logout-modal="closeLogoutModal"
-        ></modal-logout>
+        />
       </div>
     </div>
   </header>

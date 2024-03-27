@@ -8,7 +8,7 @@
     >
       <div class="flex items-center justify-center gap-1 px-4 w-full">
         <div class="flex items-center justify-center">
-          <icon-search class="w-full h-full"></icon-search>
+          <iconSearch class="w-full h-full" />
         </div>
         <input
           @focus="toggleElement"
@@ -23,7 +23,7 @@
         @click="closeInputField"
         class="close-input border-l h-full rounded-tr-10 rounded-br-10 flex items-center justify-center w-12 cursor-pointer"
       >
-        <icon-x></icon-x>
+        <icon-x />
       </div>
     </div>
   </div>
