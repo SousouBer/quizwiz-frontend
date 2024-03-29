@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-row">
+  <layouts-auth-main>
     <LayoutsAuthImage
       class="justify-center"
       srcLink="/images/login-cover.svg"
@@ -10,11 +10,11 @@
           <heading-form>Hi, Welcome!</heading-form>
           <iconHand />
         </div>
-        <div class="sm:hidden flex justify-center mb-6">
+        <layouts-link-authentication>
           <LinkAuthentication auth="register" link="/register" />
-        </div>
+        </layouts-link-authentication>
         <form>
-          <div class="flex flex-col mb-4">
+          <layouts-input-and-label>
             <label-base labelFor="email">Email address</label-base>
             <inputBase
               inputType="email"
@@ -22,8 +22,8 @@
               inputName="email"
               inputPlaceholder="Your email"
             />
-          </div>
-          <div class="flex flex-col mb-4">
+          </layouts-input-and-label>
+          <layouts-input-and-label>
             <label-base labelFor="password">Password</label-base>
             <inputBase
               inputType="password"
@@ -32,7 +32,7 @@
               inputPlaceholder="Your Password"
               :isPasswordInput="true"
             />
-          </div>
+          </layouts-input-and-label>
           <div class="flex justify-between py-2">
             <div class="flex gap-3 items-center">
               <inputBase
@@ -58,7 +58,7 @@
         />
       </div>
     </layouts-form>
-  </main>
+  </layouts-auth-main>
 </template>
 
 <script>
@@ -70,6 +70,9 @@ import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
+import LayoutsInputAndLabel from "@/components/layouts/LayoutsInputAndLabel.vue";
+import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
+import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 
 export default {
   components: {
@@ -81,6 +84,9 @@ export default {
     IconHand,
     LayoutsForm,
     LayoutsAuthImage,
+    LayoutsInputAndLabel,
+    LayoutsLinkAuthentication,
+    LayoutsAuthMain,
   },
 };
 </script>

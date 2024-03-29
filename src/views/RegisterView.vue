@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-row">
+  <layouts-auth-main>
     <LayoutsAuthImage
       class="bg-paleBlue justify-start"
       srcLink="/images/registration-cover.svg"
@@ -9,11 +9,11 @@
         <div class="sm:justify-start flex justify-center">
           <heading-form class="sm:mb-12">Create account</heading-form>
         </div>
-        <div class="sm:hidden mb-6 flex justify-center">
+        <layouts-link-authentication>
           <LinkAuthentication auth="login" link="/login" />
-        </div>
+        </layouts-link-authentication>
         <form>
-          <div class="flex flex-col mb-4">
+          <layouts-input-and-label>
             <label-base labelFor="username">Username</label-base>
             <inputBase
               inputType="text"
@@ -21,8 +21,8 @@
               inputName="username"
               inputPlaceholder="Your username"
             />
-          </div>
-          <div class="flex flex-col mb-4">
+          </layouts-input-and-label>
+          <layouts-input-and-label>
             <label-base labelFor="email">Email address</label-base>
             <inputBase
               inputType="email"
@@ -30,8 +30,8 @@
               inputName="email"
               inputPlaceholder="Your email"
             />
-          </div>
-          <div class="flex flex-col mb-4">
+          </layouts-input-and-label>
+          <layouts-input-and-label>
             <label-base labelFor="password">Create a password</label-base>
             <inputBase
               inputType="password"
@@ -40,8 +40,8 @@
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
             />
-          </div>
-          <div class="flex flex-col mb-4">
+          </layouts-input-and-label>
+          <layouts-input-and-label>
             <label-base labelFor="confirm_password"
               >Confirm password</label-base
             >
@@ -52,7 +52,7 @@
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
             />
-          </div>
+          </layouts-input-and-label>
           <div class="flex flex-row gap-3 my-6">
             <inputBase
               class="w-5 h-5"
@@ -69,7 +69,7 @@
       </div>
       <LinkAuthentication class="hidden sm:block" auth="login" link="/login" />
     </layouts-form>
-  </main>
+  </layouts-auth-main>
 </template>
 
 <script>
@@ -80,6 +80,9 @@ import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
+import LayoutsInputAndLabel from "@/components/layouts/LayoutsInputAndLabel.vue";
+import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
+import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 
 export default {
   components: {
@@ -90,6 +93,9 @@ export default {
     ButtonSubmit,
     LayoutsForm,
     LayoutsAuthImage,
+    LayoutsInputAndLabel,
+    LayoutsLinkAuthentication,
+    LayoutsAuthMain,
   },
 };
 </script>

@@ -1,19 +1,19 @@
 <template>
-  <main class="flex flex-row">
+  <layouts-auth-main>
     <LayoutsAuthImage
       class="justify-center bg-light-pink"
       srcLink="/images/reset-password-cover.svg"
     />
     <layouts-form>
-      <div class="flex flex-col gap-4 mb-12">
+      <layouts-input-and-label class="gap-4 mb-12">
         <heading-form>Forgot password?</heading-form>
         <span
           >Don’t worry! It happens. Please enter the email associated<br />
           with your account.</span
         >
-      </div>
+      </layouts-input-and-label>
       <form>
-        <div class="flex flex-col mb-6">
+        <layouts-input-and-label class="mb-6">
           <label-base labelFor="email">Email address</label-base>
           <inputBase
             inputType="email"
@@ -21,11 +21,11 @@
             inputId="email"
             inputPlaceholder="Enter your email address"
           />
-        </div>
+        </layouts-input-and-label>
         <button-submit>Send</button-submit>
       </form>
     </layouts-form>
-  </main>
+  </layouts-auth-main>
 </template>
 
 <script>
@@ -35,6 +35,8 @@ import LabelBase from "@/components/ui/form/LabelBase.vue";
 import InputBase from "@/components/ui/form/InputBase.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
+import LayoutsInputAndLabel from "@/components/layouts/LayoutsInputAndLabel.vue";
+import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 
 export default {
   components: {
@@ -44,6 +46,8 @@ export default {
     LabelBase,
     LayoutsForm,
     LayoutsAuthImage,
+    LayoutsInputAndLabel,
+    LayoutsAuthMain,
   },
 };
 </script>

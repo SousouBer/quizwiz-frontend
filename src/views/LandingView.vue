@@ -20,32 +20,18 @@
             alt="Black background"
         /></layouts-landing>
       </div>
-      <div class="sm:px-24 bg-vibrant-orange flex flex-col gap-4 py-14 px-10">
-        <span class="text-7xl sm:text-8xl font-black text-white">200+</span>
-        <div class="flex flex-row gap-5 items-center">
-          <router-link
-            to="/landing"
-            class="underline sm:no-underline text-5xl font-black text-white"
-          >
-            Quiz games
-          </router-link>
-          <icon-show-more-quizzes class="w-20 sm:hidden" />
-        </div>
-      </div>
-      <div
-        class="sm:px-24 bg-saturated-blue flex flex-col gap-4 py-10 px-10 pr-24"
-      >
-        <span class="text-7xl sm:text-8xl font-black text-white">25+</span>
-        <div class="flex flex-row gap-5 items-center">
-          <router-link
-            to="/landing"
-            class="underline sm:no-underline text-5xl font-black text-white"
-          >
-            Different genre
-          </router-link>
-          <icon-show-more-quizzes class="sm:hidden w-20" />
-        </div>
-      </div>
+      <layouts-quiz-statistics
+        statistics="200+"
+        title="Quiz games"
+        link="landing"
+        class="bg-vibrant-orange py-14 px-10"
+      />
+      <layouts-quiz-statistics
+        statistics="25+"
+        title="Different genre"
+        link="landing"
+        class="bg-saturated-blue py-10 px-10 pr-24"
+      />
       <layouts-landing class="hidden sm:block">
         <img
           class="w-full"
@@ -62,14 +48,14 @@
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
 import LayoutsLanding from "@/components/layouts/LayoutsLanding.vue";
-import IconShowMoreQuizzes from "@/components/icons/IconShowMoreQuizzes.vue";
+import LayoutsQuizStatistics from "@/components/layouts/LayoutsQuizStatistics.vue";
 
 export default {
   components: {
     TheHeader,
     TheFooter,
     LayoutsLanding,
-    IconShowMoreQuizzes,
+    LayoutsQuizStatistics,
   },
 };
 </script>
