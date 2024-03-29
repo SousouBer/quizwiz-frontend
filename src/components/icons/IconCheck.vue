@@ -21,14 +21,17 @@ export default {
   props: {
     width: {
       type: String,
+      required: true,
       default: "10",
     },
     height: {
       type: String,
+      required: true,
       default: "8",
     },
     color: {
       type: String,
+      required: true,
       default: "white",
     },
   },
