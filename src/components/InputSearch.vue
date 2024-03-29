@@ -57,7 +57,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-@import "@/assets/styles/StylesInputSearch.css";
-</style>
