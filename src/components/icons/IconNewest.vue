@@ -18,14 +18,17 @@ export default {
   props: {
     width: {
       type: String,
+      required: true,
       default: "16",
     },
     height: {
       type: String,
+      required: true,
       default: "16",
     },
     color: {
       type: String,
+      required: true,
       default: "#667085",
     },
   },
