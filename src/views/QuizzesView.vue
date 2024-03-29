@@ -10,8 +10,8 @@
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
-import FilterPanel from "@/components/shared/FilterPanel.vue";
-import FilterPanelModal from "@/components/shared/FilterPanelModal.vue";
+import FilterPanel from "@/components/filter/FilterPanel.vue";
+import FilterPanelModal from "@/components/filter/FilterPanelModal.vue";
 
 export default {
   components: {

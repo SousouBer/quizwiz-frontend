@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import FilterPanelModalFilterBy from "@/components/shared/FilterPanelModalFilterBy.vue";
-import FilterPanelModalSortBy from "@/components/shared/FilterPanelModalSortBy.vue";
+import FilterPanelModalFilterBy from "@/components/filter/FilterPanelModalFilterBy.vue";
+import FilterPanelModalSortBy from "@/components/filter/FilterPanelModalSortBy.vue";
 import FilterPanelButtonFilter from "@/components/ui/buttons/filterPanel/FilterPanelButtonFilter.vue";
 import IconX from "@/components/icons/IconX.vue";
 

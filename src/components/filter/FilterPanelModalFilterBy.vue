@@ -24,7 +24,7 @@
 <script>
 import LayoutsFilterRoundedBorder from "@/components/layouts/LayoutsFilterRoundedBorder.vue";
 import LayoutsFilterAndSortBy from "@/components/layouts/LayoutsFilterAndSortBy.vue";
-import FilterPanelModalCheckbox from "@/components/ui/FilterPanelModalCheckbox.vue";
+import FilterPanelModalCheckbox from "@/components/filter/FilterPanelModalCheckbox.vue";
 import FilterPanelModalButtonLevel from "@/components/ui/buttons/filterPanel/FilterPanelModalButtonLevel.vue";
 import FilterPanelButtonCategory from "@/components/ui/buttons/filterPanel/FilterPanelButtonCategory.vue";
 
