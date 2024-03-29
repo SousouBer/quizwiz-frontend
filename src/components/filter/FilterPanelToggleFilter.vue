@@ -2,14 +2,14 @@
   <div
     :class="{
       'cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
-        !modalButtonFilter,
+        !modalToggleButton,
     }"
     class="relative flex items-center justify-center gap-3 px-4 py-2 rounded-xl"
   >
     <IconFilterSettings :color="filterIconColor" />
     <span
       :class="
-        modalButtonFilter ? 'text-white select-none' : 'text-grayish-blue'
+        modalToggleButton ? 'text-white select-none' : 'text-grayish-blue'
       "
       >Filter</span
     >
@@ -21,9 +21,10 @@ import IconFilterSettings from "@/components/icons/IconFilterSettings.vue";
 
 export default {
   props: {
-    modalButtonFilter: {
+    modalToggleButton: {
       type: Boolean,
       default: false,
+      required: true,
     },
   },
   components: {
@@ -32,7 +33,7 @@ export default {
 
   computed: {
     filterIconColor() {
-      return this.modalButtonFilter ? "#fff" : "#667085";
+      return this.modalToggleButton ? "#fff" : "#667085";
     },
   },
 };

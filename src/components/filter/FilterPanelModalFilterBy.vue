@@ -9,13 +9,13 @@
         filterType="Levels"
         classNames="flex flex-wrap gap-2"
       >
-        <FilterPanelModalButtonLevel levelTitle="Starter" />
+        <FilterPanelSelectionChip label="Starter" :isModalChip="true" />
       </layouts-filter-and-sort-by>
       <layouts-filter-and-sort-by
         filterType="Categories"
         classNames="flex flex-wrap gap-2"
       >
-        <FilterPanelButtonCategory category="Science" :isModalButton="true" />
+        <FilterPanelSelectionChip label="Science" :isModalChip="true" />
       </layouts-filter-and-sort-by>
     </div>
   </layouts-filter-rounded-border>
@@ -25,16 +25,14 @@
 import LayoutsFilterRoundedBorder from "@/components/layouts/LayoutsFilterRoundedBorder.vue";
 import LayoutsFilterAndSortBy from "@/components/layouts/LayoutsFilterAndSortBy.vue";
 import FilterPanelModalCheckbox from "@/components/filter/FilterPanelModalCheckbox.vue";
-import FilterPanelModalButtonLevel from "@/components/ui/buttons/filterPanel/FilterPanelModalButtonLevel.vue";
-import FilterPanelButtonCategory from "@/components/ui/buttons/filterPanel/FilterPanelButtonCategory.vue";
+import FilterPanelSelectionChip from "@/components/filter/FilterPanelSelectionChip.vue";
 
 export default {
   components: {
     LayoutsFilterRoundedBorder,
+    FilterPanelSelectionChip,
     LayoutsFilterAndSortBy,
     FilterPanelModalCheckbox,
-    FilterPanelModalButtonLevel,
-    FilterPanelButtonCategory,
   },
 };
 </script>

@@ -3,7 +3,7 @@
     <div
       class="flex items-center justify-center gap-4 p-4 bg-gray-200 rounded-2xl"
     >
-      <FilterPanelButtonFilter :modalButtonFilter="true" class="bg-black" />
+      <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
       <input class="w-full" type="text" placeholder="Search" />
       <IconX class="w-6 h-6" />
     </div>
@@ -17,14 +17,14 @@
 <script>
 import FilterPanelModalFilterBy from "@/components/filter/FilterPanelModalFilterBy.vue";
 import FilterPanelModalSortBy from "@/components/filter/FilterPanelModalSortBy.vue";
-import FilterPanelButtonFilter from "@/components/ui/buttons/filterPanel/FilterPanelButtonFilter.vue";
+import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter.vue";
 import IconX from "@/components/icons/IconX.vue";
 
 export default {
   components: {
     FilterPanelModalFilterBy,
     FilterPanelModalSortBy,
-    FilterPanelButtonFilter,
+    FilterPanelToggleFilter,
     IconX,
   },
 };
