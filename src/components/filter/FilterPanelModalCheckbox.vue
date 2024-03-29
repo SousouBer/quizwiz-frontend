@@ -2,7 +2,7 @@
   <div class="flex items-center gap-3">
     <label class="font-semibold" :for="labelFor">{{ labelFor }}</label>
     <div class="flex items-center relative">
-      <input type="checkbox" v-model="isChecked" />
+      <input class="filter-checkbox" type="checkbox" v-model="isChecked" />
       <IconCheck
         @click="uncheckCheckbox"
         class="cursor-pointer hidden absolute show-tick-icon top-0 left-0 transform translate-x-1/3 translate-y-1"
@@ -39,7 +39,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-@import "/src/assets/filterPanelModalCheckboxStyles.css";
-</style>

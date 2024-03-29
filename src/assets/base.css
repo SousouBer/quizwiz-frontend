@@ -8,3 +8,20 @@
   padding: 0;
   font-family: "Raleway", sans-serif;
 }
+
+.filter-checkbox {
+  appearance: none;
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 4px;
+  border: 1px solid #d0d5dd;
+}
+
+.filter-checkbox:checked {
+  background-color: #000;
+}
+
+.filter-checkbox:checked + .show-tick-icon {
+  display: block;
+}
