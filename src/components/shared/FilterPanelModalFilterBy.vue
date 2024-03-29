@@ -1,0 +1,40 @@
+<template>
+  <layouts-filter-rounded-border>
+    <div>
+      <layouts-filter-and-sort-by filterType="Filter by">
+        <FilterPanelModalCheckbox labelFor="My quizzes" />
+        <FilterPanelModalCheckbox labelFor="Not completed" />
+      </layouts-filter-and-sort-by>
+      <layouts-filter-and-sort-by
+        filterType="Levels"
+        classNames="flex flex-wrap gap-2"
+      >
+        <FilterPanelModalButtonLevel levelTitle="Starter" />
+      </layouts-filter-and-sort-by>
+      <layouts-filter-and-sort-by
+        filterType="Categories"
+        classNames="flex flex-wrap gap-2"
+      >
+        <FilterPanelButtonCategory category="Science" :isModalButton="true" />
+      </layouts-filter-and-sort-by>
+    </div>
+  </layouts-filter-rounded-border>
+</template>
+
+<script>
+import LayoutsFilterRoundedBorder from "@/components/layouts/LayoutsFilterRoundedBorder.vue";
+import LayoutsFilterAndSortBy from "@/components/layouts/LayoutsFilterAndSortBy.vue";
+import FilterPanelModalCheckbox from "@/components/ui/FilterPanelModalCheckbox.vue";
+import FilterPanelModalButtonLevel from "@/components/ui/buttons/filterPanel/FilterPanelModalButtonLevel.vue";
+import FilterPanelButtonCategory from "@/components/ui/buttons/filterPanel/FilterPanelButtonCategory.vue";
+
+export default {
+  components: {
+    LayoutsFilterRoundedBorder,
+    LayoutsFilterAndSortBy,
+    FilterPanelModalCheckbox,
+    FilterPanelModalButtonLevel,
+    FilterPanelButtonCategory,
+  },
+};
+</script>
