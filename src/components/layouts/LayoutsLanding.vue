@@ -10,9 +10,7 @@
           & educate.
         </h1>
       </div>
-      <div>
-        <slot></slot>
-      </div>
+      <slot />
 
       <div
         class="absolute top-0 right-0 w-3/4 sm:landing-img -translate-x-16 -translate-y-2/3"

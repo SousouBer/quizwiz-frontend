@@ -20,13 +20,13 @@
             alt="Black background"
         /></layouts-landing>
       </div>
-      <layouts-quiz-statistics
+      <layouts-quiz-listing
         statistics="200+"
         title="Quiz games"
         link="landing"
         class="bg-vibrant-orange py-14 px-10"
       />
-      <layouts-quiz-statistics
+      <layouts-quiz-listing
         statistics="25+"
         title="Different genre"
         link="landing"
@@ -48,14 +48,14 @@
 import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
 import LayoutsLanding from "@/components/layouts/LayoutsLanding.vue";
-import LayoutsQuizStatistics from "@/components/layouts/LayoutsQuizStatistics.vue";
+import LayoutsQuizListing from "@/components/layouts/LayoutsQuizListing.vue";
 
 export default {
   components: {
     TheHeader,
     TheFooter,
     LayoutsLanding,
-    LayoutsQuizStatistics,
+    LayoutsQuizListing,
   },
 };
 </script>

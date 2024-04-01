@@ -31,7 +31,7 @@
       >
     </div>
     <div class="hidden md:flex justify-center items-center gap-1">
-      <inputSearch />
+      <SearchInput />
       <div>
         <div class="cursor-pointer" @click="openLogoutModal">
           <icon-unauthenticated-user />
@@ -53,7 +53,7 @@ import LinkQuizzes from "@/components/ui/links/LinkQuizzes.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
 import IconQuizWizMain from "@/components/icons/IconQuizWizMain.vue";
-import InputSearch from "@/components/InputSearch.vue";
+import SearchInput from "@/components/SearchInput.vue";
 
 export default {
   components: {
@@ -64,7 +64,7 @@ export default {
     LinkQuizzes,
     IconBurgerMenu,
     IconUnauthenticatedUser,
-    InputSearch,
+    SearchInput,
   },
 
   data() {
