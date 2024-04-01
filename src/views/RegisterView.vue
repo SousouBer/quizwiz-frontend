@@ -13,7 +13,7 @@
           <LinkAuthentication auth="login" link="/login" />
         </layouts-link-authentication>
         <form>
-          <layouts-input-and-label>
+          <wrappers-form-control>
             <label-base labelFor="username">Username</label-base>
             <inputBase
               inputType="text"
@@ -21,8 +21,8 @@
               inputName="username"
               inputPlaceholder="Your username"
             />
-          </layouts-input-and-label>
-          <layouts-input-and-label>
+          </wrappers-form-control>
+          <wrappers-form-control>
             <label-base labelFor="email">Email address</label-base>
             <inputBase
               inputType="email"
@@ -30,8 +30,8 @@
               inputName="email"
               inputPlaceholder="Your email"
             />
-          </layouts-input-and-label>
-          <layouts-input-and-label>
+          </wrappers-form-control>
+          <wrappers-form-control>
             <label-base labelFor="password">Create a password</label-base>
             <inputBase
               inputType="password"
@@ -40,8 +40,8 @@
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
             />
-          </layouts-input-and-label>
-          <layouts-input-and-label>
+          </wrappers-form-control>
+          <wrappers-form-control>
             <label-base labelFor="confirm_password"
               >Confirm password</label-base
             >
@@ -52,7 +52,7 @@
               inputPlaceholder="Must be 8 characters"
               :isPasswordInput="true"
             />
-          </layouts-input-and-label>
+          </wrappers-form-control>
           <div class="flex flex-row gap-3 my-6">
             <inputBase
               class="w-5 h-5"
@@ -80,7 +80,7 @@ import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import LayoutsInputAndLabel from "@/components/layouts/LayoutsInputAndLabel.vue";
+import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
 import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 
@@ -93,7 +93,7 @@ export default {
     ButtonSubmit,
     LayoutsForm,
     LayoutsAuthImage,
-    LayoutsInputAndLabel,
+    WrappersFormControl,
     LayoutsLinkAuthentication,
     LayoutsAuthMain,
   },

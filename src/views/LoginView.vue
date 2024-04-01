@@ -14,7 +14,7 @@
           <LinkAuthentication auth="register" link="/register" />
         </layouts-link-authentication>
         <form>
-          <layouts-input-and-label>
+          <wrappers-form-control>
             <label-base labelFor="email">Email address</label-base>
             <inputBase
               inputType="email"
@@ -22,8 +22,8 @@
               inputName="email"
               inputPlaceholder="Your email"
             />
-          </layouts-input-and-label>
-          <layouts-input-and-label>
+          </wrappers-form-control>
+          <wrappers-form-control>
             <label-base labelFor="password">Password</label-base>
             <inputBase
               inputType="password"
@@ -32,7 +32,7 @@
               inputPlaceholder="Your Password"
               :isPasswordInput="true"
             />
-          </layouts-input-and-label>
+          </wrappers-form-control>
           <div class="flex justify-between py-2">
             <div class="flex gap-3 items-center">
               <inputBase
@@ -70,7 +70,7 @@ import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import LayoutsInputAndLabel from "@/components/layouts/LayoutsInputAndLabel.vue";
+import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
 import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 
@@ -84,7 +84,7 @@ export default {
     IconHand,
     LayoutsForm,
     LayoutsAuthImage,
-    LayoutsInputAndLabel,
+    WrappersFormControl,
     LayoutsLinkAuthentication,
     LayoutsAuthMain,
   },
