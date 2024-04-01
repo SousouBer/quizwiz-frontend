@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+  <main class="flex flex-row">
+    <slot />
+  </main>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import LandingPageView from "@/views/LandingPageView.vue";
+import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
 import ForgotPasswordView from "@/views/ForgotPasswordView.vue";
@@ -11,23 +11,28 @@ const router = createRouter({
   routes: [
     {
       path: "/register",
+      name: "register",
       component: RegisterView,
     },
     {
       path: "/login",
+      name: "login",
       component: LoginView,
     },
     {
       path: "/forgot-password",
+      name: "forgotPassword",
       component: ForgotPasswordView,
     },
     {
       path: "/reset-password",
+      name: "resetPassword",
       component: ResetPasswordView,
     },
     {
       path: "/landing",
-      component: LandingPageView,
+      name: "landing",
+      component: LandingView,
     },
   ],
 });
