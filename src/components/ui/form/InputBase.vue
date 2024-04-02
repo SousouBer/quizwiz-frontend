@@ -1,12 +1,15 @@
 <template>
   <div class="relative">
-    <input
-      class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border border-light-gray w-full"
+    <Field
+      ref="input"
+      class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border w-full"
       :type="changeInput"
       :id="inputId"
       :name="inputName"
       :placeholder="inputPlaceholder"
+      :rules="rules"
     />
+    <ErrorMessage :name="inputName" />
     <div
       v-if="isPasswordInput"
       @click="showOrHidePassword"
@@ -22,6 +25,8 @@
 </template>
 
 <script>
+import { Field, ErrorMessage } from "vee-validate";
+
 export default {
   props: {
     inputType: String,
@@ -32,11 +37,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    rules: {
+      // type: Function,
+      required: true,
+    },
+  },
+
+  components: {
+    ErrorMessage,
+    Field,
   },
 
   data() {
     return {
       showPassword: false,
+      myMeta: null,
     };
   },
 
