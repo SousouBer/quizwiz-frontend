@@ -13,63 +13,44 @@
           <LinkAuthentication auth="login" link="/login" />
         </layouts-link-authentication>
         <ValidationForm @submit="onSubmit">
-          <wrappers-form-control>
-            <label-base labelFor="username">Username</label-base>
-            <inputBase
-              inputType="text"
-              inputId="username"
-              inputName="username"
-              inputPlaceholder="Your username"
-              :rules="validateUsername"
-            />
-          </wrappers-form-control>
-          <wrappers-form-control>
-            <label-base labelFor="email">Email address</label-base>
-            <inputBase
-              inputType="email"
-              inputId="email"
-              inputName="email"
-              inputPlaceholder="Your email"
-              :rules="validateEmail"
-            />
-          </wrappers-form-control>
-          <wrappers-form-control>
-            <label-base labelFor="password">Create a password</label-base>
-            <inputBase
-              inputType="password"
-              inputId="password"
-              inputName="password"
-              inputPlaceholder="Must be 3 characters"
-              :isPasswordInput="true"
-              :rules="validatePassword"
-            />
-          </wrappers-form-control>
-          <wrappers-form-control>
-            <label-base labelFor="password_confirmation"
-              >Confirm password</label-base
-            >
-            <inputBase
-              inputType="password"
-              inputId="password_confirmation"
-              inputName="password_confirmation"
-              inputPlaceholder="Must be 8 characters"
-              :isPasswordInput="true"
-              :rules="'confirmed:@password'"
-            />
-            <p>{{ password }}</p>
-          </wrappers-form-control>
-          <div class="flex flex-row gap-3 my-6">
-            <inputBase
-              class="w-5 h-5"
-              inputType="radio"
-              inputId="terms_and_policy"
-              inputName="terms_and_policy"
-              :rules="validateTermsAndPolicy"
-            />
-            <label-base labelFor="terms_and_policy"
-              >I accept the terms and privacy policy</label-base
-            >
-          </div>
+          <InputAuth
+            label="Username"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Your username"
+            :rules="validateUsername"
+          />
+          <InputAuth
+            label="Email address"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email"
+            :rules="validateEmail"
+          />
+          <InputAuth
+            label="Create a password"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Must be 3 characters"
+            :isPassword="true"
+            :rules="validatePassword"
+          />
+          <InputAuth
+            label="Confirm password"
+            type="password"
+            id="password_confirmation"
+            name="password_confirmation"
+            placeholder="Must be 8 characters"
+            :isPassword="true"
+            :rules="'confirmed:@password'"
+          />
+          <InputRadio
+            label="I accept the terms and privacy policy"
+            identifier="terms_and_policy"
+          />
           <button-submit>Sign up</button-submit>
         </ValidationForm>
       </div>
@@ -81,14 +62,13 @@
 <script>
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
-import InputBase from "@/components/ui/form/InputBase.vue";
-import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
 import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
+import InputAuth from "@/components/ui/form/InputAuth.vue";
+import InputRadio from "@/components/ui/form/InputRadio.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 
@@ -96,15 +76,14 @@ export default {
   components: {
     HeadingForm,
     LinkAuthentication,
-    InputBase,
-    LabelBase,
     ButtonSubmit,
     LayoutsForm,
     LayoutsAuthImage,
-    WrappersFormControl,
     LayoutsLinkAuthentication,
     LayoutsAuthMain,
     ValidationForm,
+    InputAuth,
+    InputRadio,
   },
 
   methods: {

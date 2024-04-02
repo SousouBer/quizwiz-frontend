@@ -15,11 +15,11 @@
       @click="showOrHidePassword"
       class="w-5 cursor-pointer absolute right-0 top-1/2 transform -translate-x-full -translate-y-1/2"
     >
-      <img
+      <!-- <img
         class="w-full h-full"
         src="@/assets/images/icons/eye-open.svg"
         alt="Eye icon"
-      />
+      /> -->
     </div>
   </div>
 </template>
