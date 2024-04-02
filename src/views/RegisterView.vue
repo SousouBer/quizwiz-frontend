@@ -45,7 +45,6 @@
             name="password_confirmation"
             placeholder="Must be 8 characters"
             :isPassword="true"
-            :rules="'confirmed:@password'"
           />
           <InputRadio
             label="I accept the terms and privacy policy"
@@ -57,6 +56,12 @@
       <LinkAuthentication class="hidden sm:block" auth="login" link="/login" />
     </layouts-form>
   </layouts-auth-main>
+  <Teleport to="body">
+    <ToastMessage
+      result="success"
+      class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
+    />
+  </Teleport>
 </template>
 
 <script>
@@ -69,6 +74,7 @@ import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentic
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputRadio from "@/components/ui/form/InputRadio.vue";
+import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 
@@ -84,6 +90,7 @@ export default {
     ValidationForm,
     InputAuth,
     InputRadio,
+    ToastMessage,
   },
 
   methods: {
