@@ -21,3 +21,17 @@
   width: 75%;
   transform: translate(-4rem, 65%);
 }
+
+.input-radio {
+  appearance: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.input-radio:checked {
+  background-color: #000;
+}
+
+.input-radio:checked + .show-tick-icon {
+  display: block;
+}
