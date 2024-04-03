@@ -21,6 +21,7 @@ export default {
         "very-light-gray": "#F6F6F7",
         "charcoal-gray": "#242C32",
         "bright-yellow": "#FFD21F",
+        "vivid-red": "#F04438",
       },
       width: {
         "custom-45": "45%",

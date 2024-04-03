@@ -10,6 +10,8 @@
         :id="id"
         :name="name"
         :placeholder="placeholder"
+        :validateOnInput="true"
+        :validateOnBlurr="false"
         :rules="rules"
       />
       <div
@@ -20,7 +22,7 @@
         <IconEyeClosed v-if="isPassword && showPassword" />
       </div>
     </div>
-    <ErrorMessage :name="name" />
+    <ErrorMessage :name="name" class="text-vivid-red text-sm pt-1" />
   </div>
 </template>
 
