@@ -49,22 +49,26 @@ export default {
     },
   },
 
-  watch: {
-    result(newResult) {
-      if (newResult === "success") {
+  methods: {
+    setResult() {
+      if (this.result === "success") {
         this.toastTitle = "Verification Successful";
         this.toastDescription =
           "You have successfully verified your E-mail. You can now log in!";
-      } else if (newResult === "verified") {
+      } else if (this.result === "verified") {
         this.toastTitle = "Already Verified";
         this.toastDescription =
           "Your have already verified your E-mail. You can log in.";
-      } else if (newResult === "expired") {
+      } else if (this.result === "expired") {
         this.toastTitle = "Token Expired";
         this.toastDescription =
           "Your E-mail verification link has expired. You can resend the link again below..";
       }
     },
+  },
+
+  mounted() {
+    this.setResult();
   },
 };
 </script>

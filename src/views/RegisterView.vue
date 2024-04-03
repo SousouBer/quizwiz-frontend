@@ -58,7 +58,8 @@
   </layouts-auth-main>
   <Teleport to="body">
     <ToastMessage
-      result="success"
+      v-if="showToast"
+      :result="requestResult"
       class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
     />
   </Teleport>
@@ -77,6 +78,7 @@ import InputRadio from "@/components/ui/form/InputRadio.vue";
 import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
+import axios from "axios";
 
 export default {
   components: {
@@ -93,7 +95,43 @@ export default {
     ToastMessage,
   },
 
+  data() {
+    return {
+      showToast: false,
+      requestResult: "",
+    };
+  },
+
   methods: {
+    async onSubmit(values, { setErrors, resetForm }) {
+      try {
+        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+          withCredentials: true,
+          withXSRFToken: true,
+        });
+        await axios.post("http://127.0.0.1:8000/api/register", values, {
+          withCredentials: true,
+          withXSRFToken: true,
+        });
+        resetForm();
+
+        this.showToastNotification("success");
+      } catch (err) {
+        setErrors(err.response.data.errors);
+      }
+    },
+
+    showToastNotification(result) {
+      this.showToast = true;
+      this.requestResult = result;
+
+      setTimeout(() => {
+        this.showToast = false;
+        this.requestResult = "";
+      }, 5000);
+      console.log("worked");
+    },
+
     validateUsername(value) {
       if (!value || value.trim().length === 0) {
         return "Username is required";
