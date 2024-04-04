@@ -54,7 +54,8 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import axios from "axios";
+
+import instance from "../services/Auth";
 
 export default {
   components: {
@@ -85,18 +86,9 @@ export default {
       const email = url[0];
       const token = url[1];
 
-      console.log(email, token);
-
       try {
-        await axios.get(
-          `http://127.0.0.1:8000/api/reset-password/${email}/${token}/check-expiration`,
-          {
-            withCredentials: true,
-          },
-        );
+        await instance.checkResetLinkExpiration(email, token);
       } catch (err) {
-        console.log(err);
-
         if (err.response.status === 403) {
           this.showToastNotification(
             "expired",
@@ -113,17 +105,7 @@ export default {
       const token = url[1];
 
       try {
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
-          withCredentials: true,
-        });
-        const response = await axios.post(
-          `http://127.0.0.1:8000/api/reset-password/${email}/${token}`,
-          values,
-          {
-            withCredentials: true,
-            withXSRFToken: true,
-          },
-        );
+        const response = await instance.resetPassword(values, email, token);
         resetForm();
 
         this.showToastNotification(

@@ -59,6 +59,8 @@
   <Teleport to="body">
     <ToastMessage
       v-if="showToast"
+      :title="toastTitle"
+      :description="toastDescription"
       :result="requestResult"
       class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
     />
@@ -78,7 +80,7 @@ import InputRadio from "@/components/ui/form/InputRadio.vue";
 import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import axios from "axios";
+import instance from "../services/Auth";
 
 export default {
   components: {
@@ -99,37 +101,39 @@ export default {
     return {
       showToast: false,
       requestResult: "",
+      toastTitle: "",
+      toastDescription: "",
     };
   },
 
   methods: {
     async onSubmit(values, { setErrors, resetForm }) {
       try {
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
-          withCredentials: true,
-          withXSRFToken: true,
-        });
-        await axios.post("http://127.0.0.1:8000/api/register", values, {
-          withCredentials: true,
-          withXSRFToken: true,
-        });
+        const response = await instance.register(values);
+
         resetForm();
 
-        this.showToastNotification("success");
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
+        );
       } catch (err) {
         setErrors(err.response.data.errors);
       }
     },
 
-    showToastNotification(result) {
+    showToastNotification(result, title, description) {
       this.showToast = true;
       this.requestResult = result;
-
-      setTimeout(() => {
-        this.showToast = false;
-        this.requestResult = "";
-      }, 5000);
-      console.log("worked");
+      (this.toastTitle = title),
+        (this.toastDescription = description),
+        setTimeout(() => {
+          this.showToast = false;
+          this.requestResult = "";
+          this.toastTitle = title;
+          this.toastDescription = description;
+        }, 5000);
     },
 
     validateUsername(value) {

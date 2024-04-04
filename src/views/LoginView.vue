@@ -63,6 +63,8 @@
   <Teleport to="body">
     <ToastMessage
       v-if="showToast"
+      :title="toastTitle"
+      :description="toastDescription"
       :result="requestResult"
       class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
     />
@@ -84,7 +86,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import axios from "axios";
+import instance from "../services/Auth";
 
 export default {
   components: {
@@ -107,61 +109,65 @@ export default {
     return {
       showToast: false,
       requestResult: "",
+      toastTitle: "",
+      toastDescription: "",
     };
   },
 
   methods: {
-    async onSubmit(values, { resetForm }) {
+    async onSubmit(values, { resetForm, setErrors }) {
       try {
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
-          withCredentials: true,
-        });
-        await axios.post("http://127.0.0.1:8000/api/login", values, {
-          withCredentials: true,
-          withXSRFToken: true,
-        });
+        const response = await instance.login(values);
+
         resetForm();
 
-        this.showToastNotification("success");
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
+        );
       } catch (err) {
         console.log(err);
+        setErrors(err.response.data.errors);
       }
     },
 
-    showToastNotification(result) {
+    showToastNotification(result, title, description) {
       this.showToast = true;
       this.requestResult = result;
-
+      this.toastTitle = title;
+      this.toastDescription = description;
       setTimeout(() => {
         this.showToast = false;
         this.requestResult = "";
+        this.toastTitle = "";
+        this.toastDescription = "";
       }, 5000);
-      console.log("worked");
     },
 
     async verifyEmail(verificationUrl) {
       try {
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
-          withCredentials: true,
-        });
-        await axios.get(
-          `http://127.0.0.1:8000/api/verify-email/${verificationUrl}`,
-          {
-            withCredentials: true,
-            withXSRFToken: true,
-          },
+        const response = await instance.verifyEmail(verificationUrl);
+
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
         );
-
-        this.showToastNotification("success");
       } catch (err) {
-        let result = "";
-
         if (err.response.status === 403) {
-          this.showToastNotification("expired");
+          this.showToastNotification(
+            "expired",
+            err.response.data.title,
+            err.response.data.message,
+          );
         } else if (err.response.status === 422) {
-          result = "verified";
+          this.showToastNotification(
+            "verified",
+            err.response.data.title,
+            err.response.data.message,
+          );
         }
-        this.showToastNotification(result);
       }
     },
   },

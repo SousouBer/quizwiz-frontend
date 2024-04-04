@@ -47,7 +47,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import axios from "axios";
+import instance from "../services/Auth";
 
 export default {
   components: {
@@ -74,17 +74,7 @@ export default {
   methods: {
     async onSubmit(values, { resetForm, setErrors }) {
       try {
-        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
-          withCredentials: true,
-        });
-        const response = await axios.post(
-          "http://127.0.0.1:8000/api/forgot-password",
-          values,
-          {
-            withCredentials: true,
-            withXSRFToken: true,
-          },
-        );
+        const response = await instance.forgotPassword(values);
         resetForm();
 
         this.showToastNotification(
@@ -92,10 +82,7 @@ export default {
           response.data.title,
           response.data.message,
         );
-
-        console.log(response);
       } catch (err) {
-        console.log(err);
         setErrors(err.response.data);
       }
     },
