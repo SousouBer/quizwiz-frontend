@@ -31,15 +31,6 @@
       <LinkAuthentication auth="login" link="/login" />
     </layouts-form>
   </layouts-auth-main>
-  <Teleport to="body">
-    <ToastMessage
-      v-if="showToast"
-      :title="toastTitle"
-      :description="toastDescription"
-      :result="requestResult"
-      class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
-    />
-  </Teleport>
 </template>
 
 <script>
@@ -51,13 +42,14 @@ import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
-import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 
 import instance from "../services/Auth";
 
 export default {
+  inject: ["showToastNotification"],
+
   components: {
     HeadingForm,
     ButtonSubmit,
@@ -68,16 +60,6 @@ export default {
     LayoutsAuthMain,
     InputAuth,
     ValidationForm,
-    ToastMessage,
-  },
-
-  data() {
-    return {
-      showToast: false,
-      requestResult: "",
-      toastTitle: "",
-      toastDescription: "",
-    };
   },
 
   methods: {
@@ -122,19 +104,6 @@ export default {
           );
         }
       }
-    },
-
-    showToastNotification(result, title, description) {
-      this.showToast = true;
-      this.requestResult = result;
-      (this.toastTitle = title),
-        (this.toastDescription = description),
-        setTimeout(() => {
-          this.showToast = false;
-          this.requestResult = "";
-          this.toastTitle = title;
-          this.toastDescription = description;
-        }, 5000);
     },
   },
 
