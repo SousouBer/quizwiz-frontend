@@ -9,8 +9,8 @@
   >
     <IconToastWarning :color="iconColor" />
     <div class="flex flex-col">
-      <span class="text-white font-bold text-lg">{{ toastTitle }}</span>
-      <span class="text-gray-300 text-sm">{{ toastDescription }}</span>
+      <span class="text-white font-bold text-lg">{{ title }}</span>
+      <span class="text-gray-300 text-sm">{{ description }}</span>
     </div>
   </div>
 </template>
@@ -23,16 +23,17 @@ export default {
       type: String,
       required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
   },
   components: {
     IconToastWarning,
-  },
-
-  data() {
-    return {
-      toastTitle: "",
-      toastDescription: "",
-    };
   },
 
   computed: {
@@ -47,28 +48,6 @@ export default {
 
       return "#CBD5E0";
     },
-  },
-
-  methods: {
-    setResult() {
-      if (this.result === "success") {
-        this.toastTitle = "Verification Successful";
-        this.toastDescription =
-          "You have successfully verified your E-mail. You can now log in!";
-      } else if (this.result === "verified") {
-        this.toastTitle = "Already Verified";
-        this.toastDescription =
-          "Your have already verified your E-mail. You can log in.";
-      } else if (this.result === "expired") {
-        this.toastTitle = "Token Expired";
-        this.toastDescription =
-          "Your E-mail verification link has expired. You can resend the link again below..";
-      }
-    },
-  },
-
-  mounted() {
-    this.setResult();
   },
 };
 </script>

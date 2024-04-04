@@ -12,42 +12,119 @@
           with your account.</span
         >
       </wrappers-form-control>
-      <form>
-        <wrappers-form-control class="mb-6">
-          <label-base labelFor="email">Email address</label-base>
-          <inputBase
-            inputType="email"
-            inputName="email"
-            inputId="email"
-            inputPlaceholder="Enter your email address"
-          />
-        </wrappers-form-control>
+      <ValidationForm @submit="onSubmit">
+        <InputAuth
+          label="Email address"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email address"
+          :rules="validateEmail"
+        />
         <button-submit>Send</button-submit>
-      </form>
+      </ValidationForm>
     </layouts-form>
   </layouts-auth-main>
+  <Teleport to="body">
+    <ToastMessage
+      v-if="showToast"
+      :title="toastTitle"
+      :description="toastDescription"
+      :result="requestResult"
+      class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
+    />
+  </Teleport>
 </template>
 
 <script>
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
-import LabelBase from "@/components/ui/form/LabelBase.vue";
-import InputBase from "@/components/ui/form/InputBase.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
 import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
+import InputAuth from "@/components/ui/form/InputAuth.vue";
+import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
+
+import { Form as ValidationForm } from "vee-validate";
+import axios from "axios";
 
 export default {
   components: {
     HeadingForm,
     ButtonSubmit,
-    InputBase,
-    LabelBase,
     LayoutsForm,
     LayoutsAuthImage,
     WrappersFormControl,
     LayoutsAuthMain,
+    InputAuth,
+    ValidationForm,
+    ToastMessage,
+  },
+
+  data() {
+    return {
+      showToast: false,
+      requestResult: "",
+      toastTitle: "",
+      toastDescription: "",
+    };
+  },
+
+  methods: {
+    async onSubmit(values, { resetForm, setErrors }) {
+      try {
+        await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie", {
+          withCredentials: true,
+        });
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/forgot-password",
+          values,
+          {
+            withCredentials: true,
+            withXSRFToken: true,
+          },
+        );
+        resetForm();
+
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
+        );
+
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+        setErrors(err.response.data);
+      }
+    },
+
+    showToastNotification(result, title, description) {
+      this.showToast = true;
+      this.requestResult = result;
+      (this.toastTitle = title),
+        (this.toastDescription = description),
+        setTimeout(() => {
+          this.showToast = false;
+          this.requestResult = "";
+          this.toastTitle = title;
+          this.toastDescription = description;
+        }, 5000);
+    },
+
+    validateEmail(value) {
+      if (!value || value.trim().length === 0) {
+        return "Email is required";
+      }
+
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return "Email must be a valid email";
+      }
+
+      return true;
+    },
   },
 };
 </script>

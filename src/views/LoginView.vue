@@ -43,7 +43,7 @@
                 >Remember for 30 days</label-base
               >
             </div>
-            <router-link to="forgotPassword" class="text-sm"
+            <router-link to="/forgot-password" class="text-sm"
               >Forgot password?</router-link
             >
           </div>
@@ -145,7 +145,7 @@ export default {
           withCredentials: true,
         });
         await axios.get(
-          `http://127.0.0.1:8000/verify-email/${verificationUrl}`,
+          `http://127.0.0.1:8000/api/verify-email/${verificationUrl}`,
           {
             withCredentials: true,
             withXSRFToken: true,
