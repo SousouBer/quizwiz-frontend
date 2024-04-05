@@ -21,8 +21,9 @@
         class="cursor-pointer absolute right-0 top-1/2 transform -translate-x-full -translate-y-1/2"
         @click="togglePassword"
       >
-        <IconEyeOpen v-if="isPassword && !showPassword" />
-        <IconEyeClosed v-if="isPassword && showPassword" />
+        <IconEyeOpen v-if="isPassword && !showPassword && !error" />
+        <IconEyeClosed v-if="isPassword && showPassword && !error" />
+        <IconAlert @click.prevent="handleAlertClick" v-if="error" />
       </div>
     </div>
     <ErrorMessage :name="name" class="text-vivid-red text-sm pt-1" />
@@ -32,6 +33,7 @@
 <script>
 import IconEyeOpen from "@/components/icons/IconEyeOpen.vue";
 import IconEyeClosed from "@/components/icons/IconEyeClosed.vue";
+import IconAlert from "@/components/icons/IconAlert.vue";
 
 import { Field, ErrorMessage } from "vee-validate";
 
@@ -39,6 +41,7 @@ export default {
   components: {
     IconEyeOpen,
     IconEyeClosed,
+    IconAlert,
     ErrorMessage,
     Field,
   },
@@ -89,6 +92,9 @@ export default {
   methods: {
     togglePassword() {
       this.showPassword = !this.showPassword;
+    },
+    handleAlertClick(event) {
+      event.stopPropagation();
     },
   },
 
