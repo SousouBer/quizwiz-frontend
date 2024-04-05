@@ -21,6 +21,7 @@
             name="email"
             placeholder="Your email"
             :rules="validateEmail"
+            @input-change="updateUserEmail"
           />
           <InputAuth
             label="Password"
@@ -48,6 +49,14 @@
           </div>
           <button-submit>Log in</button-submit>
         </ValidationForm>
+        <form
+          v-if="showResendEmailVerificationLink"
+          @submit.prevent="onResendLink"
+        >
+          <button class="uppercase font-bold">
+            Resend email confirmation link
+          </button>
+        </form>
         <LinkAuthentication
           class="hidden sm:block"
           auth="register"
@@ -94,7 +103,18 @@ export default {
     ValidationForm,
   },
 
+  data() {
+    return {
+      userEmail: "",
+      showResendEmailVerificationLink: false,
+    };
+  },
+
   methods: {
+    updateUserEmail(email) {
+      this.userEmail = email;
+    },
+
     async onSubmit(values, { resetForm, setErrors }) {
       try {
         const response = await instance.login(values);
@@ -107,7 +127,9 @@ export default {
           response.data.message,
         );
       } catch (err) {
-        setErrors(err.response.data.errors);
+        console.log(err);
+        setErrors(err.response.data);
+        this.showToastNotification("expired", "Error", "An error occured");
       }
     },
     async verifyEmail(verificationUrl) {
@@ -121,6 +143,9 @@ export default {
         );
       } catch (err) {
         if (err.response.status === 403) {
+          this.showResendEmailVerificationLink = true;
+          console.log(err.response);
+
           this.showToastNotification(
             "expired",
             err.response.data.title,
@@ -135,36 +160,75 @@ export default {
         }
       }
     },
-  },
 
-  validateEmail(value) {
-    if (!value || value.trim().length === 0) {
-      return "Email is required";
-    }
+    async onResendLink() {
+      this.showResendEmailVerificationLink = false;
 
-    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if (!regex.test(value)) {
-      return "Email must be a valid email";
-    }
+      try {
+        const response = await instance.ResendEmailVerificationLink(
+          this.userEmail,
+        );
 
-    return true;
-  },
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
+        );
+      } catch (err) {
+        if (err.response.status === 422) {
+          this.showToastNotification(
+            "verified",
+            err.response.data.title,
+            err.response.data.message,
+          );
+        } else if (err.response.status === 400) {
+          this.showToastNotification(
+            "expired",
+            err.response.data.title,
+            err.response.data.message,
+          );
+          this.showResendEmailVerificationLink = true;
+        } else {
+          this.showToastNotification(
+            "expired",
+            "Error Occured",
+            "Unexpected error occured. Check your network connection or try again later.",
+          );
+        }
+      }
+    },
 
-  validatePassword(value) {
-    if (!value || value.trim().length === 0) {
-      return "Password is required";
-    }
+    validateEmail(value) {
+      if (!value || value.trim().length === 0) {
+        return "Email is required";
+      }
 
-    if (value.trim().length < 3) {
-      return "Password must be at least 3 characters long.";
-    }
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return "Email must be a valid email";
+      }
 
-    return true;
+      return true;
+    },
+
+    validatePassword(value) {
+      if (!value || value.trim().length === 0) {
+        return "Password is required";
+      }
+
+      if (value.trim().length < 3) {
+        return "Password must be at least 3 characters long.";
+      }
+
+      return true;
+    },
   },
 
   mounted() {
-    if (this.$route.query["verifyLink"]) {
+    if (this.$route.query.verifyLink) {
+      this.userEmail = this.$route.query.email;
       const verificationUrl = this.$route.fullPath.split("verifyLink=")[1];
+
       this.verifyEmail(verificationUrl);
     }
   },

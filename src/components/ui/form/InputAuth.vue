@@ -13,6 +13,8 @@
         :validateOnInput="true"
         :validateOnBlurr="false"
         :rules="rules"
+        v-model="inputValue"
+        @keyup="this.$emit('input-change', this.inputValue)"
       />
       <div
         class="cursor-pointer absolute right-0 top-1/2 transform -translate-x-full -translate-y-1/2"
@@ -74,6 +76,7 @@ export default {
   data() {
     return {
       showPassword: false,
+      inputValue: "",
     };
   },
 
