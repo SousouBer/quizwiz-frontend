@@ -127,9 +127,7 @@ export default {
           response.data.message,
         );
       } catch (err) {
-        console.log(err);
         setErrors(err.response.data);
-        this.showToastNotification("expired", "Error", "An error occured");
       }
     },
     async verifyEmail(verificationUrl) {
@@ -144,16 +142,15 @@ export default {
       } catch (err) {
         if (err.response.status === 403) {
           this.showResendEmailVerificationLink = true;
-          console.log(err.response);
 
           this.showToastNotification(
-            "expired",
+            "error",
             err.response.data.title,
             err.response.data.message,
           );
         } else if (err.response.status === 422) {
           this.showToastNotification(
-            "verified",
+            "warning",
             err.response.data.title,
             err.response.data.message,
           );
@@ -177,20 +174,20 @@ export default {
       } catch (err) {
         if (err.response.status === 422) {
           this.showToastNotification(
-            "verified",
+            "warning",
             err.response.data.title,
             err.response.data.message,
           );
         } else if (err.response.status === 400) {
           this.showToastNotification(
-            "expired",
+            "error",
             err.response.data.title,
             err.response.data.message,
           );
           this.showResendEmailVerificationLink = true;
         } else {
           this.showToastNotification(
-            "expired",
+            "error",
             "Error Occured",
             "Unexpected error occured. Check your network connection or try again later.",
           );

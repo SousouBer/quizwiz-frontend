@@ -73,7 +73,7 @@ export default {
       } catch (err) {
         if (err.response.status === 403) {
           this.showToastNotification(
-            "expired",
+            "error",
             err.response.data.title,
             err.response.data.message,
           );
@@ -98,7 +98,7 @@ export default {
       } catch (err) {
         if (err.response.status === 403) {
           this.showToastNotification(
-            "expired",
+            "error",
             err.response.data.title,
             err.response.data.message,
           );

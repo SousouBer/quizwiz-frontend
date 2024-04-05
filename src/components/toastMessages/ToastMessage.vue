@@ -2,8 +2,8 @@
   <div
     :class="{
       'border-green-600': this.result === 'success',
-      'border-bright-yellow': this.result === 'verified',
-      'border-red-500': this.result === 'expired',
+      'border-bright-yellow': this.result === 'warning',
+      'border-red-500': this.result === 'error',
     }"
     class="flex items-center p-3 gap-3 bg-charcoal-gray border-b-4 rounded-lg shadow-2xl"
   >
@@ -40,9 +40,9 @@ export default {
     iconColor() {
       if (this.result === "success") {
         return "#047857";
-      } else if (this.result === "verified") {
+      } else if (this.result === "warning") {
         return "#FFD21F";
-      } else if (this.result === "expired") {
+      } else if (this.result === "error") {
         return "#DC2626";
       }
 
