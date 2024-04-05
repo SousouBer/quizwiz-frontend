@@ -16,9 +16,14 @@ instance.register = async function (payload) {
   return await instance.post("/api/register", payload);
 };
 
+instance.logout = async function () {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.post("/api/logout");
+};
+
 instance.verifyEmail = async function (url) {
   await instance.get("sanctum/csrf-cookie");
-  return await instance.get(`http://127.0.0.1:8000/api/verify-email/${url}`);
+  return await instance.get(`/api/verify-email/${url}`);
 };
 
 instance.forgotPassword = async function (payload) {

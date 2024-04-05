@@ -34,14 +34,13 @@
           <div class="flex justify-between py-2">
             <div class="flex gap-3 items-center">
               <inputBase
-                inputType="radio"
-                inputId="remember_me"
-                inputName="remember_me"
+                inputType="checkbox"
+                inputId="remember"
+                inputName="remember"
                 inputPlaceholder="Remember me"
+                ref="remember"
               />
-              <label-base labelFor="remember_me"
-                >Remember for 30 days</label-base
-              >
+              <label-base labelFor="remember">Remember for 30 days</label-base>
             </div>
             <router-link to="/forgot-password" class="text-sm"
               >Forgot password?</router-link
@@ -111,7 +110,6 @@ export default {
         setErrors(err.response.data.errors);
       }
     },
-
     async verifyEmail(verificationUrl) {
       try {
         const response = await instance.verifyEmail(verificationUrl);
