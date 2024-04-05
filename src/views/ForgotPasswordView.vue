@@ -12,14 +12,15 @@
           with your account.</span
         >
       </wrappers-form-control>
-      <ValidationForm @submit="onSubmit">
+      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
         <InputAuth
           label="Email address"
           type="email"
           name="email"
           id="email"
           placeholder="Enter your email address"
-          :rules="validateEmail"
+          rules="required"
+          :error="errors['email'] ? true : false"
         />
         <button-submit>Send</button-submit>
       </ValidationForm>
@@ -66,19 +67,6 @@ export default {
       } catch (err) {
         setErrors(err.response.data);
       }
-    },
-
-    validateEmail(value) {
-      if (!value || value.trim().length === 0) {
-        return "Email is required";
-      }
-
-      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      if (!regex.test(value)) {
-        return "Email must be a valid email";
-      }
-
-      return true;
     },
   },
 };

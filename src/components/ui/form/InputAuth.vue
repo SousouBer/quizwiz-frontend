@@ -5,6 +5,7 @@
     }}</label>
     <div class="relative">
       <Field
+        :class="{ 'border-salmon-pink': error }"
         class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border w-full"
         :type="changeType"
         :id="id"
@@ -70,6 +71,11 @@ export default {
     rules: {
       type: String,
       required: true,
+    },
+    error: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
 

@@ -12,14 +12,15 @@
         <layouts-link-authentication>
           <LinkAuthentication auth="login" link="/login" />
         </layouts-link-authentication>
-        <ValidationForm @submit="onSubmit">
+        <ValidationForm v-slot="{ errors }" @submit="onSubmit">
           <InputAuth
             label="Username"
             type="text"
             id="username"
             name="username"
             placeholder="Your username"
-            :rules="validateUsername"
+            rules="required|minLength:3"
+            :error="errors['username'] ? true : false"
           />
           <InputAuth
             label="Email address"
@@ -27,7 +28,8 @@
             id="email"
             name="email"
             placeholder="Your email"
-            :rules="validateEmail"
+            rules="required|email"
+            :error="errors['email'] ? true : false"
           />
           <InputAuth
             label="Create a password"
@@ -36,7 +38,8 @@
             name="password"
             placeholder="Must be 3 characters"
             :isPassword="true"
-            :rules="validatePassword"
+            rules="required|minLength:3"
+            :error="errors['password'] ? true : false"
           />
           <InputAuth
             label="Confirm password"
@@ -45,12 +48,16 @@
             name="password_confirmation"
             placeholder="Must be 8 characters"
             :isPassword="true"
+            rules="required|confirmed:password"
+            :error="errors['password_confirmation'] ? true : false"
           />
           <InputRadio
             label="I accept the terms and privacy policy"
             identifier="terms_and_policy"
+            rules="requiredCheckbox"
           />
           <button-submit>Sign up</button-submit>
+          <p>{{ errors }}</p>
         </ValidationForm>
       </div>
       <LinkAuthentication class="hidden sm:block" auth="login" link="/login" />
@@ -89,7 +96,7 @@ export default {
   },
 
   methods: {
-    async onSubmit(values, { setErrors, resetForm }) {
+    async onSubmit(values, { resetForm, setErrors }) {
       try {
         const response = await instance.register(values);
 
@@ -103,61 +110,6 @@ export default {
       } catch (err) {
         setErrors(err.response.data.errors);
       }
-    },
-
-    validateUsername(value) {
-      if (!value || value.trim().length === 0) {
-        return "Username is required";
-      }
-
-      if (value.trim().length < 3) {
-        return "Username must be at least 3 characters long.";
-      }
-
-      return true;
-    },
-
-    validateEmail(value) {
-      if (!value || value.trim().length === 0) {
-        return "Email is required";
-      }
-
-      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      if (!regex.test(value)) {
-        return "Email must be a valid email";
-      }
-
-      return true;
-    },
-
-    validatePassword(value) {
-      if (!value || value.trim().length === 0) {
-        return "Password is required";
-      }
-
-      if (value.trim().length < 3) {
-        return "Password must be at least 3 characters long.";
-      }
-
-      return true;
-    },
-
-    validatePasswordConfirmation(value) {
-      if (!value || value.trim().length === 0) {
-        return "Password confirmation is required";
-      }
-      if (value !== this.password) {
-        return "Provided passwords do not match";
-      }
-      return true;
-    },
-
-    validateTermsAndPolicy(value) {
-      if (!value) {
-        return "You must agree to our terms and policy.";
-      }
-
-      return true;
     },
   },
 };

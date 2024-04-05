@@ -9,7 +9,7 @@
         <heading-form>Reset password</heading-form>
         <span>Please, type something you'll remember.</span>
       </wrappers-form-control>
-      <ValidationForm @submit="onSubmit">
+      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
         <InputAuth
           label="New password"
           type="password"
@@ -17,6 +17,8 @@
           id="password"
           placeholder="Must be 8 characters"
           :isPasswordInput="true"
+          rules="required|minLength:3"
+          :error="errors['password'] ? true : false"
         />
         <InputAuth
           label="Confirm password"
@@ -25,6 +27,8 @@
           id="password_confirmation"
           placeholder="Repeat Password"
           :isPasswordInput="true"
+          rules="required|confirmed:password"
+          :error="errors['password_confirmation'] ? true : false"
         />
         <button-submit>Reset password</button-submit>
       </ValidationForm>
@@ -62,16 +66,20 @@ export default {
     ValidationForm,
   },
 
-  methods: {
-    async checkResetLinkExpiration() {
-      const url = this.$route.query.email.split("?token=");
-      const email = url[0];
-      const token = url[1];
+  data() {
+    return {
+      email: this.$route.query.email,
+      token: this.$route.query.token,
+    };
+  },
 
+  methods: {
+    async checkPasswordResetExpiration() {
       try {
-        await instance.checkResetLinkExpiration(email, token);
+        await instance.checkPasswordResetExpiration(this.email, this.token);
       } catch (err) {
         if (err.response.status === 403) {
+          this.$router.push({ name: "login" });
           this.showToastNotification(
             "error",
             err.response.data.title,
@@ -82,12 +90,12 @@ export default {
     },
 
     async onSubmit(values, { resetForm }) {
-      const url = this.$route.query.email.split("?token=");
-      const email = url[0];
-      const token = url[1];
-
       try {
-        const response = await instance.resetPassword(values, email, token);
+        const response = await instance.resetPassword(
+          values,
+          this.email,
+          this.token,
+        );
         resetForm();
 
         this.showToastNotification(
@@ -108,7 +116,7 @@ export default {
   },
 
   mounted() {
-    this.checkResetLinkExpiration();
+    this.checkPasswordResetExpiration();
   },
 };
 </script>

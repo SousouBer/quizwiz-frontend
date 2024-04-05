@@ -43,7 +43,7 @@ instance.resetPassword = async function (payload, email, token) {
 
 instance.checkPasswordResetExpiration = async function (email, token) {
   await instance.get("/sanctum/csrf-cookie");
-  return await instance.post(
+  return await instance.get(
     `/api/reset-password/${email}/${token}/check-expiration`,
   );
 };

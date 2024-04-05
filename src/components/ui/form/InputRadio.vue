@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-row items-center gap-3 my-6 relative">
-    <input
+    <Field
       class="w-5 h-5 input-radio"
-      type="radio"
+      type="chckbox"
       :id="identifier"
       :name="identifier"
     />
@@ -18,9 +18,11 @@
 
 <script>
 import IconTick from "@/components/icons/IconTick.vue";
+import { Field } from "vee-validate";
 
 export default {
   components: {
+    Field,
     IconTick,
   },
   props: {

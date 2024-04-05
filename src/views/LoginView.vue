@@ -13,14 +13,15 @@
         <layouts-link-authentication>
           <LinkAuthentication auth="register" link="/register" />
         </layouts-link-authentication>
-        <ValidationForm @submit="onSubmit">
+        <ValidationForm v-slot="{ errors }" @submit="onSubmit">
           <InputAuth
             label="Email address"
             type="email"
             id="email"
             name="email"
             placeholder="Your email"
-            :rules="validateEmail"
+            rules="required|email"
+            :error="errors['email'] ? true : false"
             @input-change="updateUserEmail"
           />
           <InputAuth
@@ -30,7 +31,8 @@
             name="password"
             placeholder="Your Password"
             :isPassword="true"
-            :rules="validatePassword"
+            rules="required"
+            :error="errors['password'] ? true : false"
           />
           <div class="flex justify-between py-2">
             <div class="flex gap-3 items-center">
@@ -128,6 +130,7 @@ export default {
         );
       } catch (err) {
         setErrors(err.response.data);
+        console.log(err);
       }
     },
     async verifyEmail(verificationUrl) {
@@ -193,31 +196,6 @@ export default {
           );
         }
       }
-    },
-
-    validateEmail(value) {
-      if (!value || value.trim().length === 0) {
-        return "Email is required";
-      }
-
-      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      if (!regex.test(value)) {
-        return "Email must be a valid email";
-      }
-
-      return true;
-    },
-
-    validatePassword(value) {
-      if (!value || value.trim().length === 0) {
-        return "Password is required";
-      }
-
-      if (value.trim().length < 3) {
-        return "Password must be at least 3 characters long.";
-      }
-
-      return true;
     },
   },
 

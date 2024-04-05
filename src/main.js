@@ -4,6 +4,7 @@ import "@/assets/styles.css";
 import { createApp } from "vue";
 import App from "@/App.vue";
 import router from "@/router";
+import "./validators";
 
 const app = createApp(App);
 
