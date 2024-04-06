@@ -39,7 +39,7 @@
             label="Remember for 30 days"
             name="remember"
           />
-          <router-link to="/forgot-password" class="text-sm"
+          <router-link :to="{ name: 'forgotPassword' }" class="text-sm"
             >Forgot password?</router-link
           >
         </div>

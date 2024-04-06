@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row items-center gap-3 my-6 relative">
+  <div class="flex flex-row items-center gap-3 relative">
     <Field
       class="w-5 h-5 input-checkbox"
       type="checkbox"
