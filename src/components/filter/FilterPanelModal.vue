@@ -1,15 +1,21 @@
 <template>
-  <div class="w-2/3 p-2 border border-black">
+  <div class="w-2/3 p-2 border rounded-xl border-black bg-white">
     <div
-      class="flex items-center justify-center gap-4 p-4 bg-gray-200 rounded-2xl"
+      class="flex items-center justify-center gap-4 p-4 rounded-2xl bg-very-light-gray"
     >
       <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
-      <input class="w-full" type="text" placeholder="Search" />
-      <IconX class="w-6 h-6" />
+      <FilterPanelModalSearchInput />
+      <IconX
+        @click="closeFilterModal"
+        height="24"
+        width="24"
+        color="#374957"
+        class="cursor-pointer"
+      />
     </div>
     <div class="flex gap-2">
-      <FilterPanelModalFilterBy />
-      <FilterPanelModalSortBy />
+      <FilterPanelModalFilterBy class="w-3/5" />
+      <FilterPanelModalSortBy class="flex-grow" />
     </div>
   </div>
 </template>
@@ -19,13 +25,21 @@ import FilterPanelModalFilterBy from "@/components/filter/FilterPanelModalFilter
 import FilterPanelModalSortBy from "@/components/filter/FilterPanelModalSortBy.vue";
 import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter.vue";
 import IconX from "@/components/icons/IconX.vue";
+import FilterPanelModalSearchInput from "@/components/filter/FilterPanelModalSearchInput.vue";
 
 export default {
   components: {
     FilterPanelModalFilterBy,
     FilterPanelModalSortBy,
     FilterPanelToggleFilter,
+    FilterPanelModalSearchInput,
     IconX,
+  },
+
+  methods: {
+    closeFilterModal() {
+      this.$emit("close-filter-modal");
+    },
   },
 };
 </script>

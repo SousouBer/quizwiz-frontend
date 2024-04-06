@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import QuizzesView from "@/views/QuizzesView.vue";
 import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
 import ForgotPasswordView from "@/views/ForgotPasswordView.vue";
 import ResetPasswordView from "@/views/ResetPasswordView.vue";
+
+import QuizzesView from "@/views/QuizzesView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,7 @@ const router = createRouter({
     },
     {
       path: "/landing",
+      name: "landing",
       component: LandingView,
     },
     {

@@ -9,13 +9,23 @@
         filterType="Levels"
         classNames="flex flex-wrap gap-2"
       >
-        <FilterPanelSelectionChip label="Starter" :isModalChip="true" />
+        <FilterPanelSelectionChip
+          label="Starter"
+          color="white"
+          backgroundColor="black"
+          :isModalChip="true"
+        />
       </layouts-filter-and-sort-by>
       <layouts-filter-and-sort-by
         filterType="Categories"
         classNames="flex flex-wrap gap-2"
       >
-        <FilterPanelSelectionChip label="Science" :isModalChip="true" />
+        <FilterPanelSelectionChip
+          label="Science"
+          color="white"
+          backgroundColor="black"
+          :isModalChip="true"
+        />
       </layouts-filter-and-sort-by>
     </div>
   </layouts-filter-rounded-border>

@@ -8,7 +8,12 @@
     >
       <IconCategorySlider />
     </div>
-    <FilterPanelToggleFilter />
+    <FilterPanelToggleFilter @click="toggleFilterModal" />
+    <FilterPanelModal
+      v-if="showFilterModal"
+      class="absolute z-50 top-0 right-0 transform translate-y-1/4 -translate-x-24"
+      @close-filter-modal="toggleFilterModal"
+    />
   </div>
 </template>
 
@@ -16,12 +21,26 @@
 import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter.vue";
 import IconCategorySlider from "@/components/icons/IconCategorySlider.vue";
 import FilterPanelSelectionChip from "@/components/filter/FilterPanelSelectionChip.vue";
+import FilterPanelModal from "@/components/filter/FilterPanelModal.vue";
 
 export default {
   components: {
     FilterPanelToggleFilter,
     FilterPanelSelectionChip,
+    FilterPanelModal,
     IconCategorySlider,
+  },
+
+  data() {
+    return {
+      showFilterModal: false,
+    };
+  },
+
+  methods: {
+    toggleFilterModal() {
+      this.showFilterModal = !this.showFilterModal;
+    },
   },
 };
 </script>
