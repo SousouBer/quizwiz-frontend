@@ -1,5 +1,5 @@
 <template>
-  <TheHeader />
+  <!-- <TheHeader /> -->
   <main>
     <FilterPanel />
   </main>
@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import TheHeader from "@/components/shared/TheHeader.vue";
+// import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
 import FilterPanel from "@/components/filter/FilterPanel.vue";
 
 export default {
   components: {
-    TheHeader,
+    // TheHeader,
     TheFooter,
     FilterPanel,
   },

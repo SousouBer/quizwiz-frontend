@@ -5,10 +5,14 @@
     >
       <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
       <FilterPanelModalSearchInput />
+      <div class="flex items-center gap-9">
+        <FilterPanelModalButtonAction actionType="confirm" />
+        <FilterPanelModalButtonAction actionType="reset" />
+      </div>
       <IconX
         @click="closeFilterModal"
-        height="24"
-        width="24"
+        height="40"
+        width="40"
         color="#374957"
         class="cursor-pointer"
       />
@@ -26,6 +30,7 @@ import FilterPanelModalSortBy from "@/components/filter/FilterPanelModalSortBy.v
 import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter.vue";
 import IconX from "@/components/icons/IconX.vue";
 import FilterPanelModalSearchInput from "@/components/filter/FilterPanelModalSearchInput.vue";
+import FilterPanelModalButtonAction from "@/components/filter/FilterPanelModalButtonAction.vue";
 
 export default {
   components: {
@@ -33,6 +38,7 @@ export default {
     FilterPanelModalSortBy,
     FilterPanelToggleFilter,
     FilterPanelModalSearchInput,
+    FilterPanelModalButtonAction,
     IconX,
   },
 
