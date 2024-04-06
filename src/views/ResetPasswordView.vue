@@ -49,7 +49,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 
-import instance from "../services/Auth";
+import instance from "@/services/Auth";
 
 export default {
   inject: ["showToastNotification"],

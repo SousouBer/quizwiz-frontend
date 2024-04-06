@@ -4,6 +4,7 @@
       class="w-5 h-5 input-checkbox"
       type="checkbox"
       :name="name"
+      :rules="rules"
       v-model="isChecked"
     />
     <IconTick
@@ -31,6 +32,10 @@ export default {
       required: true,
     },
     name: {
+      type: String,
+      required: true,
+    },
+    rules: {
       type: String,
       required: true,
     },

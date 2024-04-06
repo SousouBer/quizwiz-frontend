@@ -43,15 +43,15 @@
             >Forgot password?</router-link
           >
         </div>
-        <button-submit>Log in</button-submit>
+        <button-submit v-if="!showResendEmailVerificationLink"
+          >Log in</button-submit
+        >
       </ValidationForm>
       <form
         v-if="showResendEmailVerificationLink"
         @submit.prevent="onResendLink"
       >
-        <button class="uppercase font-bold">
-          Resend email confirmation link
-        </button>
+        <button-submit>Resend email confirmation link</button-submit>
       </form>
       <LinkAuthentication class="hidden sm:block" auth="register" />
     </layouts-form>
@@ -71,7 +71,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import instance from "../services/Auth";
+import instance from "@/services/Auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -114,7 +114,6 @@ export default {
         );
       } catch (err) {
         setErrors(err.response.data);
-        console.log(err);
       }
     },
     async verifyEmail(verificationUrl) {
