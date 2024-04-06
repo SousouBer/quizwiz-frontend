@@ -32,7 +32,7 @@
         />
         <button-submit>Reset password</button-submit>
       </ValidationForm>
-      <LinkAuthentication auth="login" link="/login" />
+      <LinkAuthentication auth="login" />
     </layouts-form>
   </layouts-auth-main>
 </template>

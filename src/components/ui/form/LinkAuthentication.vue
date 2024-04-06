@@ -3,7 +3,7 @@
     <span class="text-sm"
       >{{ question }}
       <router-link
-        :to="link"
+        :to="{ name: auth }"
         class="text-cerulean-blue font-semibold text-sm"
         >{{ loginOrSignUp }}</router-link
       ></span
@@ -14,8 +14,10 @@
 <script>
 export default {
   props: {
-    auth: String,
-    link: String,
+    auth: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {

@@ -10,9 +10,9 @@
           <heading-form>Hi, Welcome!</heading-form>
           <iconHand />
         </div>
-        <layouts-link-authentication>
-          <LinkAuthentication auth="register" link="/register" />
-        </layouts-link-authentication>
+        <wrappers-link-authentication>
+          <LinkAuthentication auth="register" />
+        </wrappers-link-authentication>
         <ValidationForm v-slot="{ errors }" @submit="onSubmit">
           <InputAuth
             label="Email address"
@@ -59,11 +59,7 @@
             Resend email confirmation link
           </button>
         </form>
-        <LinkAuthentication
-          class="hidden sm:block"
-          auth="register"
-          link="/register"
-        />
+        <LinkAuthentication class="hidden sm:block" auth="register" />
       </div>
     </layouts-form>
     <form @submit.prevent="logout">
@@ -81,7 +77,7 @@ import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
+import WrappersLinkAuthentication from "@/components/wrappers/WrappersLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
 
@@ -99,7 +95,7 @@ export default {
     IconHand,
     LayoutsForm,
     LayoutsAuthImage,
-    LayoutsLinkAuthentication,
+    WrappersLinkAuthentication,
     LayoutsAuthMain,
     InputAuth,
     ValidationForm,

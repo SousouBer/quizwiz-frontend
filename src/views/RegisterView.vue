@@ -9,9 +9,9 @@
         <div class="sm:justify-start flex justify-center">
           <heading-form class="sm:mb-12">Create account</heading-form>
         </div>
-        <layouts-link-authentication>
+        <wrappers-link-authentication>
           <LinkAuthentication auth="login" link="/login" />
-        </layouts-link-authentication>
+        </wrappers-link-authentication>
         <ValidationForm v-slot="{ errors }" @submit="onSubmit">
           <InputAuth
             label="Username"
@@ -57,10 +57,9 @@
             rules="requiredCheckbox"
           />
           <button-submit>Sign up</button-submit>
-          <p>{{ errors }}</p>
         </ValidationForm>
       </div>
-      <LinkAuthentication class="hidden sm:block" auth="login" link="/login" />
+      <LinkAuthentication class="hidden sm:block" auth="login" />
     </layouts-form>
   </layouts-auth-main>
 </template>
@@ -71,7 +70,7 @@ import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import LayoutsLinkAuthentication from "@/components/layouts/LayoutsLinkAuthentication.vue";
+import WrappersLinkAuthentication from "@/components/wrappers/WrappersLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputRadio from "@/components/ui/form/InputRadio.vue";
@@ -88,7 +87,7 @@ export default {
     ButtonSubmit,
     LayoutsForm,
     LayoutsAuthImage,
-    LayoutsLinkAuthentication,
+    WrappersLinkAuthentication,
     LayoutsAuthMain,
     ValidationForm,
     InputAuth,
