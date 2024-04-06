@@ -33,17 +33,12 @@
           rules="required"
           :error="errors['password'] ? true : false"
         />
-        <div class="flex justify-between py-2">
-          <div class="flex gap-3 items-center">
-            <inputBase
-              inputType="checkbox"
-              inputId="remember"
-              inputName="remember"
-              inputPlaceholder="Remember me"
-              ref="remember"
-            />
-            <label-base labelFor="remember">Remember for 30 days</label-base>
-          </div>
+        <div class="flex justify-between items-center my-2">
+          <InputCheckbox
+            class="my-2"
+            label="Remember for 30 days"
+            name="remember"
+          />
           <router-link to="/forgot-password" class="text-sm"
             >Forgot password?</router-link
           >
@@ -66,8 +61,6 @@
 <script>
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
-import InputBase from "@/components/ui/form/InputBase.vue";
-import LabelBase from "@/components/ui/form/LabelBase.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import IconHand from "@/components/icons/IconHand.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
@@ -75,6 +68,7 @@ import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
 import WrappersLinkAuthentication from "@/components/wrappers/WrappersLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
+import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 import instance from "../services/Auth";
@@ -84,8 +78,6 @@ export default {
   components: {
     HeadingForm,
     LinkAuthentication,
-    InputBase,
-    LabelBase,
     ButtonSubmit,
     IconHand,
     LayoutsForm,
@@ -94,6 +86,7 @@ export default {
     LayoutsAuthMain,
     InputAuth,
     ValidationForm,
+    InputCheckbox,
   },
 
   data() {

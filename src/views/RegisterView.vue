@@ -50,9 +50,9 @@
           rules="required|confirmed:password"
           :error="errors['password_confirmation'] ? true : false"
         />
-        <InputRadio
+        <InputCheckbox
           label="I accept the terms and privacy policy"
-          identifier="terms_and_policy"
+          name="terms"
           rules="requiredCheckbox"
         />
         <button-submit>Sign up</button-submit>
@@ -71,7 +71,7 @@ import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
 import WrappersLinkAuthentication from "@/components/wrappers/WrappersLinkAuthentication.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
-import InputRadio from "@/components/ui/form/InputRadio.vue";
+import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 import instance from "../services/Auth";
@@ -89,7 +89,7 @@ export default {
     LayoutsAuthMain,
     ValidationForm,
     InputAuth,
-    InputRadio,
+    InputCheckbox,
   },
 
   methods: {
