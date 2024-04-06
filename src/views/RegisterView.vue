@@ -5,60 +5,58 @@
       srcLink="/images/registration-cover.svg"
     />
     <layouts-form>
-      <div class="px-4">
-        <div class="sm:justify-start flex justify-center">
-          <heading-form class="sm:mb-12">Create account</heading-form>
-        </div>
-        <wrappers-link-authentication>
-          <LinkAuthentication auth="login" link="/login" />
-        </wrappers-link-authentication>
-        <ValidationForm v-slot="{ errors }" @submit="onSubmit">
-          <InputAuth
-            label="Username"
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Your username"
-            rules="required|minLength:3"
-            :error="errors['username'] ? true : false"
-          />
-          <InputAuth
-            label="Email address"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email"
-            rules="required|email"
-            :error="errors['email'] ? true : false"
-          />
-          <InputAuth
-            label="Create a password"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Must be 3 characters"
-            :isPassword="true"
-            rules="required|minLength:3"
-            :error="errors['password'] ? true : false"
-          />
-          <InputAuth
-            label="Confirm password"
-            type="password"
-            id="password_confirmation"
-            name="password_confirmation"
-            placeholder="Must be 8 characters"
-            :isPassword="true"
-            rules="required|confirmed:password"
-            :error="errors['password_confirmation'] ? true : false"
-          />
-          <InputRadio
-            label="I accept the terms and privacy policy"
-            identifier="terms_and_policy"
-            rules="requiredCheckbox"
-          />
-          <button-submit>Sign up</button-submit>
-        </ValidationForm>
+      <div class="sm:justify-start flex justify-center">
+        <heading-form class="sm:mb-12">Create account</heading-form>
       </div>
+      <wrappers-link-authentication>
+        <LinkAuthentication auth="login" />
+      </wrappers-link-authentication>
+      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
+        <InputAuth
+          label="Username"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Your username"
+          rules="required|minLength:3"
+          :error="errors['username'] ? true : false"
+        />
+        <InputAuth
+          label="Email address"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your email"
+          rules="required|email"
+          :error="errors['email'] ? true : false"
+        />
+        <InputAuth
+          label="Create a password"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Must be 3 characters"
+          :isPassword="true"
+          rules="required|minLength:3"
+          :error="errors['password'] ? true : false"
+        />
+        <InputAuth
+          label="Confirm password"
+          type="password"
+          id="password_confirmation"
+          name="password_confirmation"
+          placeholder="Must be 8 characters"
+          :isPassword="true"
+          rules="required|confirmed:password"
+          :error="errors['password_confirmation'] ? true : false"
+        />
+        <InputRadio
+          label="I accept the terms and privacy policy"
+          identifier="terms_and_policy"
+          rules="requiredCheckbox"
+        />
+        <button-submit>Sign up</button-submit>
+      </ValidationForm>
       <LinkAuthentication class="hidden sm:block" auth="login" />
     </layouts-form>
   </layouts-auth-main>

@@ -5,66 +5,61 @@
       srcLink="/images/login-cover.svg"
     />
     <layouts-form>
-      <div class="px-4">
-        <div class="flex gap-2 sm:mb-12 justify-center sm:justify-start">
-          <heading-form>Hi, Welcome!</heading-form>
-          <iconHand />
-        </div>
-        <wrappers-link-authentication>
-          <LinkAuthentication auth="register" />
-        </wrappers-link-authentication>
-        <ValidationForm v-slot="{ errors }" @submit="onSubmit">
-          <InputAuth
-            label="Email address"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email"
-            rules="required|email"
-            :error="errors['email'] ? true : false"
-            @input-change="updateUserEmail"
-          />
-          <InputAuth
-            label="Password"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Your Password"
-            :isPassword="true"
-            rules="required"
-            :error="errors['password'] ? true : false"
-          />
-          <div class="flex justify-between py-2">
-            <div class="flex gap-3 items-center">
-              <inputBase
-                inputType="checkbox"
-                inputId="remember"
-                inputName="remember"
-                inputPlaceholder="Remember me"
-                ref="remember"
-              />
-              <label-base labelFor="remember">Remember for 30 days</label-base>
-            </div>
-            <router-link to="/forgot-password" class="text-sm"
-              >Forgot password?</router-link
-            >
-          </div>
-          <button-submit>Log in</button-submit>
-        </ValidationForm>
-        <form
-          v-if="showResendEmailVerificationLink"
-          @submit.prevent="onResendLink"
-        >
-          <button class="uppercase font-bold">
-            Resend email confirmation link
-          </button>
-        </form>
-        <LinkAuthentication class="hidden sm:block" auth="register" />
+      <div class="flex gap-2 sm:mb-12 justify-center sm:justify-start">
+        <heading-form>Hi, Welcome!</heading-form>
+        <iconHand />
       </div>
+      <wrappers-link-authentication>
+        <LinkAuthentication auth="register" />
+      </wrappers-link-authentication>
+      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
+        <InputAuth
+          label="Email address"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your email"
+          rules="required|email"
+          :error="errors['email'] ? true : false"
+          @input-change="updateUserEmail"
+        />
+        <InputAuth
+          label="Password"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Your Password"
+          :isPassword="true"
+          rules="required"
+          :error="errors['password'] ? true : false"
+        />
+        <div class="flex justify-between py-2">
+          <div class="flex gap-3 items-center">
+            <inputBase
+              inputType="checkbox"
+              inputId="remember"
+              inputName="remember"
+              inputPlaceholder="Remember me"
+              ref="remember"
+            />
+            <label-base labelFor="remember">Remember for 30 days</label-base>
+          </div>
+          <router-link to="/forgot-password" class="text-sm"
+            >Forgot password?</router-link
+          >
+        </div>
+        <button-submit>Log in</button-submit>
+      </ValidationForm>
+      <form
+        v-if="showResendEmailVerificationLink"
+        @submit.prevent="onResendLink"
+      >
+        <button class="uppercase font-bold">
+          Resend email confirmation link
+        </button>
+      </form>
+      <LinkAuthentication class="hidden sm:block" auth="register" />
     </layouts-form>
-    <form @submit.prevent="logout">
-      <button>Log out</button>
-    </form>
   </layouts-auth-main>
 </template>
 

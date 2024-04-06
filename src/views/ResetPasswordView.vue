@@ -5,10 +5,10 @@
       srcLink="/images/reset-password-cover.svg"
     />
     <layouts-form>
-      <wrappers-form-control class="gap-4 mb-12">
+      <wrappers-form-heading class="gap-4 mb-12">
         <heading-form>Reset password</heading-form>
         <span>Please, type something you'll remember.</span>
-      </wrappers-form-control>
+      </wrappers-form-heading>
       <ValidationForm v-slot="{ errors }" @submit="onSubmit">
         <InputAuth
           label="New password"
@@ -43,7 +43,7 @@ import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
 import LinkAuthentication from "@/components/ui/form/LinkAuthentication.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
-import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
+import WrappersFormHeading from "@/components/wrappers/WrappersFormHeading.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
 
@@ -60,7 +60,7 @@ export default {
     LinkAuthentication,
     LayoutsAuthImage,
     LayoutsForm,
-    WrappersFormControl,
+    WrappersFormHeading,
     LayoutsAuthMain,
     InputAuth,
     ValidationForm,
