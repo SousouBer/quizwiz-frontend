@@ -5,9 +5,12 @@
     >
       <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
       <FilterPanelModalSearchInput />
-      <div class="flex items-center gap-9">
+      <div class="flex items-center gap-9 relative">
         <FilterPanelModalButtonAction actionType="confirm" />
         <FilterPanelModalButtonAction actionType="reset" />
+        <IconMiddleLine
+          class="absolute top-1/2 left-1/2 transform -translate-y-1/2 translate-x-1"
+        />
       </div>
       <IconX
         @click="closeFilterModal"
@@ -31,6 +34,7 @@ import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter
 import IconX from "@/components/icons/IconX.vue";
 import FilterPanelModalSearchInput from "@/components/filter/FilterPanelModalSearchInput.vue";
 import FilterPanelModalButtonAction from "@/components/filter/FilterPanelModalButtonAction.vue";
+import IconMiddleLine from "@/components/icons/IconMiddleLine.vue";
 
 export default {
   components: {
@@ -40,6 +44,7 @@ export default {
     FilterPanelModalSearchInput,
     FilterPanelModalButtonAction,
     IconX,
+    IconMiddleLine,
   },
 
   methods: {
