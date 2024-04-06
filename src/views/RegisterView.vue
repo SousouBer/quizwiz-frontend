@@ -51,6 +51,7 @@
           :error="errors['password_confirmation'] ? true : false"
         />
         <InputCheckbox
+          class="my-6"
           label="I accept the terms and privacy policy"
           name="terms"
           rules="requiredCheckbox"

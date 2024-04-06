@@ -6,7 +6,7 @@
     <div class="relative">
       <Field
         :class="{ 'border-salmon-pink': error }"
-        class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border w-full"
+        class="text-grayish-blue placeholder:text-grayish-blue text-base rounded-xl py-4 px-4.5 border w-full focus:outline-blue-400"
         :type="changeType"
         :id="id"
         :name="name"
