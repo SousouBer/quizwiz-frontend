@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import QuizzesView from "@/views/QuizzesView.vue";
 import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
@@ -31,8 +31,12 @@ const router = createRouter({
     },
     {
       path: "/landing",
-      name: "landing",
       component: LandingView,
+    },
+    {
+      path: "/quizzes",
+      name: "quizzes",
+      component: QuizzesView,
     },
   ],
 });
