@@ -15,7 +15,9 @@
         class="sm:hidden font-semibold"
       />
       <FilterPanelModalSearchInput class="hidden sm:block" />
-      <span class="font-semibold uppercase text-medium-dark-gray">Filters</span>
+      <span class="font-semibold uppercase text-medium-dark-gray sm:hidden"
+        >Filters</span
+      >
       <div class="items-center gap-9 relative hidden sm:flex">
         <FilterPanelModalButtonAction actionType="confirm" text="Confirm" />
         <FilterPanelModalButtonAction
@@ -37,19 +39,11 @@
     <FilterPanelModalSearchInput class="sm:hidden" />
 
     <div class="sm:flex sm:gap-2 bg-white">
-      <div class="flex items-center justify-center py-4">
-        <div
-          class="flex items-center justify-center text-center w-11/12 bg-gray-100 rounded-3xl"
-        >
-          <span class="font-semibold inline-block py-3 w-1/2">Filter</span>
-          <span
-            class="font-semibold inline-blocl py-3 w-1/2 rounded-3xl border border-light-gray bg-white text-saturated-blue"
-            >Sorting</span
-          >
-        </div>
-      </div>
-      <FilterPanelModalFilterBy class="sm:w-3/5" />
-      <FilterPanelModalSortBy class="hidden sm:flex-grow" />
+      <FilterPanelModalButtonsFilterSort
+        @toggle-selection-buttons="toggleFilterAndSort"
+      />
+      <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
+      <FilterPanelModalSortBy v-else class="sm:flex-grow" />
     </div>
   </div>
 </template>
@@ -62,6 +56,7 @@ import IconX from "@/components/icons/IconX.vue";
 import FilterPanelModalSearchInput from "@/components/filter/FilterPanelModalSearchInput.vue";
 import FilterPanelModalButtonAction from "@/components/filter/FilterPanelModalButtonAction.vue";
 import IconMiddleLine from "@/components/icons/IconMiddleLine.vue";
+import FilterPanelModalButtonsFilterSort from "@/components/filter/FilterPanelModalButtonsFilterSort.vue";
 
 export default {
   components: {
@@ -70,13 +65,24 @@ export default {
     FilterPanelToggleFilter,
     FilterPanelModalSearchInput,
     FilterPanelModalButtonAction,
+    FilterPanelModalButtonsFilterSort,
     IconX,
     IconMiddleLine,
+  },
+
+  data() {
+    return {
+      showFilter: false,
+    };
   },
 
   methods: {
     closeFilterModal() {
       this.$emit("close-filter-modal");
+    },
+
+    toggleFilterAndSort(value) {
+      this.showFilter = value;
     },
   },
 };
