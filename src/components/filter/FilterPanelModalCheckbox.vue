@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-2 mb-4">
     <label class="font-semibold" :for="labelFor">{{ labelFor }}</label>
     <div class="flex items-center relative">
       <input :class="checkboxClass" type="checkbox" v-model="isChecked" />
