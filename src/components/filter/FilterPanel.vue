@@ -11,7 +11,6 @@
     <FilterPanelToggleFilter @click="toggleFilterModal" />
     <FilterPanelModal
       v-if="showFilterModal"
-      class="absolute z-50 top-0 right-0 transform translate-y-1/4 -translate-x-24"
       @close-filter-modal="toggleFilterModal"
     />
   </div>

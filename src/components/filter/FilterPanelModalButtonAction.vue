@@ -7,7 +7,7 @@
     }"
     class="whitespace-nowrap cursor-pointer transition-all duration-300"
   >
-    {{ buttonType }}
+    {{ text }}
   </button>
 </template>
 
@@ -18,16 +18,9 @@ export default {
       type: String,
       required: true,
     },
-  },
-
-  computed: {
-    buttonType() {
-      if (this.actionType === "confirm") {
-        return "Confirm";
-      } else if (this.actionType === "reset") {
-        return "Reset all filters";
-      }
-      return "";
+    text: {
+      type: String,
+      required: true,
     },
   },
 };

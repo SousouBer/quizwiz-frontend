@@ -1,6 +1,6 @@
 <template>
   <layouts-filter-rounded-border>
-    <div>
+    <div class="w-full sm:w-auto">
       <layouts-filter-and-sort-by filterType="Filter by">
         <FilterPanelModalCheckbox labelFor="My quizzes" />
         <FilterPanelModalCheckbox labelFor="Not completed" />

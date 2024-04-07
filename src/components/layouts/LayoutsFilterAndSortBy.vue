@@ -15,6 +15,7 @@ export default {
     filterType: {
       type: String,
       required: true,
+      default: "",
     },
     classNames: {
       type: String,
