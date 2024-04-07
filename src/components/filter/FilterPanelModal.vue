@@ -45,6 +45,13 @@
       <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
       <FilterPanelModalSortBy v-else class="sm:flex-grow" />
     </div>
+    <div class="sm:hidden absolute bottom-0 left-0 w-full p-4 bg-white">
+      <FilterPanelModalButtonAction
+        actionType="confirm"
+        text="Confirm"
+        class="py-4 w-full"
+      />
+    </div>
   </div>
 </template>
 

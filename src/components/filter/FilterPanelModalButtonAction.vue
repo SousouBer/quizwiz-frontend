@@ -5,7 +5,7 @@
         actionType === 'confirm',
       'font-normal text-medium-dark-gray ': actionType === 'reset',
     }"
-    class="whitespace-nowrap cursor-pointer transition-all duration-300"
+    class="text-lg sm:text-sm whitespace-nowrap cursor-pointer transition-all duration-300"
   >
     {{ text }}
   </button>
