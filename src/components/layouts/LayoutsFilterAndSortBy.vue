@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b py-3">
+  <div class="border-b py-3 w-full">
     <span
       :class="{
         hidden: filterType === 'Filter by' || filterType === 'Sort by',

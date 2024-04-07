@@ -5,16 +5,13 @@
     <div
       class="flex items-center justify-between sm:justify-center gap-4 py-7 px-4 sm:py-4 rounded-2xl bg-very-light-gray"
     >
-      <FilterPanelToggleFilter
-        :modalToggleButton="true"
-        class="hidden sm:inline-block bg-black"
-      />
+      <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
       <FilterPanelModalButtonAction
         actionType="reset"
         text="Reset"
         class="sm:hidden font-semibold"
       />
-      <FilterPanelModalSearchInput class="hidden sm:block" />
+      <FilterPanelModalSearchInput class="hidden sm:flex" />
       <span class="font-semibold uppercase text-medium-dark-gray sm:hidden"
         >Filters</span
       >

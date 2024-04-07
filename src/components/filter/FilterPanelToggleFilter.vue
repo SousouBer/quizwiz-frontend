@@ -4,7 +4,7 @@
       'cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
         !modalToggleButton,
     }"
-    class="relative flex items-center justify-center gap-3 px-4 py-2 rounded-xl"
+    class="hidden sm:flex relative items-center justify-center gap-3 px-4 py-2 rounded-xl"
   >
     <IconFilterSettings :color="filterIconColor" />
     <span
