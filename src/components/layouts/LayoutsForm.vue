@@ -1,12 +1,12 @@
 <template>
   <div class="py-4 px-8 sm:p-16 sm:pr-56 sm:pt-14 flex-grow">
     <LinkBack />
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
-import LinkBack from "@/components/ui/links/LinkBack.vue";
+import LinkBack from "@/components/shared/LinkBack.vue";
 
 export default {
   components: {
