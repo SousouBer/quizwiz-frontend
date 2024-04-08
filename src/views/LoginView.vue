@@ -71,7 +71,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import instance from "@/services/Auth";
+import instance from "@/services/auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -192,3 +192,4 @@ export default {
   },
 };
 </script>
+@/services/auth
