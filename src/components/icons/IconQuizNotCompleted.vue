@@ -48,7 +48,7 @@ export default {
     backgroundColor: {
       type: String,
       required: true,
-      default: "374957",
+      default: "#374957",
     },
   },
 };
