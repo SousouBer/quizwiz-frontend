@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ToastMessage from "@/components/toastMessages/ToastMessage.vue";
+import ToastMessage from "@/components/ToastMessage.vue";
 export default {
   components: {
     ToastMessage,
