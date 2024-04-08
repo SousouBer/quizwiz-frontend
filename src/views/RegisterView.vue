@@ -11,7 +11,7 @@
       <wrappers-link-authentication>
         <LinkAuthentication auth="login" />
       </wrappers-link-authentication>
-      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
+      <ValidationForm v-slot="{ errors }" @submit="handleSubmit">
         <InputAuth
           label="Username"
           type="text"
@@ -94,7 +94,7 @@ export default {
   },
 
   methods: {
-    async onSubmit(values, { resetForm, setErrors }) {
+    async handleSubmit(values, { resetForm, setErrors }) {
       try {
         const response = await instance.register(values);
 

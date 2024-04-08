@@ -9,7 +9,7 @@
         <heading-form>Reset password</heading-form>
         <span>Please, type something you'll remember.</span>
       </wrappers-form-heading>
-      <ValidationForm v-slot="{ errors }" @submit="onSubmit">
+      <ValidationForm v-slot="{ errors }" @submit="handleSubmit">
         <InputAuth
           label="New password"
           type="password"
@@ -89,7 +89,7 @@ export default {
       }
     },
 
-    async onSubmit(values, { resetForm }) {
+    async handleSubmit(values, { resetForm }) {
       try {
         const response = await instance.resetPassword(
           values,
