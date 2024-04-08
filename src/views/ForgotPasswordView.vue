@@ -38,7 +38,7 @@ import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
 import InputAuth from "@/components/ui/form/InputAuth.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import instance from "@/plugins/axios/axios";
+import { forgotPassword } from "@/services/auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -55,8 +55,9 @@ export default {
 
   methods: {
     async handleSubmit(values, { resetForm, setErrors }) {
+      console.log(values);
       try {
-        const response = await instance.forgotPassword(values);
+        const response = await forgotPassword(values);
         resetForm();
 
         this.showToastNotification(

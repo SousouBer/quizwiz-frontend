@@ -49,7 +49,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 
 import { Form as ValidationForm } from "vee-validate";
 
-import instance from "@/plugins/axios/axios";
+import { checkPasswordResetExpiration, resetPassword } from "@/services/auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -76,8 +76,9 @@ export default {
   methods: {
     async checkPasswordResetExpiration() {
       try {
-        await instance.checkPasswordResetExpiration(this.email, this.token);
+        await checkPasswordResetExpiration(this.email, this.token);
       } catch (err) {
+        console.log(err);
         if (err.response.status === 403) {
           this.$router.push({ name: "login" });
           this.showToastNotification(
@@ -91,11 +92,7 @@ export default {
 
     async handleSubmit(values, { resetForm }) {
       try {
-        const response = await instance.resetPassword(
-          values,
-          this.email,
-          this.token,
-        );
+        const response = await resetPassword(values, this.email, this.token);
         resetForm();
 
         this.showToastNotification(
@@ -120,4 +117,3 @@ export default {
   },
 };
 </script>
-@/services/auth

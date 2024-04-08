@@ -71,7 +71,11 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import instance from "@/plugins/axios/axios";
+import {
+  login,
+  verifyEmail,
+  ResendEmailVerificationLink,
+} from "@/services/auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -103,7 +107,7 @@ export default {
 
     async handleSubmit(values, { resetForm, setErrors }) {
       try {
-        const response = await instance.login(values);
+        const response = await login(values);
 
         resetForm();
 
@@ -118,7 +122,7 @@ export default {
     },
     async verifyEmail(verificationUrl) {
       try {
-        const response = await instance.verifyEmail(verificationUrl);
+        const response = await verifyEmail(verificationUrl);
 
         this.showToastNotification(
           "success",
@@ -148,9 +152,7 @@ export default {
       this.showResendEmailVerificationLink = false;
 
       try {
-        const response = await instance.ResendEmailVerificationLink(
-          this.userEmail,
-        );
+        const response = await ResendEmailVerificationLink(this.userEmail);
 
         this.showToastNotification(
           "success",

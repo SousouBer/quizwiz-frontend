@@ -75,7 +75,7 @@ import InputAuth from "@/components/ui/form/InputAuth.vue";
 import InputCheckbox from "@/components/ui/form/InputCheckbox.vue";
 
 import { Form as ValidationForm } from "vee-validate";
-import instance from "@/plugins/axios/axios";
+import { register } from "@/services/auth";
 
 export default {
   inject: ["showToastNotification"],
@@ -96,7 +96,7 @@ export default {
   methods: {
     async handleSubmit(values, { resetForm, setErrors }) {
       try {
-        const response = await instance.register(values);
+        const response = await register(values);
 
         resetForm();
 

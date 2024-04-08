@@ -1,43 +1,43 @@
 import instance from "@/plugins/axios/axios";
 
-instance.login = async function (payload) {
+export async function login(payload) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post("/api/login", payload);
-};
+}
 
-instance.register = async function (payload) {
+export async function register(payload) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post("/api/register", payload);
-};
+}
 
-instance.ResendEmailVerificationLink = async function (email) {
+export async function ResendEmailVerificationLink(email) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post(`/api/resend-email-verification/${email}`);
-};
+}
 
-instance.logout = async function () {
+export async function logout() {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post("/api/logout");
-};
+}
 
-instance.verifyEmail = async function (url) {
+export async function verifyEmail(url) {
   await instance.get("sanctum/csrf-cookie");
   return await instance.get(`/api/verify-email/${url}`);
-};
+}
 
-instance.forgotPassword = async function (payload) {
+export async function forgotPassword(payload) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post("/api/forgot-password", payload);
-};
+}
 
-instance.resetPassword = async function (payload, email, token) {
+export async function resetPassword(payload, email, token) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post(`/api/reset-password/${email}/${token}`, payload);
-};
+}
 
-instance.checkPasswordResetExpiration = async function (email, token) {
+export async function checkPasswordResetExpiration(email, token) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.get(
     `/api/reset-password/${email}/${token}/check-expiration`,
   );
-};
+}
