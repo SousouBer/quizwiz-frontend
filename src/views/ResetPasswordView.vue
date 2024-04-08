@@ -78,7 +78,6 @@ export default {
       try {
         await checkPasswordResetExpiration(this.email, this.token);
       } catch (err) {
-        console.log(err);
         if (err.response.status === 403) {
           this.$router.push({ name: "login" });
           this.showToastNotification(
