@@ -1,10 +1,4 @@
-import axios from "axios";
-
-const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000",
-  withCredentials: true,
-  withXSRFToken: true,
-});
+import instance from "@/plugins/axios/axios";
 
 instance.login = async function (payload) {
   await instance.get("/sanctum/csrf-cookie");
@@ -47,5 +41,3 @@ instance.checkPasswordResetExpiration = async function (email, token) {
     `/api/reset-password/${email}/${token}/check-expiration`,
   );
 };
-
-export default instance;
