@@ -5,7 +5,10 @@
     <div
       class="flex items-center justify-between sm:justify-center gap-4 py-7 px-4 sm:py-4 rounded-2xl bg-very-light-gray"
     >
-      <FilterPanelToggleFilter :modalToggleButton="true" class="bg-black" />
+      <FilterPanelToggleFilter
+        :modalToggleButton="true"
+        class="bg-black hidden sm:flex"
+      />
       <FilterPanelModalButtonAction
         actionType="reset"
         text="Reset"

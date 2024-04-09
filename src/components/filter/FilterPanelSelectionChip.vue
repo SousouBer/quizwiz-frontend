@@ -3,7 +3,7 @@
     @click="toggleSelect"
     :style="modalChipClasses"
     :class="[defineSelectedClasses, defineUnselectedClasses]"
-    class="cursor-pointer rounded-3xl px-4 py-1 font-semibold whitespace-nowrap"
+    class="cursor-pointer rounded-3xl px-4 py-1 font-semibold whitespace-nowrap text-sm"
   >
     {{ label }}
   </span>

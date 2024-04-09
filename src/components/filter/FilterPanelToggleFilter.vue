@@ -1,10 +1,10 @@
 <template>
   <div
     :class="{
-      'cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
+      'ml-6 sm:ml-0 cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
         !modalToggleButton,
     }"
-    class="hidden sm:flex relative items-center justify-center gap-3 px-4 py-2 rounded-xl"
+    class="flex relative items-center justify-center gap-3 px-4 py-2 rounded-xl"
   >
     <IconFilterSettings :color="filterIconColor" />
     <span
