@@ -39,13 +39,13 @@
     <FilterPanelModalSearchInput class="sm:hidden" />
 
     <div class="sm:flex sm:gap-2 bg-white">
-      <FilterPanelModalButtonsFilterSort
+      <FilterPanelModalButtonsFilterAndSort
         @toggle-selection-buttons="toggleFilterAndSort"
       />
       <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
       <FilterPanelModalSortBy v-else class="sm:flex-grow" />
     </div>
-    <div class="sm:hidden hidden absolute bottom-0 left-0 w-full p-4 bg-white">
+    <div class="sm:hidden absolute bottom-0 left-0 w-full p-4 bg-white">
       <FilterPanelModalButtonAction
         actionType="confirm"
         text="Confirm"
@@ -63,7 +63,7 @@ import IconX from "@/components/icons/IconX.vue";
 import FilterPanelModalSearchInput from "@/components/filter/FilterPanelModalSearchInput.vue";
 import FilterPanelModalButtonAction from "@/components/filter/FilterPanelModalButtonAction.vue";
 import IconMiddleLine from "@/components/icons/IconMiddleLine.vue";
-import FilterPanelModalButtonsFilterSort from "@/components/filter/FilterPanelModalButtonsFilterSort.vue";
+import FilterPanelModalButtonsFilterAndSort from "@/components/filter/FilterPanelModalButtonsFilterAndSort.vue";
 
 export default {
   components: {
@@ -72,7 +72,7 @@ export default {
     FilterPanelToggleFilter,
     FilterPanelModalSearchInput,
     FilterPanelModalButtonAction,
-    FilterPanelModalButtonsFilterSort,
+    FilterPanelModalButtonsFilterAndSort,
     IconX,
     IconMiddleLine,
   },

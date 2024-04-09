@@ -4,22 +4,10 @@
       @click="toggleSelectionButtons"
       class="flex items-center justify-center text-center w-11/12 bg-gray-100 rounded-3xl"
     >
-      <span
-        :class="{
-          'rounded-3xl border border-light-gray bg-white text-saturated-blue':
-            !isFilterActive,
-          'text-gray-400': isFilterActive,
-        }"
-        class="font-semibold py-3 w-1/2"
+      <span :class="filterButtonClass" class="font-semibold py-3 w-1/2"
         >Filter</span
       >
-      <span
-        class="font-semibold py-3 w-1/2"
-        :class="{
-          'rounded-3xl border border-light-gray bg-white text-saturated-blue':
-            isFilterActive,
-          'text-gray-400': !isFilterActive,
-        }"
+      <span class="font-semibold py-3 w-1/2" :class="sortingButtonClass"
         >Sorting</span
       >
     </div>
@@ -38,6 +26,23 @@ export default {
     toggleSelectionButtons() {
       this.isFilterActive = !this.isFilterActive;
       this.$emit("toggle-selection-buttons", this.isFilterActive);
+    },
+  },
+
+  computed: {
+    filterButtonClass() {
+      return {
+        "rounded-3xl border border-light-gray bg-white text-saturated-blue":
+          this.isFilterActive,
+        "text-gray-400": !this.isFilterActive,
+      };
+    },
+    sortingButtonClass() {
+      return {
+        "rounded-3xl border border-light-gray bg-white text-saturated-blue":
+          !this.isFilterActive,
+        "text-gray-400": this.isFilterActive,
+      };
     },
   },
 };

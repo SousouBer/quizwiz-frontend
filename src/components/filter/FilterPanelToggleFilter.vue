@@ -13,7 +13,7 @@
       "
       >Filter</span
     >
-    <FilterPanelToggleFilterCount />
+    <FilterPanelToggleFilterCount v-if="!modalToggleButton" />
   </div>
 </template>
 
