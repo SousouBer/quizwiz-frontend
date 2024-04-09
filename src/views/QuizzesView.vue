@@ -1,5 +1,5 @@
 <template>
-  <!-- <TheHeader /> -->
+  <TheHeader />
   <main class="relative pb-32 border-b">
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// import TheHeader from "@/components/shared/TheHeader.vue";
+import TheHeader from "@/components/shared/TheHeader.vue";
 import TheFooter from "@/components/shared/TheFooter.vue";
 import FilterPanel from "@/components/filter/FilterPanel.vue";
 import QuizCard from "@/components/quiz/QuizCard.vue";
@@ -19,7 +19,7 @@ import QuizButtonLoadMore from "@/components/quiz/QuizButtonLoadMore.vue";
 
 export default {
   components: {
-    // TheHeader,
+    TheHeader,
     TheFooter,
     FilterPanel,
     QuizCard,

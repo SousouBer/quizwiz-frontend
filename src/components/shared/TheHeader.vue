@@ -23,10 +23,12 @@
       v-if="$route.path !== '/landing'"
       class="hidden md:flex justify-center items-center gap-1"
     >
-      <button-base class="text-white bg-black hover:bg-gray-900"
+      <button-base
+        view="/register"
+        class="text-white bg-black hover:bg-gray-900"
         >Sign up</button-base
       >
-      <button-base class="text-blue-500 hover:text-blue-600"
+      <button-base view="/login" class="text-blue-500 hover:text-blue-600"
         >Log in</button-base
       >
     </div>
