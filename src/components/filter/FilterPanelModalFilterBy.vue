@@ -12,6 +12,8 @@
         <FilterPanelSelectionChip
           label="Starter"
           color="white"
+          selectedBackgroundColor="green"
+          selectedColor="red"
           backgroundColor="black"
           :isModalChip="true"
         />

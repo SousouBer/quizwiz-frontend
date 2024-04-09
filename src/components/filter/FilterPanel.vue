@@ -1,6 +1,7 @@
 <template>
-  <div class="flex items-center gap-4 px-24 py-12">
-    <div class="flex items-center gap-6 w-11/12 overflow-hidden">
+  <div class="flex items-center gap-3 px-24 py-12">
+    <div class="flex items-center gap-2 w-11/12 overflow-hidden">
+      <FilterPanelSelectionChip />
       <FilterPanelSelectionChip />
     </div>
     <div
