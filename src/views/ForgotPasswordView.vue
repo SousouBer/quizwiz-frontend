@@ -5,25 +5,25 @@
       srcLink="/images/reset-password-cover.svg"
     />
     <layouts-form>
-      <wrappers-form-control class="gap-4 mb-12">
+      <wrappers-form-heading class="gap-4 mb-12">
         <heading-form>Forgot password?</heading-form>
         <span
           >Don’t worry! It happens. Please enter the email associated<br />
           with your account.</span
         >
-      </wrappers-form-control>
-      <form>
-        <wrappers-form-control class="mb-6">
-          <label-base labelFor="email">Email address</label-base>
-          <inputBase
-            inputType="email"
-            inputName="email"
-            inputId="email"
-            inputPlaceholder="Enter your email address"
-          />
-        </wrappers-form-control>
+      </wrappers-form-heading>
+      <ValidationForm v-slot="{ errors }" @submit="handleSubmit">
+        <InputAuth
+          label="Email address"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email address"
+          rules="required"
+          :error="errors['email'] ? true : false"
+        />
         <button-submit>Send</button-submit>
-      </form>
+      </ValidationForm>
     </layouts-form>
   </layouts-auth-main>
 </template>
@@ -31,23 +31,44 @@
 <script>
 import HeadingForm from "@/components/ui/form/HeadingForm.vue";
 import ButtonSubmit from "@/components/ui/form/ButtonSubmit.vue";
-import LabelBase from "@/components/ui/form/LabelBase.vue";
-import InputBase from "@/components/ui/form/InputBase.vue";
 import LayoutsForm from "@/components/layouts/LayoutsForm.vue";
 import LayoutsAuthImage from "@/components/layouts/LayoutsAuthImage.vue";
-import WrappersFormControl from "@/components/wrappers/WrappersFormControl.vue";
+import WrappersFormHeading from "@/components/wrappers/WrappersFormHeading.vue";
 import LayoutsAuthMain from "@/components/layouts/LayoutsAuthMain.vue";
+import InputAuth from "@/components/ui/form/InputAuth.vue";
+
+import { Form as ValidationForm } from "vee-validate";
+import { forgotPassword } from "@/services/auth";
 
 export default {
+  inject: ["showToastNotification"],
   components: {
     HeadingForm,
     ButtonSubmit,
-    InputBase,
-    LabelBase,
     LayoutsForm,
     LayoutsAuthImage,
-    WrappersFormControl,
+    WrappersFormHeading,
     LayoutsAuthMain,
+    InputAuth,
+    ValidationForm,
+  },
+
+  methods: {
+    async handleSubmit(values, { resetForm, setErrors }) {
+      console.log(values);
+      try {
+        const response = await forgotPassword(values);
+        resetForm();
+
+        this.showToastNotification(
+          "success",
+          response.data.title,
+          response.data.message,
+        );
+      } catch (err) {
+        setErrors(err.response.data);
+      }
+    },
   },
 };
 </script>

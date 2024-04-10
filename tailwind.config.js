@@ -19,7 +19,10 @@ export default {
         "saturated-blue": "#4B69FD",
         "medium-dark-gray": "#667085",
         "very-light-gray": "#F6F6F7",
-        "dark-purple": "#7F56D9",
+        "charcoal-gray": "#242C32",
+        "bright-yellow": "#FFD21F",
+        "vivid-red": "#F04438",
+        "salmon-pink": "#FDA29B",
       },
       width: {
         "custom-45": "45%",
