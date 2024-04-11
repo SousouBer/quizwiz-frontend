@@ -17,7 +17,7 @@ import FilterPanel from "@/components/filter/FilterPanel.vue";
 import QuizCard from "@/components/quiz/QuizCard.vue";
 import QuizButtonLoadMore from "@/components/quiz/QuizButtonLoadMore.vue";
 
-import { categories } from "@/services/quiz.js";
+// import { categories } from "@/services/quiz.js";
 
 export default {
   components: {
@@ -35,14 +35,15 @@ export default {
   },
 
   methods: {
-    async fetchCategories() {
-      const { data } = await categories();
-      this.categories = data.categories;
-    },
+    // async fetchCategories() {
+    //   const { data } = await categories();
+    //   this.categories = data.categories;
+    // },
   },
 
   mounted() {
-    this.fetchCategories();
+    // this.fetchCategories();
+    this.$store.dispatch("fetchCategories");
   },
 };
 </script>

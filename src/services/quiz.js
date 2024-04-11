@@ -1,6 +1,6 @@
 import instance from "@/plugins/axios/axios";
 
-export async function categories(payload) {
+export async function getCategories() {
   await instance.get("/sanctum/csrf-cookie");
-  return await instance.get("/api/categories", payload);
+  return await instance.get("/api/categories");
 }
