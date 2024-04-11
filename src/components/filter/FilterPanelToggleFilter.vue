@@ -1,10 +1,10 @@
 <template>
   <div
     :class="{
-      'cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
+      'relative ml-6 sm:ml-0 cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
         !modalToggleButton,
     }"
-    class="relative flex items-center justify-center gap-3 px-4 py-2 rounded-xl"
+    class="flex relative items-center justify-center gap-3 px-4 py-2 rounded-xl"
   >
     <IconFilterSettings :color="filterIconColor" />
     <span
@@ -13,11 +13,13 @@
       "
       >Filter</span
     >
+    <FilterPanelToggleFilterCount v-if="!modalToggleButton" />
   </div>
 </template>
 
 <script>
 import IconFilterSettings from "@/components/icons/IconFilterSettings.vue";
+import FilterPanelToggleFilterCount from "@/components/filter/FilterPanelToggleFilterCount.vue";
 
 export default {
   props: {
@@ -28,6 +30,7 @@ export default {
     },
   },
   components: {
+    FilterPanelToggleFilterCount,
     IconFilterSettings,
   },
 

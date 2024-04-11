@@ -9,7 +9,8 @@
   font-family: "Raleway", sans-serif;
 }
 
-.filter-checkbox {
+.filter-checkbox,
+.filter-checkbox-mobile {
   appearance: none;
   cursor: pointer;
   height: 1rem;
@@ -22,6 +23,12 @@
   background-color: #000;
 }
 
-.filter-checkbox:checked + .show-tick-icon {
+.filter-checkbox:checked + .show-tick-icon,
+.filter-checkbox-mobile:checked + .show-tick-icon {
   display: block;
+}
+
+.filter-checkbox-mobile:checked {
+  border: 1px solid #7f56d9;
+  background-color: #fff;
 }

@@ -1,8 +1,12 @@
 <template>
-  <div class="border-b py-3">
-    <span class="font-semibold text-blue-500 select-none">{{
-      filterType
-    }}</span>
+  <div class="border-b py-3 w-full">
+    <span
+      :class="{
+        hidden: filterType === 'Filter by' || filterType === 'Sort by',
+      }"
+      class="font-semibold text-blue-500 select-none sm:inline"
+      >{{ filterType }}</span
+    >
     <div :class="classNames" class="mt-3">
       <slot />
     </div>
@@ -15,6 +19,7 @@ export default {
     filterType: {
       type: String,
       required: true,
+      default: "",
     },
     classNames: {
       type: String,
