@@ -1,8 +1,9 @@
 <template>
-  <div class="flex gap-2 items-center justify-center">
-    <!-- <IconHash /> -->
+  <div
+    class="flex gap-2 items-center sm:justify-center border-b border-gray-100 pb-2 w-full"
+  >
     <component :is="iconComponent" v-if="iconComponent" />
-    <span class="text-medium-dark-gray font-semibold select-none">{{
+    <span class="text-medium-dark-gray font-semibold select-none text-sm">{{
       label
     }}</span>
   </div>

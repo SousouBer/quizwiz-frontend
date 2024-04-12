@@ -1,29 +1,42 @@
 <template>
   <TheHeader />
-  <LinkBack class="px-24 my-4" />
-  <div class="flex justify-between px-24 my-6">
-    <div class="mr-8">
+  <LinkBack class="px-4 sm:px-24 my-4 mb-2 sm:mb-12" />
+  <div class="flex justify-between px-4 sm:px-24 my-3 sm:my-6">
+    <div class="sm:mr-8">
       <div class="flex gap-8 border-b pb-16 mb-4">
         <div>
-          <h1 class="text-4xl font-bold">Timeline of Discoveries</h1>
-          <QuizWrapperCategory class="my-4" />
-          <span
+          <QuizWrapperCategory class="mb-4 sm:hidden" />
+
+          <h1 class="text-4xl font-bold leading-12 mb-4">
+            Timeline of Discoveries
+          </h1>
+          <QuizWrapperCategory class="my-4 hidden sm:flex" />
+          <span class="font-semibold text-sm text-grayish-blue"
             >Can you put the discoveries in order, from the oldest to the newest
             one? 🧠</span
           >
-          <div class="flex gap-8 items-center my-10">
+          <div class="w-full sm:w-80 sm:hidden mt-4">
+            <img
+              class="w-full h-full"
+              src="@/assets/images/man-in-space.svg"
+              alt="Man in space"
+            />
+          </div>
+          <div
+            class="flex gap-2 sm:gap-8 items-start sm:items-center flex-col sm:flex-row my-10"
+          >
             <QuizInnerStatistic statistic="questions" label="10 Questions" />
             <QuizInnerStatistic statistic="points" label="8 Points" />
             <QuizInnerStatistic statistic="count" label="150 Plays" />
             <QuizInnerStatistic statistic="time" label="5m" />
           </div>
           <button
-            class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-500 px-32 text-white py-3 rounded-lg text-base font-semibold"
+            class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-500 px-32 text-white py-3 rounded-lg text-base font-semibold w-full sm:w-auto"
           >
             Start quizz
           </button>
         </div>
-        <div class="w-80">
+        <div class="w-full h-72 sm:w-80 hidden sm:block">
           <img
             class="w-full h-full"
             src="@/assets/images/man-in-space.svg"
@@ -37,7 +50,7 @@
         turpis. Etiam nisl nisi sed mus id maecenas mauris mattis.
       </p>
     </div>
-    <div class="flex flex-col gap-6">
+    <div class="hidden sm:flex flex-col gap-6">
       <QuizCard
         class="border border-light-gray bg-gray-100 shadow-none rounded-lg"
       />
