@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 inline-block shadow-xl content-center">
+  <div class="p-5 inline-block content-center">
     <div class="mb-1">
       <img src="@/assets/images/quiz-test-image.svg" alt="Quiz card image" />
     </div>

@@ -4,9 +4,9 @@
   <div class="flex justify-between px-4 sm:px-24 my-3 sm:my-6">
     <div class="sm:mr-8">
       <div class="flex gap-8 border-b pb-16 mb-4">
-        <div>
+        <div class="w-full sm:w-auto">
           <QuizWrapperCategory class="mb-4 sm:hidden" />
-
+          <QuizInnerWrapperImage class="sm:w-80 sm:hidden mt-4" />
           <h1 class="text-4xl font-bold leading-12 mb-4">
             Timeline of Discoveries
           </h1>
@@ -15,15 +15,9 @@
             >Can you put the discoveries in order, from the oldest to the newest
             one? 🧠</span
           >
-          <div class="w-full sm:w-80 sm:hidden mt-4">
-            <img
-              class="w-full h-full"
-              src="@/assets/images/man-in-space.svg"
-              alt="Man in space"
-            />
-          </div>
+
           <div
-            class="flex gap-2 sm:gap-8 items-start sm:items-center flex-col sm:flex-row my-10"
+            class="flex gap-2 sm:gap-8 items-start justify-between sm:items-center flex-col sm:flex-row my-10"
           >
             <QuizInnerStatistic statistic="questions" label="10 Questions" />
             <QuizInnerStatistic statistic="points" label="8 Points" />
@@ -36,13 +30,7 @@
             Start quizz
           </button>
         </div>
-        <div class="w-full h-72 sm:w-80 hidden sm:block">
-          <img
-            class="w-full h-full"
-            src="@/assets/images/man-in-space.svg"
-            alt="Man in space"
-          />
-        </div>
+        <QuizInnerWrapperImage class="h-72 sm:w-80 hidden sm:block" />
       </div>
       <span class="font-bold text-lg">Instructions</span>
       <p class="mt-1">
@@ -51,12 +39,9 @@
       </p>
     </div>
     <div class="hidden sm:flex flex-col gap-6">
-      <QuizCard
-        class="border border-light-gray bg-gray-100 shadow-none rounded-lg"
-      />
+      <QuizCard class="border border-light-gray bg-gray-100 rounded-lg" />
     </div>
   </div>
-
   <TheFooter />
 </template>
 
@@ -67,6 +52,7 @@ import LinkBack from "@/components/shared/LinkBack.vue";
 import QuizWrapperCategory from "@/components/quiz/QuizWrapperCategory.vue";
 import QuizInnerStatistic from "@/components/quiz/QuizInnerStatistic.vue";
 import QuizCard from "@/components/quiz/QuizCard.vue";
+import QuizInnerWrapperImage from "@/components/quiz/QuizInnerWrapperImage.vue";
 
 export default {
   components: {
@@ -76,6 +62,7 @@ export default {
     QuizWrapperCategory,
     QuizInnerStatistic,
     QuizCard,
+    QuizInnerWrapperImage,
   },
 };
 </script>
