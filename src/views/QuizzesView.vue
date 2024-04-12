@@ -25,5 +25,15 @@ export default {
     QuizCard,
     QuizButtonLoadMore,
   },
+
+  data() {
+    return {
+      categories: null,
+    };
+  },
+
+  mounted() {
+    this.$store.dispatch("fetchCategories");
+  },
 };
 </script>
