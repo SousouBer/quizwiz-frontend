@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <img class="w-full h-full" :src="svg" alt="Man in space" />
+    <img class="w-full h-full" :src="src" alt="Man in space" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
     src: {
       type: String,
       required: true,
-      default: "@/assets/images/man-in-space.svg",
+      default: "public/images/man-in-space.svg",
     },
   },
 };
