@@ -34,6 +34,8 @@ export default {
 
   mounted() {
     this.$store.dispatch("fetchCategories");
+    this.$store.dispatch("fetchLevels");
+    this.$store.dispatch("fetchQuizzes");
   },
 };
 </script>
