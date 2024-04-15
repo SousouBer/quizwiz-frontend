@@ -1,8 +1,7 @@
 <template>
   <span
-    @click="toggleSelect"
-    :style="modalChipClasses"
-    :class="[defineSelectedClasses, defineUnselectedClasses]"
+    @click="isCategory ? toggleCategory(id) : toggleLevel(id)"
+    :style="dynamicClasses"
     class="cursor-pointer rounded-3xl px-4 py-1 font-semibold whitespace-nowrap text-sm"
   >
     {{ label }}
@@ -14,12 +13,14 @@ export default {
   props: {
     label: {
       type: String,
-      default: "All quizzes",
       required: true,
     },
-    isModalChip: {
+    id: {
+      type: Number,
+      required: true,
+    },
+    isCategory: {
       type: Boolean,
-      default: false,
       required: true,
     },
     color: {
@@ -40,37 +41,27 @@ export default {
     },
   },
 
-  // I will probably change how this component is structured
-  // when I start working with the actual data.
-  data() {
-    return {
-      isSelected: false,
-    };
-  },
-
   methods: {
-    toggleSelect() {
-      this.isSelected = !this.isSelected;
+    toggleCategory(id) {
+      this.$store.commit("toggleSelectedCategory", id);
+    },
+
+    toggleLevel(id) {
+      this.$store.commit("toggleSelectedLevel", id);
     },
   },
 
   computed: {
-    defineSelectedClasses() {
-      if (!this.isModalChip && this.isSelected) {
-        return "border-b-2 border-black pt-2 pb-4 px-1 rounded-none text-black";
-      }
-      return "";
-    },
+    dynamicClasses() {
+      let selectedItems;
 
-    defineUnselectedClasses() {
-      if (!this.isModalChip && !this.isSelected) {
-        return "border-b-2 border-transparent rounded-none px-1 pb-4 pt-2 text-medium-dark-gray";
+      if (this.isCategory) {
+        selectedItems = this.$store.getters.selectedCategories;
+      } else {
+        selectedItems = this.$store.getters.selectedLevels;
       }
-      return "";
-    },
 
-    modalChipClasses() {
-      return this.isSelected
+      return !selectedItems.includes(this.id)
         ? {
             color: this.selectedColor,
             backgroundColor: this.selectedBackgroundColor,
