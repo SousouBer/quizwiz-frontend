@@ -3,7 +3,15 @@
   <main class="relative pb-32 border-b">
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
-      <QuizCard class="shadow-xl" />
+      <QuizCard
+        v-for="quiz in quizzes"
+        :key="quiz.id"
+        :id="quiz.id"
+        :title="quiz.title"
+        :categories="quiz.categories"
+        :difficultyLevel="quiz.difficulty_level"
+        :time="quiz.time"
+      />
     </div>
     <QuizButtonLoadMore />
   </main>
@@ -26,10 +34,10 @@ export default {
     QuizButtonLoadMore,
   },
 
-  data() {
-    return {
-      categories: null,
-    };
+  computed: {
+    quizzes() {
+      return this.$store.getters.quizzes;
+    },
   },
 
   mounted() {
