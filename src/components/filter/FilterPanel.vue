@@ -39,7 +39,7 @@ export default {
 
   data() {
     return {
-      showFilterModal: true,
+      showFilterModal: false,
     };
   },
 
