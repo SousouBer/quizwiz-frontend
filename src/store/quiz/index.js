@@ -142,6 +142,7 @@ const store = createStore({
       const response = await getLevels();
       const levels = response.data.levels;
 
+      console.log(levels);
       context.commit("setLevels", { levels });
     },
 

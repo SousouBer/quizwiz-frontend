@@ -10,6 +10,7 @@
         class="bg-black hidden sm:flex"
       />
       <FilterPanelModalButtonAction
+        @click="resetOptions"
         actionType="reset"
         text="Reset"
         class="sm:hidden font-semibold"
@@ -47,13 +48,14 @@
       <FilterPanelModalButtonsFilterAndSort
         @toggle-selection-buttons="toggleFilterAndSort"
       />
-      <!-- <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
-      <FilterPanelModalSortBy v-else class="sm:flex-grow" /> -->
-      <FilterPanelModalFilterBy class="sm:w-3/5" />
-      <FilterPanelModalSortBy class="sm:flex-grow" />
+      <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
+      <FilterPanelModalSortBy v-else class="sm:flex-grow" />
+      <!-- <FilterPanelModalFilterBy class="sm:w-3/5" />
+      <FilterPanelModalSortBy class="sm:flex-grow" /> -->
     </div>
     <div class="sm:hidden absolute bottom-0 left-0 w-full p-4 bg-white">
       <FilterPanelModalButtonAction
+        @click="confirmOptions"
         actionType="confirm"
         text="Confirm"
         class="py-4 w-full"
@@ -84,20 +86,20 @@ export default {
     IconMiddleLine,
   },
 
-  // data() {
-  //   return {
-  //     showFilter: false,
-  //   };
-  // },
+  data() {
+    return {
+      showFilter: false,
+    };
+  },
 
   methods: {
     closeFilterModal() {
       this.$emit("close-filter-modal");
     },
 
-    // toggleFilterAndSort(value) {
-    //   this.showFilter = value;
-    // },
+    toggleFilterAndSort(value) {
+      this.showFilter = value;
+    },
 
     confirmOptions() {
       const categories = this.$store.getters.selectedCategories;

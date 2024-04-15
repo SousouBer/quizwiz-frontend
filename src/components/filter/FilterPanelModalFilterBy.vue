@@ -2,8 +2,11 @@
   <filter-layout-rounded-border>
     <div class="w-full sm:w-auto">
       <filter-layout-filter-and-sort-by filterType="Filter by">
-        <FilterPanelModalCheckbox labelFor="My quizzes" />
-        <FilterPanelModalCheckbox labelFor="Not completed" />
+        <FilterPanelModalCheckbox labelFor="My quizzes" name="my_quizzes" />
+        <FilterPanelModalCheckbox
+          labelFor="Not completed"
+          name="completed_quizzes"
+        />
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by
         filterType="Levels"
