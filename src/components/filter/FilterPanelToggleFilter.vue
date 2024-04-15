@@ -3,6 +3,7 @@
     :class="{
       'relative ml-6 sm:ml-0 cursor-pointer border border-grayish-blue transition-all duration-300 ease-in-out hover:bg-paleBlue':
         !modalToggleButton,
+      'border-2': selectedOptionsCount,
     }"
     class="flex relative items-center justify-center gap-3 px-4 py-2 rounded-xl"
   >
@@ -13,7 +14,9 @@
       "
       >Filter</span
     >
-    <FilterPanelToggleFilterCount v-if="!modalToggleButton" />
+    <FilterPanelToggleFilterCount
+      v-if="!modalToggleButton && selectedOptionsCount"
+    />
   </div>
 </template>
 
@@ -37,6 +40,10 @@ export default {
   computed: {
     filterIconColor() {
       return this.modalToggleButton ? "#fff" : "#667085";
+    },
+
+    selectedOptionsCount() {
+      return this.$store.getters.selectedOptionsCount;
     },
   },
 };
