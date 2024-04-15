@@ -19,8 +19,13 @@
         >Filters</span
       >
       <div class="items-center gap-9 relative hidden sm:flex">
-        <FilterPanelModalButtonAction actionType="confirm" text="Confirm" />
         <FilterPanelModalButtonAction
+          @click="confirmOptions"
+          actionType="confirm"
+          text="Confirm"
+        />
+        <FilterPanelModalButtonAction
+          @click="resetOptions"
           actionType="reset"
           text="Reset all filters"
         />
@@ -79,20 +84,106 @@ export default {
     IconMiddleLine,
   },
 
-  data() {
-    return {
-      showFilter: false,
-    };
-  },
+  // data() {
+  //   return {
+  //     showFilter: false,
+  //   };
+  // },
 
   methods: {
     closeFilterModal() {
       this.$emit("close-filter-modal");
     },
 
-    toggleFilterAndSort(value) {
-      this.showFilter = value;
+    // toggleFilterAndSort(value) {
+    //   this.showFilter = value;
+    // },
+
+    confirmOptions() {
+      const categories = this.$store.getters.selectedCategories;
+      const levels = this.$store.getters.selectedLevels;
+      const sort = this.$store.getters.selectedSort;
+      const myQuizzes = this.$store.getters.myQuizzes;
+      const completedQuizzes = this.$store.getters.completedQuizzes;
+
+      const query = {};
+
+      if (categories.length > 0) {
+        query.categories = categories.join(",");
+      }
+      if (levels.length > 0) {
+        query.levels = levels.join(",");
+      }
+      if (sort) {
+        query.sort = sort;
+      }
+      if (myQuizzes) {
+        query.my_quizzes = myQuizzes;
+      }
+      if (completedQuizzes) {
+        query.completed_quizzes = completedQuizzes;
+      }
+
+      this.$router
+        .push({
+          query,
+        })
+        .then(() => {
+          this.checkQueryParams();
+        });
     },
+
+    checkQueryParams() {
+      const queries = this.$route.query;
+
+      let selectedOptionsCount = Object.keys(this.$route.query).length;
+
+      if (queries.categories) {
+        selectedOptionsCount += queries.categories.split(",").length - 1;
+      }
+
+      if (queries.levels) {
+        selectedOptionsCount += queries.levels.split(",").length - 1;
+      }
+
+      this.$store.commit("setSelectedOptionsCount", selectedOptionsCount);
+    },
+
+    resetOptions() {
+      this.$store.commit("clearValues");
+
+      const urlCategories = this.$route.query.categories;
+      const urlLevels = this.$route.query.levels;
+      const urlSort = this.$route.query.sort;
+      const urlMyQuizzes = this.$route.query.my_quizzes;
+      const urlCompletedQuizzes = this.$route.query.completed_quizzes;
+
+      if (urlCategories) {
+        const categoryIds = urlCategories.split(",").map((id) => parseInt(id));
+        this.$store.commit("setSelectedCategories", categoryIds);
+      }
+
+      if (urlLevels) {
+        const levelIds = urlLevels.split(",").map((id) => parseInt(id));
+        this.$store.commit("setSelectedLevels", levelIds);
+      }
+
+      if (urlSort) {
+        this.$store.commit("setSelectedSort", urlSort);
+      }
+
+      if (urlMyQuizzes) {
+        this.$store.commit("setMyQuizzes");
+      }
+
+      if (urlCompletedQuizzes) {
+        this.$store.commit("setCompletedQuizzes");
+      }
+    },
+  },
+
+  mounted() {
+    this.checkQueryParams();
   },
 };
 </script>
