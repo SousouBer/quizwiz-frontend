@@ -48,10 +48,10 @@
       <FilterPanelModalButtonsFilterAndSort
         @toggle-selection-buttons="toggleFilterAndSort"
       />
-      <FilterPanelModalFilterBy v-if="!showFilter" class="sm:w-3/5" />
-      <FilterPanelModalSortBy v-else class="sm:flex-grow" />
-      <!-- <FilterPanelModalFilterBy class="sm:w-3/5" />
-      <FilterPanelModalSortBy class="sm:flex-grow" /> -->
+      <FilterPanelModalFilterBy v-if="!showFilter" class="sm:hidden" />
+      <FilterPanelModalSortBy v-else class="sm:hidden" />
+      <FilterPanelModalFilterBy class="hidden sm:flex sm:w-3/5" />
+      <FilterPanelModalSortBy class="hidden sm:flex sm:flex-grow" />
     </div>
     <div class="sm:hidden absolute bottom-0 left-0 w-full p-4 bg-white">
       <FilterPanelModalButtonAction
