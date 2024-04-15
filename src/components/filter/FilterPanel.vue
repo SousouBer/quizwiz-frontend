@@ -3,9 +3,10 @@
     class="flex items-start sm:items-center flex-col sm:flex-row gap-3 sm:px-24 sm:py-12"
   >
     <div class="flex items-center pt-3 w-11/12 overflow-hidden border-b">
-      <FilterPanelSelectionChip
+      <FilterPanelCategoryItem
         v-for="category in categories"
         :key="category.id"
+        :id="category.id"
         :label="category.title"
       />
     </div>
@@ -25,15 +26,15 @@
 <script>
 import FilterPanelToggleFilter from "@/components/filter/FilterPanelToggleFilter.vue";
 import IconCategorySlider from "@/components/icons/IconCategorySlider.vue";
-import FilterPanelSelectionChip from "@/components/filter/FilterPanelSelectionChip.vue";
 import FilterPanelModal from "@/components/filter/FilterPanelModal.vue";
+import FilterPanelCategoryItem from "@/components/filter/FilterPanelCategoryItem.vue";
 
 export default {
   components: {
     FilterPanelToggleFilter,
-    FilterPanelSelectionChip,
     FilterPanelModal,
     IconCategorySlider,
+    FilterPanelCategoryItem,
   },
 
   data() {
