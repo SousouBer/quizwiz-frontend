@@ -1,12 +1,17 @@
 <template>
   <div
-    class="flex gap-2 items-center border-b sm:border-b-0 border-gray-100 pb-2 w-full"
+    class="flex gap-2 items-center border-b sm:border-b-0 border-gray-100 pb-2 w-full relative"
   >
     <component :is="iconComponent" v-if="iconComponent" />
     <span
       class="text-medium-dark-gray font-semibold select-none text-sm whitespace-nowrap"
       >{{ label }}</span
     >
+    <IconMiddleLine
+      v-if="notLastItem"
+      class="absolute top-0 left-0 transform translate-y-1/4 -translate-x-4"
+      color="gray"
+    />
   </div>
 </template>
 
@@ -15,6 +20,7 @@ import IconHash from "@/components/icons/IconHash.vue";
 import IconPoints from "@/components/icons/IconPoints.vue";
 import IconTime from "@/components/icons/IconTime.vue";
 import IconCount from "@/components/icons/IconCount.vue";
+import IconMiddleLine from "@/components/icons/IconMiddleLine.vue";
 
 export default {
   components: {
@@ -22,6 +28,7 @@ export default {
     IconPoints,
     IconCount,
     IconTime,
+    IconMiddleLine,
   },
 
   props: {
@@ -32,6 +39,10 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    notLastItem: {
+      type: Boolean,
+      default: true,
     },
   },
 

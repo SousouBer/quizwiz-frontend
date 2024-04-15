@@ -7,6 +7,7 @@ import ResetPasswordView from "@/views/ResetPasswordView.vue";
 
 import QuizzesView from "@/views/QuizzesView.vue";
 import QuizView from "@/views/QuizView.vue";
+import QuizQuestionsView from "@/views/QuizQuestionsView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: "/quiz",
       name: "quiz",
       component: QuizView,
+    },
+    {
+      path: "/quiz/questions",
+      name: "quizQuestions",
+      component: QuizQuestionsView,
     },
   ],
 });
