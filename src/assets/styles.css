@@ -22,7 +22,8 @@
   transform: translate(-4rem, 65%);
 }
 
-.input-checkbox {
+.input-checkbox,
+.answer-checkbox {
   appearance: none;
   cursor: pointer;
   border-radius: 50%;
@@ -32,6 +33,14 @@
   background-color: #000;
 }
 
-.input-checkbox:checked + .show-tick-icon {
+.input-checkbox:checked + .show-tick-icon,
+.answer-checkbox:checked + .show-tick-icon {
   display: block;
+}
+
+/* .answer-checkbox {
+} */
+
+.answer-checkbox:checked {
+  background-color: #4b69fd;
 }
