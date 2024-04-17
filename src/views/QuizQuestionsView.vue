@@ -6,7 +6,11 @@
     <QuizQuestionsQuizDetails />
     <div class="flex justify-between px-24 py-16">
       <div>
-        <QuizQuestionAndAnswers />
+        <QuizQuestionAndAnswers
+          number="1"
+          points="3"
+          question="What is the study of medicines and their action called?"
+        />
       </div>
       <div>timer goes here</div>
     </div>

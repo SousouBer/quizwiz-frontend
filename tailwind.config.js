@@ -26,6 +26,8 @@ export default {
         "vivid-red": "#F04438",
         "salmon-pink": "#FDA29B",
         "pinkish-mangeta": "#E72A8B",
+        "light-green": "#039855",
+        "dark-green": "#027A48",
       },
       width: {
         "custom-45": "45%",

@@ -8,15 +8,18 @@
       >Drug Manufacturing</span
     >
     <div class="relative">
-      <input
+      <Input
+        @change="toggleAnswer"
         :class="{ 'border border-light-gray': !isChecked }"
-        type="checkbox"
-        name="option_1"
-        id="id"
         class="answer-checkbox w-4 h-4"
+        type="checkbox"
+        :name="name"
+        :id="id"
         v-model="isChecked"
+        @click.stop
       />
       <IconTick
+        @click="toggleAnswer"
         class="hidden show-tick-icon absolute top-0 right-0 transform -translate-x-1 translate-y-1"
         height="10"
         width="8"
@@ -33,6 +36,19 @@ export default {
     IconTick,
   },
 
+  props: {
+    name: {
+      type: String,
+      default: "answer",
+      required: true,
+    },
+    id: {
+      type: String,
+      default: "1",
+      required: true,
+    },
+  },
+
   data() {
     return {
       isChecked: false,
@@ -41,6 +57,7 @@ export default {
 
   methods: {
     toggleAnswer() {
+      console.log(this.isChecked);
       this.isChecked = !this.isChecked;
     },
   },
