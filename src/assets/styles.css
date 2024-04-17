@@ -38,9 +38,6 @@
   display: block;
 }
 
-/* .answer-checkbox {
-} */
-
 .answer-checkbox:checked {
   background-color: #4b69fd;
 }

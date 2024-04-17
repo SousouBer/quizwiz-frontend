@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col items-center pt-32">
-    <span class="font-bold text-black text-4xl">Timeline of Discoveries</span>
-    <div class="flex gap-8 my-6">
+    <span class="font-bold text-black text-5xl px-4 text-center"
+      >Timeline of Discoveries</span
+    >
+    <div class="flex flex-col sm:flex-row gap-8 my-6">
       <div class="relative flex items-center justify-center gap-8 pb-2">
         <IconPin
           class="absolute top-0 left-0 transform translate-y-0.5 -translate-x-7"

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-12">
     <div class="flex items-center gap-6 mb-4">
       <div class="relative">
         <span class="text-saturated-blue font-semibold"
@@ -25,10 +25,10 @@
       }}</span>
     </div>
     <div class="mt-4">
-      <QuizAnswer name="answer" id="1" />
-      <QuizAnswer name="answer" id="2" />
-      <QuizAnswer name="answer" id="3" />
-      <QuizAnswer name="answer" id="4" />
+      <QuizAnswer :name="question" :id="number" />
+      <QuizAnswer :name="question" :id="number" />
+      <QuizAnswer :name="question" :id="number" />
+      <QuizAnswer :name="question" :id="number" />
     </div>
   </div>
 </template>
@@ -64,6 +64,7 @@ export default {
     },
   },
 
+  // Will change this component props according to the data I'll get as a repsonse.
   computed: {
     answerInfo() {
       return `You can select ${this.points} options from questions`;
