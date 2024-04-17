@@ -19,7 +19,9 @@
           question="What is the study of medicines and their action called?"
         />
       </div>
-      <div class="hidden sm:block">timer goes here</div>
+      <div>
+        <TheTimer />
+      </div>
     </div>
   </div>
 </template>
@@ -27,12 +29,14 @@
 <script>
 import QuizQuestionsQuizDetails from "@/components/quiz/QuizQuestionsQuizDetails.vue";
 import QuizQuestionAndAnswers from "@/components/quiz/QuizQuestionAndAnswers.vue";
+import TheTimer from "@/components/quiz/TheTimer.vue";
 import IconX from "@/components/icons/IconX.vue";
 
 export default {
   components: {
     QuizQuestionsQuizDetails,
     QuizQuestionAndAnswers,
+    TheTimer,
     IconX,
   },
 };
