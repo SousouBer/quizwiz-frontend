@@ -1,5 +1,5 @@
 <template>
-  <layout-blurr
+  <layouts-blurr
     class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
   >
     <div class="bg-white w-1/4 p-4 rounded-xl">
@@ -33,11 +33,11 @@
       </div>
       <QuizQuestionsButtonSubmit class="mt-3" text="Back to home" />
     </div>
-  </layout-blurr>
+  </layouts-blurr>
 </template>
 
 <script>
-import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
+import LayoutsBlurr from "@/components/layouts/LayoutsBlurr.vue";
 import IconQuizResults from "@/components/icons/IconQuizResults.vue";
 import QuizModalResultsItem from "@/components/quiz/QuizModalResultsItem.vue";
 import QuizQuestionsButtonSubmit from "@/components/quiz/QuizQuestionsButtonSubmit.vue";
@@ -46,7 +46,7 @@ import IconX from "@/components/icons/IconX.vue";
 
 export default {
   components: {
-    LayoutBlurr,
+    LayoutsBlurr,
     IconQuizResults,
     QuizModalResultsItem,
     QuizQuestionsButtonSubmit,

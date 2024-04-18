@@ -1,22 +1,22 @@
 <template>
-  <layout-blurr @click="closeAuthModal">
+  <layouts-blurr @click="closeAuthModal">
     <div @click.stop class="bg-white w-3/4 flex flex-col p-6">
       <links-burger-menu @close-modal="closeAuthModal" />
       <logout-burger-menu v-if="isAuthenticated" />
       <links-landing v-if="!isAuthenticated" />
     </div>
-  </layout-blurr>
+  </layouts-blurr>
 </template>
 
 <script>
-import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
+import LayoutsBlurr from "@/components/layouts/LayoutsBlurr.vue";
 import LinksBurgerMenu from "@/components/ui/links/LinksBurgerMenu.vue";
 import LogoutBurgerMenu from "@/components/shared/LogoutBurgerMenu.vue";
 import LinksLanding from "@/components/ui/links/LinksLanding.vue";
 
 export default {
   components: {
-    LayoutBlurr,
+    LayoutsBlurr,
     LinksBurgerMenu,
     LogoutBurgerMenu,
     LinksLanding,
