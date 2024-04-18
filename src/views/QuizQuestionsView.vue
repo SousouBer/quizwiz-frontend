@@ -20,7 +20,7 @@
         />
       </div>
       <div>
-        <TheTimer />
+        <TheTimer duration="1" />
       </div>
     </div>
   </div>
