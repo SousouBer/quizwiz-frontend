@@ -3,7 +3,7 @@
     <div class="flex items-center gap-6 mb-4">
       <div class="relative">
         <span class="text-saturated-blue font-semibold"
-          >Question - {{ number }}</span
+          >Question - {{ order }}</span
         >
         <IconMiddleLine
           color="gray"
@@ -25,10 +25,13 @@
       }}</span>
     </div>
     <div class="mt-4">
-      <QuizAnswer :name="question" :id="number" />
-      <QuizAnswer :name="question" :id="number" />
-      <QuizAnswer :name="question" :id="number" />
-      <QuizAnswer :name="question" :id="number" />
+      <QuizAnswer
+        v-for="answer in answers"
+        :key="answer.id"
+        :id="answer.id"
+        :name="question.id"
+        :title="answer.text"
+      />
     </div>
   </div>
 </template>
@@ -46,7 +49,7 @@ export default {
   },
 
   props: {
-    number: {
+    order: {
       type: Number,
       required: true,
     },

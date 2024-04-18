@@ -31,6 +31,22 @@ export default {
       type: String,
       required: true,
     },
+    categories: {
+      type: Array,
+      required: true,
+    },
+    questions: {
+      type: Number,
+      required: true,
+    },
+    plays: {
+      type: Number,
+      required: true,
+    },
+    time: {
+      type: Number,
+      required: true,
+    },
   },
 
   data() {

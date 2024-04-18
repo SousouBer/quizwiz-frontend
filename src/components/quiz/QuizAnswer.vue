@@ -4,9 +4,9 @@
     :class="{ 'border-saturated-blue-40 bg-saturated-blue-10': isChecked }"
     class="cursor-pointer border rounded-lg flex justify-between items-center p-4 mb-3"
   >
-    <span :class="{ 'text-saturated-blue': isChecked }" class="text-gray-800"
-      >Drug Manufacturing</span
-    >
+    <span :class="{ 'text-saturated-blue': isChecked }" class="text-gray-800">{{
+      title
+    }}</span>
     <div class="relative">
       <Input
         :class="{
@@ -44,6 +44,10 @@ export default {
     id: {
       type: String,
       default: "1",
+      required: true,
+    },
+    title: {
+      type: String,
       required: true,
     },
   },
