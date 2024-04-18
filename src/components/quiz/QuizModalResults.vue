@@ -31,12 +31,7 @@
           color="#12B76A"
         />
       </div>
-      <button
-        @click="backToHomePage"
-        class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-400 text-base font-semibold w-full text-white rounded-lg py-3"
-      >
-        Back to home
-      </button>
+      <QuizQuestionsButtonSubmit class="mt-3" text="Back to home" />
     </div>
   </layout-blurr>
 </template>
@@ -45,6 +40,8 @@
 import LayoutBlurr from "@/components/layouts/LayoutBlurr.vue";
 import IconQuizResults from "@/components/icons/IconQuizResults.vue";
 import QuizModalResultsItem from "@/components/quiz/QuizModalResultsItem.vue";
+import QuizQuestionsButtonSubmit from "@/components/quiz/QuizQuestionsButtonSubmit.vue";
+
 import IconX from "@/components/icons/IconX.vue";
 
 export default {
@@ -52,6 +49,7 @@ export default {
     LayoutBlurr,
     IconQuizResults,
     QuizModalResultsItem,
+    QuizQuestionsButtonSubmit,
     IconX,
   },
 
