@@ -26,6 +26,9 @@
         <TheTimer :duration="quiz.time" />
       </div>
     </div>
+    <Teleport to="body">
+      <QuizModalResults />
+    </Teleport>
   </div>
 </template>
 
@@ -35,6 +38,7 @@ import QuizQuestionAndAnswers from "@/components/quiz/QuizQuestionAndAnswers.vue
 import QuizQuestionsHeaderTitleAndIcons from "@/components/quiz/QuizQuestionsHeaderTitleAndIcons.vue";
 import TheTimer from "@/components/quiz/TheTimer.vue";
 import IconX from "@/components/icons/IconX.vue";
+import QuizModalResults from "@/components/quiz/QuizModalResults.vue";
 
 export default {
   components: {
@@ -43,6 +47,7 @@ export default {
     TheTimer,
     QuizQuestionsHeaderTitleAndIcons,
     IconX,
+    QuizModalResults,
   },
 
   data() {
