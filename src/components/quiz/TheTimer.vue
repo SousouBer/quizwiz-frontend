@@ -45,8 +45,8 @@ export default {
     },
   },
 
-  mounted() {
-    this.countdown(this.duration, 0);
-  },
+  // mounted() {
+  //   this.countdown(this.duration, 0);
+  // },
 };
 </script>

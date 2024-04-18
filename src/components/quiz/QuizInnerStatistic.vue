@@ -2,7 +2,7 @@
   <div
     class="flex gap-2 items-center border-b sm:border-b-0 border-gray-100 pb-2 sm:w-full relative"
   >
-    <component :is="iconComponent" v-if="iconComponent" />
+    <component :is="iconComponent" v-if="iconComponent" :color="color" />
     <span
       class="text-medium-dark-gray font-semibold select-none text-sm whitespace-nowrap"
       >{{ label }}</span
@@ -39,6 +39,10 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    color: {
+      type: String,
+      default: "#667085",
     },
     notLastItem: {
       type: Boolean,
