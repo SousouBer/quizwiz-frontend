@@ -4,7 +4,9 @@
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
       <QuizCard
+        class="cursor-pointer"
         v-for="quiz in quizzes"
+        @click="quizDetails(quiz.id)"
         :key="quiz.id"
         :id="quiz.id"
         :title="quiz.title"
@@ -37,6 +39,12 @@ export default {
   computed: {
     quizzes() {
       return this.$store.getters.quizzes;
+    },
+  },
+
+  methods: {
+    quizDetails(id) {
+      this.$router.push({ name: "quiz", params: { id: id } });
     },
   },
 

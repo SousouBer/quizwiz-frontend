@@ -68,4 +68,9 @@ export default {
     state.selectedSort = null;
     (state.myQuizzes = null), (state.completedQuizzes = null);
   },
+
+  setQuiz(state, quiz) {
+    state.quiz = quiz.quiz;
+    console.log(state.quiz.quiz);
+  },
 };
