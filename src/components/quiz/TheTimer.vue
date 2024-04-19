@@ -9,16 +9,18 @@
     <div class="pb-6 mb-8 border-b border-gray-300 px-20">
       <span id="countdown" class="text-gray-600 font-medium text-7xl"></span>
     </div>
-    <button
-      class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-400 text-base font-semibold w-full text-white rounded-lg py-3"
-    >
-      Submit
-    </button>
+    <QuizQuestionsButtonSubmit text="Submit" />
   </div>
 </template>
 
 <script>
+import QuizQuestionsButtonSubmit from "@/components/quiz/QuizQuestionsButtonSubmit.vue";
+
 export default {
+  components: {
+    QuizQuestionsButtonSubmit,
+  },
+
   props: {
     duration: {
       type: Number,
