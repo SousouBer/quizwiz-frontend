@@ -2,7 +2,7 @@
   <div
     :class="{ 'rounded-xl bg-gray-100': isSelected }"
     class="flex items-center gap-4 w-full px-3 py-2 cursor-pointer"
-    @click="toggleSelection"
+    @click="selectCriteria"
   >
     <slot />
     <span class="cursor-pointer font-semibold">{{ criteria }}</span>
@@ -29,17 +29,15 @@ export default {
       type: String,
       required: true,
     },
-  },
-
-  data() {
-    return {
-      isSelected: false,
-    };
+    isSelected: {
+      type: Boolean,
+      required: true,
+    },
   },
 
   methods: {
-    toggleSelection() {
-      this.isSelected = !this.isSelected;
+    selectCriteria() {
+      this.$emit("select");
     },
   },
 };

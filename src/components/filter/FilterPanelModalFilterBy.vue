@@ -2,20 +2,26 @@
   <filter-layout-rounded-border>
     <div class="w-full sm:w-auto">
       <filter-layout-filter-and-sort-by filterType="Filter by">
-        <FilterPanelModalCheckbox labelFor="My quizzes" />
-        <FilterPanelModalCheckbox labelFor="Not completed" />
+        <FilterPanelModalCheckbox labelFor="My quizzes" name="my_quizzes" />
+        <FilterPanelModalCheckbox
+          labelFor="Not completed"
+          name="completed_quizzes"
+        />
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by
         filterType="Levels"
         classNames="flex flex-wrap gap-2"
       >
         <FilterPanelSelectionChip
-          label="Starter"
-          color="white"
-          selectedBackgroundColor="green"
-          selectedColor="red"
-          backgroundColor="black"
-          :isModalChip="true"
+          v-for="level in levels"
+          :key="level.id"
+          :id="level.id"
+          :label="level.title"
+          :isCategory="false"
+          :color="level.color"
+          :selectedBackgroundColor="level.background_color_selected"
+          :selectedColor="level.color_selected"
+          :backgroundColor="level.background_color"
         />
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by
@@ -23,10 +29,13 @@
         classNames="flex flex-wrap gap-2"
       >
         <FilterPanelSelectionChip
-          label="Science"
+          v-for="category in categories"
+          :key="category.id"
+          :id="category.id"
+          :label="category.title"
           color="white"
           backgroundColor="black"
-          :isModalChip="true"
+          :isCategory="true"
         />
       </filter-layout-filter-and-sort-by>
     </div>
@@ -45,6 +54,16 @@ export default {
     FilterPanelSelectionChip,
     FilterLayoutFilterAndSortBy,
     FilterPanelModalCheckbox,
+  },
+
+  computed: {
+    categories() {
+      return this.$store.getters.categories;
+    },
+
+    levels() {
+      return this.$store.getters.levels;
+    },
   },
 };
 </script>

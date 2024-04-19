@@ -4,19 +4,44 @@
       filterType="Sort by"
       classNames="flex flex-col items-start justify-start gap-4 mt-6"
     >
-      <FilterPanelModalSortControl criteria="A-Z">
+      <FilterPanelModalSortControl
+        id="asc"
+        criteria="A-Z"
+        :isSelected="selectedCriteria === 'asc'"
+        @select="selectCriteria('asc')"
+      >
         <IconAscending />
       </FilterPanelModalSortControl>
-      <FilterPanelModalSortControl criteria="Z-A">
+      <FilterPanelModalSortControl
+        id="desc"
+        criteria="Z-A"
+        :isSelected="selectedCriteria === 'desc'"
+        @select="selectCriteria('desc')"
+      >
         <IconDescending />
       </FilterPanelModalSortControl>
-      <FilterPanelModalSortControl criteria="Most popular">
+      <FilterPanelModalSortControl
+        id="popular"
+        criteria="Most Popular"
+        :isSelected="selectedCriteria === 'popular'"
+        @select="selectCriteria('popular')"
+      >
         <IconMostPopular />
       </FilterPanelModalSortControl>
-      <FilterPanelModalSortControl criteria="Newest">
+      <FilterPanelModalSortControl
+        criteria="Newest"
+        id="newest"
+        :isSelected="selectedCriteria === 'newest'"
+        @select="selectCriteria('newest')"
+      >
         <IconNewest />
       </FilterPanelModalSortControl>
-      <FilterPanelModalSortControl criteria="Oldest">
+      <FilterPanelModalSortControl
+        criteria="Oldest"
+        id="oldest"
+        :isSelected="selectedCriteria === 'oldest'"
+        @select="selectCriteria('oldest')"
+      >
         <IconOldest />
       </FilterPanelModalSortControl>
     </filter-layout-filter-and-sort-by>
@@ -43,6 +68,22 @@ export default {
     IconMostPopular,
     IconNewest,
     IconOldest,
+  },
+
+  computed: {
+    selectedCriteria() {
+      return this.$store.getters.selectedSort;
+    },
+  },
+
+  methods: {
+    selectCriteria(id) {
+      if (this.selectedCriteria === id) {
+        this.$store.commit("setSelectedSort", null);
+      } else {
+        this.$store.commit("setSelectedSort", id);
+      }
+    },
   },
 };
 </script>

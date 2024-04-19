@@ -3,7 +3,15 @@
   <main class="relative pb-32 border-b">
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
-      <QuizCard class="shadow-xl" />
+      <QuizCard
+        v-for="quiz in quizzes"
+        :key="quiz.id"
+        :id="quiz.id"
+        :title="quiz.title"
+        :categories="quiz.categories"
+        :difficultyLevel="quiz.difficulty_level"
+        :time="quiz.time"
+      />
     </div>
     <QuizButtonLoadMore />
   </main>
@@ -26,14 +34,42 @@ export default {
     QuizButtonLoadMore,
   },
 
-  data() {
-    return {
-      categories: null,
-    };
+  computed: {
+    quizzes() {
+      return this.$store.getters.quizzes;
+    },
   },
 
   mounted() {
     this.$store.dispatch("fetchCategories");
+    this.$store.dispatch("fetchLevels");
+    this.$store.dispatch("fetchQuizzes");
+
+    const urlCategories = this.$route.query.categories;
+    const urlLevels = this.$route.query.levels;
+    const urlSort = this.$route.query.sort;
+    const urlMyQuizzes = this.$route.query.my_quizzes;
+    const urlCompletedQuizzes = this.$route.query.completed_quizzes;
+
+    if (urlCategories) {
+      const categoryIds = urlCategories.split(",").map((id) => parseInt(id));
+      this.$store.commit("setSelectedCategories", categoryIds);
+    }
+    if (urlLevels) {
+      const levelIds = urlLevels.split(",").map((id) => parseInt(id));
+      this.$store.commit("setSelectedLevels", levelIds);
+    }
+
+    if (urlSort) {
+      this.$store.commit("setSelectedSort", urlSort);
+    }
+
+    if (urlMyQuizzes)
+      this.$store.commit("setMyQuizzes", urlMyQuizzes === "true");
+
+    if (urlCompletedQuizzes) {
+      this.$store.commit("setCompletedQuizzes", urlCompletedQuizzes === "true");
+    }
   },
 };
 </script>

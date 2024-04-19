@@ -1,32 +1,30 @@
 import { createStore } from "vuex";
 
-import { getCategories } from "@/services/quiz";
+import quizGetters from "@/store/quiz/getters";
+import quizMutations from "@/store/quiz/mutations";
+import quizActions from "@/store/quiz/actions";
 
 const store = createStore({
   state: {
+    selectedOptionsCount: 0,
+
     categories: [],
+    levels: [],
+
+    selectedCategories: [],
+    selectedLevels: [],
+
+    selectedSort: null,
+
+    completedQuizzes: null,
+    myQuizzes: null,
+
+    quizzes: [],
   },
 
-  getters: {
-    categories(state) {
-      return state.categories;
-    },
-  },
-
-  mutations: {
-    setCategories(state, payload) {
-      state.categories = payload.categories;
-    },
-  },
-
-  actions: {
-    async fetchCategories(context) {
-      const response = await getCategories();
-      const categories = response.data.categories;
-
-      context.commit("setCategories", { categories });
-    },
-  },
+  getters: quizGetters,
+  mutations: quizMutations,
+  actions: quizActions,
 });
 
 export default store;
