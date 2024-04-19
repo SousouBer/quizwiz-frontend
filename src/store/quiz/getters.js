@@ -38,4 +38,8 @@ export default {
   quiz(state) {
     return state.quiz;
   },
+
+  answers(state) {
+    return state.answers;
+  },
 };

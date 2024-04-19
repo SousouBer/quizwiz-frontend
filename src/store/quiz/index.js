@@ -22,6 +22,8 @@ const store = createStore({
     quizzes: [],
 
     quiz: [],
+
+    answers: [],
   },
 
   getters: quizGetters,

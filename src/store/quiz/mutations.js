@@ -69,8 +69,27 @@ export default {
     (state.myQuizzes = null), (state.completedQuizzes = null);
   },
 
-  setQuiz(state, quiz) {
-    state.quiz = quiz.quiz;
+  setQuiz(state, payload) {
+    state.quiz = payload.quiz;
     console.log(state.quiz.quiz);
+  },
+
+  setAnswer(state, answer) {
+    const existingAnswerIndex = state.answers.findIndex(
+      (item) => item.answerId === answer.answerId,
+    );
+    if (existingAnswerIndex === -1) {
+      state.answers.push(answer);
+    } else {
+      state.answers.splice(existingAnswerIndex, 1);
+    }
+    console.log(state.answers);
+  },
+
+  deselectAnswers(state, questionId) {
+    console.log("quesitonid", questionId);
+    state.answers = state.answers.filter(
+      (item) => item.questionId !== questionId,
+    );
   },
 };
