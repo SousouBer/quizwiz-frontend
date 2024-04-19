@@ -1,4 +1,10 @@
-import { getCategories, getLevels, getQuizzes, getQuiz } from "@/services/quiz";
+import {
+  getCategories,
+  getLevels,
+  getQuizzes,
+  getQuiz,
+  sendAnswers,
+} from "@/services/quiz";
 
 export default {
   async fetchCategories(context) {
@@ -27,5 +33,10 @@ export default {
     const quiz = response.data.data;
 
     context.commit("setQuiz", { quiz });
+  },
+
+  async sendChosenAnswers(_, answers) {
+    const response = await sendAnswers(answers);
+    console.log(response);
   },
 };

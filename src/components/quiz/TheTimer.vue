@@ -9,7 +9,7 @@
     <div class="pb-6 mb-8 border-b border-gray-300 px-20">
       <span id="countdown" class="text-gray-600 font-medium text-7xl"></span>
     </div>
-    <QuizQuestionsButtonSubmit text="Submit" />
+    <QuizQuestionsButtonSubmit @click="onSendResults" text="Submit" />
   </div>
 </template>
 
@@ -28,6 +28,13 @@ export default {
     },
   },
   methods: {
+    onSendResults() {
+      const results = this.$store.getters.answers;
+      const answerIds = results.map((answer) => answer.answerId);
+
+      this.$store.dispatch("sendChosenAnswers", answerIds);
+    },
+
     countdown(minutes, seconds) {
       const countdownElement = document.getElementById("countdown");
       countdownElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
