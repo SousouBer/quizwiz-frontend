@@ -29,7 +29,8 @@
         v-for="answer in answers"
         :key="answer.id"
         :id="answer.id"
-        :name="question.id"
+        :name="id"
+        :points="points"
         :title="answer.text"
       />
     </div>
@@ -63,6 +64,10 @@ export default {
     },
     answers: {
       type: Array,
+      required: true,
+    },
+    id: {
+      type: Number,
       required: true,
     },
   },

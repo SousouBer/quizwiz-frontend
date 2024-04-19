@@ -48,7 +48,7 @@ const router = createRouter({
       component: QuizView,
     },
     {
-      path: "/quiz/questions",
+      path: "/quizzes/questions/:id",
       name: "quizQuestions",
       component: QuizQuestionsView,
     },

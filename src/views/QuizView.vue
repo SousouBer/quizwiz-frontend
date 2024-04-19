@@ -46,6 +46,7 @@
             />
           </div>
           <button
+            @click="startQuiz"
             class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-500 px-32 text-white py-3 rounded-lg text-base font-semibold w-full sm:w-auto"
           >
             Start quizz
@@ -83,6 +84,15 @@ export default {
     QuizInnerStatistic,
     // QuizCard,
     QuizInnerWrapperImage,
+  },
+
+  methods: {
+    startQuiz() {
+      this.$router.push({
+        name: "quizQuestions",
+        params: { id: this.selectedQuiz.id },
+      });
+    },
   },
 
   computed: {
