@@ -16,6 +16,7 @@
         type="checkbox"
         :name="name"
         :id="id"
+        :checkedValue="id"
         :checked="isChecked"
       />
       <IconTick
@@ -38,30 +39,51 @@ export default {
   props: {
     name: {
       type: String,
-      default: "answer",
       required: true,
     },
     id: {
       type: String,
-      default: "1",
       required: true,
     },
     title: {
       type: String,
       required: true,
     },
+    points: {
+      type: Number,
+      required: true,
+    },
   },
 
-  data() {
-    return {
-      isChecked: false,
-    };
+  computed: {
+    isChecked() {
+      const answersArray = this.$store.getters.answers;
+
+      return answersArray.some((item) => item.answerId === this.id);
+    },
   },
 
-  // Will change this component props according to the data I'll get as a repsonse.
   methods: {
     toggleAnswer() {
-      this.isChecked = !this.isChecked;
+      const answersArray = this.$store.getters.answers;
+
+      const selectedAnswers = answersArray.filter(
+        (answer) => answer.questionId === this.name,
+      );
+
+      const isSelected = selectedAnswers.some(
+        (answer) => answer.answerId === this.id,
+      );
+
+      if (selectedAnswers.length >= this.points && !isSelected) {
+        this.$store.commit("deselectAnswers", this.name);
+        console.log(this.name);
+      }
+
+      this.$store.commit("setAnswer", {
+        questionId: this.name,
+        answerId: this.id,
+      });
     },
   },
 };

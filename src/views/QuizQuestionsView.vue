@@ -23,6 +23,7 @@
         <QuizQuestionAndAnswers
           v-for="(question, index) in quiz.questions_and_answers"
           :key="question.id"
+          :id="question.id"
           :order="index + 1"
           :points="question.points"
           :question="question.question"
