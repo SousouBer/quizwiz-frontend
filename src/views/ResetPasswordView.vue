@@ -101,6 +101,8 @@ export default {
           response.data.title,
           response.data.message,
         );
+
+        this.$router.push({ name: "login" });
       } catch (err) {
         if (err.response.status === 403) {
           this.showToastNotification(
