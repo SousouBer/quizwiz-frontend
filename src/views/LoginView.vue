@@ -1,7 +1,7 @@
 <template>
   <layouts-auth-main>
     <LayoutsAuthImage
-      class="justify-center"
+      class="justify-center bg-pale-yellow"
       srcLink="/images/login-cover.svg"
     />
     <layouts-form>

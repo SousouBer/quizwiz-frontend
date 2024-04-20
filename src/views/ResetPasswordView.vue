@@ -5,9 +5,11 @@
       srcLink="/images/reset-password-cover.svg"
     />
     <layouts-form>
-      <wrappers-form-heading class="gap-4 mb-12">
+      <wrappers-form-heading class="text-center sm:text-start gap-4 mb-14">
         <heading-form>Reset password</heading-form>
-        <span>Please, type something you'll remember.</span>
+        <span class="text-gray-600"
+          >Please, type something you'll remember.</span
+        >
       </wrappers-form-heading>
       <ValidationForm v-slot="{ errors }" @submit="handleSubmit">
         <InputAuth
@@ -16,7 +18,7 @@
           name="password"
           id="password"
           placeholder="Must be 8 characters"
-          :isPasswordInput="true"
+          :isPassword="true"
           rules="required|minLength:3"
           :error="errors['password'] ? true : false"
         />
@@ -26,7 +28,7 @@
           name="password_confirmation"
           id="password_confirmation"
           placeholder="Repeat Password"
-          :isPasswordInput="true"
+          :isPassword="true"
           rules="required|confirmed:password"
           :error="errors['password_confirmation'] ? true : false"
         />
