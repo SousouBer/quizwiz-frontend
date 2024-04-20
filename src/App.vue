@@ -6,7 +6,7 @@
       :title="toastTitle"
       :description="toastDescription"
       :result="requestResult"
-      class="absolute top-0 right-0 transform translate-y-1/2 -translate-x-10"
+      class="absolute w-11/12 sm:w-auto top-0 left-0 sm:left-auto sm:right-0 transform translate-y-4 translate-x-4 sm:translate-y-1/2 sm:-translate-x-10"
     />
   </Teleport>
 </template>
