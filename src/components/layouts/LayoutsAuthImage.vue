@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-pale-yellow h-screen items-center w-custom-45 hidden lg:flex">
+  <div
+    class="bg-pale-yellow min-h-screen items-center w-custom-45 hidden lg:flex"
+  >
     <img :src="srcLink" alt="Auth background cover" />
   </div>
 </template>
