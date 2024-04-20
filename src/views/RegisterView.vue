@@ -96,6 +96,7 @@ export default {
   methods: {
     async handleSubmit(values, { resetForm, setErrors }) {
       try {
+        console.log(values);
         const response = await register(values);
 
         resetForm();
