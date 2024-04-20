@@ -21,9 +21,9 @@ export default {
   data() {
     return {
       showToast: false,
-      requestResult: "",
-      toastTitle: "",
-      toastDescription: "",
+      requestResult: "Hello",
+      toastTitle: "Hello",
+      toastDescription: "Test",
     };
   },
 
