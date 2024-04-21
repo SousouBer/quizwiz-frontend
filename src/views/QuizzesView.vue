@@ -52,9 +52,15 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch("fetchCategories");
-    this.$store.dispatch("fetchLevels");
-    this.$store.dispatch("fetchQuizzes");
+    // Fetch quizzes, levels, and categories only if quizzes' state is empty
+    // to prevent frequent requests.
+    const quizzes = this.$store.getters.quizzes;
+
+    if (quizzes.length === 0) {
+      this.$store.dispatch("fetchQuizzes");
+      this.$store.dispatch("fetchCategories");
+      this.$store.dispatch("fetchLevels");
+    }
 
     const urlCategories = this.$route.query.categories;
     const urlLevels = this.$route.query.levels;
