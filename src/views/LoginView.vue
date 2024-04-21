@@ -133,7 +133,6 @@ export default {
       try {
         const response = await verifyEmail(verificationUrl);
 
-        console.log(response);
         this.showToastNotification(
           "success",
           response.data.title,

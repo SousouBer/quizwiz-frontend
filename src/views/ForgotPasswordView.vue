@@ -57,7 +57,6 @@ export default {
 
   methods: {
     async handleSubmit(values, { resetForm, setErrors }) {
-      console.log(values);
       try {
         const response = await forgotPassword(values);
         resetForm();
