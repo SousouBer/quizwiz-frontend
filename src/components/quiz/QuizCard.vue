@@ -1,10 +1,10 @@
 <template>
   <div class="p-5 inline-block content-center">
-    <div class="mb-1">
-      <img src="@/assets/images/quiz-test-image.svg" alt="Quiz card image" />
+    <div class="mb-1 rounded-2xl overflow-hidden">
+      <img :src="image" alt="Quiz card image" />
     </div>
     <div>
-      <div class="my-2 flex gap-8">
+      <div class="my-2 flex gap-4 mt-4 flex-wrap">
         <span
           class="text-saturated-blue font-semibold"
           v-for="category in categories"
@@ -18,8 +18,8 @@
     </div>
     <div class="my-2 flex flex-wrap gap-4 mt-4">
       <QuizCardInfoItem
-        info="completed"
-        title="Completed"
+        info="not_completed"
+        title="Not Completed"
         details="Date time"
         :isCompleted="isQuizCompleted"
       />
@@ -30,11 +30,16 @@
         :isCompleted="isQuizCompleted"
       />
       <QuizCardInfoItem
+        title="Total users"
+        :details="`${plays} plays`"
+        :isCompleted="isQuizCompleted"
+      />
+      <QuizCardInfoItem
         info="difficulty"
-        :title="difficultyLevel.title"
+        title="Difficulty Level"
         :color="difficultyLevel.color"
         :backgroundColor="difficultyLevel.background_color"
-        details="N/A"
+        :details="difficultyLevel.title"
         :isCompleted="isQuizCompleted"
       />
     </div>
@@ -73,6 +78,14 @@ export default {
     isQuizCompleted: {
       type: Boolean,
       default: false,
+      required: true,
+    },
+    plays: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
       required: true,
     },
   },

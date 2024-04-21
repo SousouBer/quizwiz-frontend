@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full rounded-2xl overflow-hidden">
     <img class="w-full h-full" :src="link" alt="Man in space" />
   </div>
 </template>

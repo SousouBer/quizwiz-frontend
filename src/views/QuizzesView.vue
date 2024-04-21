@@ -13,6 +13,9 @@
         :categories="quiz.categories"
         :difficultyLevel="quiz.difficulty_level"
         :time="quiz.time"
+        :plays="quiz.plays"
+        :points="quiz.points"
+        :image="quiz.image"
       />
     </div>
     <QuizButtonLoadMore />

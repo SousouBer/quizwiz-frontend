@@ -5,14 +5,20 @@
     <div class="sm:mr-8">
       <div class="flex gap-8 border-b pb-16 mb-4">
         <div class="w-full sm:w-auto">
-          <QuizWrapperCategory class="mb-4 sm:hidden" />
-          <QuizInnerWrapperImage
-            link="{{ selectedQuiz.image }}"
-            class="sm:w-80 sm:hidden mt-4"
+          <QuizWrapperCategory
+            v-for="category in selectedQuiz.categories"
+            :key="category.id"
+            :label="category.title"
+            class="mb-4 sm:hidden"
           />
+
           <h1 class="text-4xl font-bold leading-12 mb-4">
             {{ selectedQuiz.title }}
           </h1>
+          <QuizInnerWrapperImage
+            :link="selectedQuiz.image"
+            class="sm:w-80 sm:hidden mt-4"
+          />
           <div class="flex gap-3">
             <QuizWrapperCategory
               v-for="category in selectedQuiz.categories"
@@ -52,7 +58,10 @@
             Start quizz
           </button>
         </div>
-        <QuizInnerWrapperImage class="h-72 sm:w-80 hidden sm:block" />
+        <QuizInnerWrapperImage
+          :link="selectedQuiz.image"
+          class="h-72 sm:w-80 hidden sm:block"
+        />
       </div>
       <span class="font-bold text-lg">Instructions</span>
       <p class="mt-1">
