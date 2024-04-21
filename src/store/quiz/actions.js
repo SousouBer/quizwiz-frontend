@@ -36,7 +36,6 @@ export default {
   },
 
   async sendChosenAnswers(_, answers) {
-    const response = await sendAnswers(answers);
-    console.log(response);
+    await sendAnswers(answers);
   },
 };
