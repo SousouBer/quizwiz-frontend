@@ -13,9 +13,7 @@ const store = createStore({
 
     selectedCategories: [],
     selectedLevels: [],
-
     selectedSort: null,
-
     completedQuizzes: null,
     myQuizzes: null,
 

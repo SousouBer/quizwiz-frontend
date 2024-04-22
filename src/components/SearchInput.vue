@@ -56,6 +56,12 @@ export default {
       this.isFirstFocused = false;
       this.searchInput = "";
       this.$refs.searchInput.value = "";
+
+      const excistingQuery = { ...this.$route.query };
+
+      delete excistingQuery.search;
+
+      this.$router.push({ excistingQuery });
     },
 
     debounce() {
@@ -63,9 +69,23 @@ export default {
 
       this.debounceTimeout = setTimeout(() => {
         this.searchInput = this.$refs.searchInput.value;
-        console.log(this.searchInput);
+        this.$router.push({
+          query: {
+            ...this.$route.query,
+            search: this.searchInput,
+          },
+        });
       }, 2000);
     },
+  },
+
+  mounted() {
+    const search = this.$route.query.search;
+
+    if (search) {
+      this.searchInput = search;
+      this.$refs.searchInput.value = search;
+    }
   },
 };
 </script>
