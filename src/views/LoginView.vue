@@ -1,7 +1,7 @@
 <template>
   <layouts-auth-main>
     <LayoutsAuthImage
-      class="justify-center"
+      class="justify-center bg-pale-yellow"
       srcLink="/images/login-cover.svg"
     />
     <layouts-form>
@@ -117,6 +117,15 @@ export default {
           response.data.message,
         );
       } catch (err) {
+        if (err.response.status === 409) {
+          this.showToastNotification(
+            "error",
+            err.response.data.title,
+            err.response.data.message,
+          );
+        } else if (err.response.status === 422) {
+          setErrors(err.response.data.errors);
+        }
         setErrors(err.response.data);
       }
     },

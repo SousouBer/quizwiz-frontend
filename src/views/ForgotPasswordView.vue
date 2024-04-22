@@ -5,9 +5,11 @@
       srcLink="/images/reset-password-cover.svg"
     />
     <layouts-form>
-      <wrappers-form-heading class="gap-4 mb-12">
+      <wrappers-form-heading
+        class="text-center sm:text-start gap-4 mb-14 sm:mb-12"
+      >
         <heading-form>Forgot password?</heading-form>
-        <span
+        <span class="text-sm"
           >Don’t worry! It happens. Please enter the email associated<br />
           with your account.</span
         >
@@ -55,7 +57,6 @@ export default {
 
   methods: {
     async handleSubmit(values, { resetForm, setErrors }) {
-      console.log(values);
       try {
         const response = await forgotPassword(values);
         resetForm();

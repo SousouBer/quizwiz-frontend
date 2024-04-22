@@ -41,3 +41,22 @@
 .answer-checkbox:checked {
   background-color: #4b69fd;
 }
+
+@keyframes backgroundAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideToast {
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
