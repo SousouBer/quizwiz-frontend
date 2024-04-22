@@ -10,9 +10,10 @@
         <div class="flex items-center justify-center">
           <iconSearch class="w-full h-full" />
         </div>
-        <input
+        <Input
           @focus="toggleElement"
-          v-model="searchInput"
+          @input="debounce"
+          ref="searchInput"
           class="bg-transparent placeholder:text-sm w-full placeholder:px-1 outline-none transition-all duration-300 ease-out"
           type="text"
           placeholder="Search"
@@ -43,6 +44,7 @@ export default {
       isFirstFocused: false,
       showBurgerAuthModal: false,
       searchInput: "",
+      debounceTimeout: null,
     };
   },
 
@@ -53,6 +55,16 @@ export default {
     closeInputField() {
       this.isFirstFocused = false;
       this.searchInput = "";
+      this.$refs.searchInput.value = "";
+    },
+
+    debounce() {
+      clearTimeout(this.debounceTimeout);
+
+      this.debounceTimeout = setTimeout(() => {
+        this.searchInput = this.$refs.searchInput.value;
+        console.log(this.searchInput);
+      }, 2000);
     },
   },
 };
