@@ -2,8 +2,13 @@
   <filter-layout-rounded-border>
     <div class="w-full sm:w-auto">
       <filter-layout-filter-and-sort-by filterType="Filter by">
-        <FilterPanelModalCheckbox labelFor="My quizzes" name="my_quizzes" />
         <FilterPanelModalCheckbox
+          @click="showActionButtons"
+          labelFor="My quizzes"
+          name="my_quizzes"
+        />
+        <FilterPanelModalCheckbox
+          @click="showActionButtons"
           labelFor="Not completed"
           name="completed_quizzes"
         />
@@ -13,6 +18,7 @@
         classNames="flex flex-wrap gap-2"
       >
         <FilterPanelSelectionChip
+          @click="showActionButtons"
           v-for="level in levels"
           :key="level.id"
           :id="level.id"
@@ -27,6 +33,7 @@
         classNames="flex flex-wrap gap-2"
       >
         <FilterPanelSelectionChip
+          @click="showActionButtons"
           v-for="category in categories"
           :key="category.id"
           :id="category.id"
@@ -47,6 +54,7 @@ import FilterPanelModalCheckbox from "@/components/filter/FilterPanelModalCheckb
 import FilterPanelSelectionChip from "@/components/filter/FilterPanelSelectionChip.vue";
 
 export default {
+  inject: ["showActionButtons"],
   components: {
     FilterLayoutRoundedBorder,
     FilterPanelSelectionChip,

@@ -59,6 +59,7 @@ import IconNewest from "@/components/icons/IconNewest.vue";
 import IconOldest from "@/components/icons/IconOldest.vue";
 
 export default {
+  inject: ["showActionButtons"],
   components: {
     FilterLayoutRoundedBorder,
     FilterLayoutFilterAndSortBy,
@@ -78,6 +79,7 @@ export default {
 
   methods: {
     selectCriteria(id) {
+      this.showActionButtons();
       if (this.selectedCriteria === id) {
         this.$store.commit("setSelectedSort", null);
       } else {
