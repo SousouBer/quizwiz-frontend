@@ -89,4 +89,8 @@ export default {
       (item) => item.questionId !== questionId,
     );
   },
+
+  setUser(state, payload) {
+    state.user = payload.user;
+  },
 };

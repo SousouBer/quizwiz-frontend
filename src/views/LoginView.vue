@@ -116,6 +116,8 @@ export default {
           response.data.title,
           response.data.message,
         );
+
+        this.$router.push({ name: "quizzes" });
       } catch (err) {
         if (err.response.status === 409) {
           this.showToastNotification(

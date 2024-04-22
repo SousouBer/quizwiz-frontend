@@ -6,6 +6,8 @@ import {
   sendAnswers,
 } from "@/services/quiz";
 
+import { getUser } from "@/services/auth";
+
 export default {
   async fetchCategories(context) {
     const response = await getCategories();
@@ -37,5 +39,13 @@ export default {
 
   async sendChosenAnswers(_, answers) {
     await sendAnswers(answers);
+  },
+
+  async fetchUser(context) {
+    const response = await getUser();
+    const user = response.data;
+
+    console.log("user", user);
+    context.commit("setUser", { user });
   },
 };

@@ -41,3 +41,8 @@ export async function checkPasswordResetExpiration(email, token) {
     `/api/reset-password/${email}/${token}/check-expiration`,
   );
 }
+
+export async function getUser() {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.get("api/user");
+}

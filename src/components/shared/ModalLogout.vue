@@ -7,8 +7,8 @@
     </div>
     <div class="flex justify-between">
       <div class="flex flex-col justify-center gap-1">
-        <span class="font-semibold text-sm">Soso Beriashvili</span>
-        <span class="text-sm">sosoberiashvili@gmail.com</span>
+        <span class="font-semibold text-sm">{{ user.username }}</span>
+        <span class="text-sm">{{ user.email }}</span>
       </div>
       <a href="#" class="flex items-end justify-end">
         <icon-logout @click="closeLogoutModal" class="cursor-pointer" />
@@ -21,6 +21,8 @@
 import IconUnauthenticatedUser from "@/components/icons/IconUnauthenticatedUser.vue";
 import IconLogout from "@/components/icons/IconLogout.vue";
 
+import { logout } from "@/services/auth";
+
 export default {
   components: {
     IconUnauthenticatedUser,
@@ -28,8 +30,21 @@ export default {
   },
 
   methods: {
+    async onLogout() {
+      await logout();
+    },
+
     closeLogoutModal() {
       this.$emit("close-logout-modal");
+      this.onLogout().then(() => {
+        this.$router.push({ name: "login" });
+      });
+    },
+  },
+
+  computed: {
+    user() {
+      return this.$store.getters.user;
     },
   },
 };
