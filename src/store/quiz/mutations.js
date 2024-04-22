@@ -68,4 +68,25 @@ export default {
     state.selectedSort = null;
     (state.myQuizzes = null), (state.completedQuizzes = null);
   },
+
+  setQuiz(state, payload) {
+    state.quiz = payload.quiz;
+  },
+
+  setAnswer(state, answer) {
+    const existingAnswerIndex = state.answers.findIndex(
+      (item) => item.answerId === answer.answerId,
+    );
+    if (existingAnswerIndex === -1) {
+      state.answers.push(answer);
+    } else {
+      state.answers.splice(existingAnswerIndex, 1);
+    }
+  },
+
+  deselectAnswers(state, questionId) {
+    state.answers = state.answers.filter(
+      (item) => item.questionId !== questionId,
+    );
+  },
 };

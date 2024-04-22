@@ -4,13 +4,18 @@
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
       <QuizCard
+        class="cursor-pointer"
         v-for="quiz in quizzes"
+        @click="quizDetails(quiz.id)"
         :key="quiz.id"
         :id="quiz.id"
         :title="quiz.title"
         :categories="quiz.categories"
         :difficultyLevel="quiz.difficulty_level"
         :time="quiz.time"
+        :plays="quiz.plays"
+        :points="quiz.points"
+        :image="quiz.image"
       />
     </div>
     <QuizButtonLoadMore />
@@ -40,10 +45,22 @@ export default {
     },
   },
 
+  methods: {
+    quizDetails(id) {
+      this.$router.push({ name: "quiz", params: { id: id } });
+    },
+  },
+
   mounted() {
-    this.$store.dispatch("fetchCategories");
-    this.$store.dispatch("fetchLevels");
-    this.$store.dispatch("fetchQuizzes");
+    // Fetch quizzes, levels, and categories only if quizzes' state is empty
+    // to prevent frequent requests.
+    const quizzes = this.$store.getters.quizzes;
+
+    if (quizzes.length === 0) {
+      this.$store.dispatch("fetchQuizzes");
+      this.$store.dispatch("fetchCategories");
+      this.$store.dispatch("fetchLevels");
+    }
 
     const urlCategories = this.$route.query.categories;
     const urlLevels = this.$route.query.levels;

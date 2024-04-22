@@ -14,3 +14,13 @@ export async function getQuizzes() {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.get("/api/quizzes");
 }
+
+export async function getQuiz(id) {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.get(`/api/quiz/${id}`);
+}
+
+export async function sendAnswers(answers) {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.get("/api/answers", answers);
+}

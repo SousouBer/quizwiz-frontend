@@ -20,6 +20,10 @@ const store = createStore({
     myQuizzes: null,
 
     quizzes: [],
+
+    quiz: [],
+
+    answers: [],
   },
 
   getters: quizGetters,

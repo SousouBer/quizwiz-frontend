@@ -4,18 +4,26 @@
       <QuizQuestionsHeaderTitleAndIcons
         :title="quiz.title"
         :categories="quiz.categories"
-        :questions="quiz.questionsAndAnswers.length"
+        :questions="quiz.questions_and_answers.length"
         :plays="quiz.plays"
         :time="quiz.time"
       />
       <IconX width="24" height="24" color="gray" class="ml-auto" />
     </header>
-    <QuizQuestionsQuizDetails />
+    <QuizQuestionsQuizDetails
+      :categories="quiz.categories"
+      :title="quiz.title"
+      :questions="quiz.questions_and_answers.length"
+      :points="quiz.points"
+      :plays="quiz.plays"
+      :time="quiz.time"
+    />
     <div class="flex justify-between px-6 sm:px-24 py-16">
       <div>
         <QuizQuestionAndAnswers
-          v-for="(question, index) in quiz.questionsAndAnswers"
+          v-for="(question, index) in quiz.questions_and_answers"
           :key="question.id"
+          :id="question.id"
           :order="index + 1"
           :points="question.points"
           :question="question.question"
@@ -26,9 +34,9 @@
         <TheTimer :duration="quiz.time" />
       </div>
     </div>
-    <Teleport to="body">
+    <!-- <Teleport to="body">
       <QuizModalResults />
-    </Teleport>
+    </Teleport> -->
   </div>
 </template>
 
@@ -38,7 +46,7 @@ import QuizQuestionAndAnswers from "@/components/quiz/QuizQuestionAndAnswers.vue
 import QuizQuestionsHeaderTitleAndIcons from "@/components/quiz/QuizQuestionsHeaderTitleAndIcons.vue";
 import TheTimer from "@/components/quiz/TheTimer.vue";
 import IconX from "@/components/icons/IconX.vue";
-import QuizModalResults from "@/components/quiz/QuizModalResults.vue";
+// import QuizModalResults from "@/components/quiz/QuizModalResults.vue";
 
 export default {
   components: {
@@ -47,67 +55,13 @@ export default {
     TheTimer,
     QuizQuestionsHeaderTitleAndIcons,
     IconX,
-    QuizModalResults,
+    // QuizModalResults,
   },
 
-  data() {
-    // Will remove this data.
-    return {
-      quiz: {
-        id: 1,
-        title: "Timeline of Discoveries",
-        time: 5,
-        plays: 10,
-        points: 8,
-        categories: ["History", "Science"],
-        questionsAndAnswers: [
-          {
-            id: 1,
-            points: 2,
-            question: "What is the capital of France?",
-            answers: [
-              { id: 1, text: "Paris" },
-              { id: 2, text: "London" },
-              { id: 3, text: "Berlin" },
-              { id: 4, text: "Madrid" },
-            ],
-          },
-          {
-            id: 2,
-            points: 3,
-            question: "Who discovered penicillin?",
-            answers: [
-              { id: 1, text: "Alexander Fleming" },
-              { id: 2, text: "Marie Curie" },
-              { id: 3, text: "Isaac Newton" },
-              { id: 4, text: "Albert Einstein" },
-            ],
-          },
-          {
-            id: 3,
-            points: 1,
-            question: "Who discovered penicillin?",
-            answers: [
-              { id: 1, text: "Alexander Fleming" },
-              { id: 2, text: "Marie Curie" },
-              { id: 3, text: "Isaac Newton" },
-              { id: 4, text: "Albert Einstein" },
-            ],
-          },
-          {
-            id: 4,
-            points: 3,
-            question: "Who discovered penicillin?",
-            answers: [
-              { id: 1, text: "Alexander Fleming" },
-              { id: 2, text: "Marie Curie" },
-              { id: 3, text: "Isaac Newton" },
-              { id: 4, text: "Albert Einstein" },
-            ],
-          },
-        ],
-      },
-    };
+  computed: {
+    quiz() {
+      return this.$store.getters.quiz;
+    },
   },
 };
 </script>
