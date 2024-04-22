@@ -57,7 +57,7 @@ export default {
     const quizzes = this.$store.getters.quizzes;
 
     if (quizzes.length === 0) {
-      this.$store.dispatch("fetchQuizzes");
+      this.$store.dispatch("fetchQuizzes", this.$route.query);
       this.$store.dispatch("fetchCategories");
       this.$store.dispatch("fetchLevels");
     }

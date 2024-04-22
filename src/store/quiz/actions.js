@@ -21,8 +21,8 @@ export default {
     context.commit("setLevels", { levels });
   },
 
-  async fetchQuizzes(context) {
-    const response = await getQuizzes();
+  async fetchQuizzes(context, queryParams) {
+    const response = await getQuizzes(queryParams);
     const quizzes = response.data.data;
 
     context.commit("setQuizzes", { quizzes });

@@ -125,6 +125,9 @@ export default {
       if (completedQuizzes) {
         query.completed_quizzes = completedQuizzes;
       }
+      if (this.$route.query.search) {
+        query.search = this.$route.query.search;
+      }
 
       this.$router
         .push({
@@ -132,6 +135,7 @@ export default {
         })
         .then(() => {
           this.checkQueryParams();
+          this.$store.dispatch("fetchQuizzes", query);
         });
     },
 

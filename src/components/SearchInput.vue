@@ -61,7 +61,8 @@ export default {
 
       delete excistingQuery.search;
 
-      this.$router.push({ excistingQuery });
+      this.$router.push({ query: { ...excistingQuery } });
+      this.$store.dispatch("fetchQuizzes", excistingQuery);
     },
 
     debounce() {
@@ -69,12 +70,16 @@ export default {
 
       this.debounceTimeout = setTimeout(() => {
         this.searchInput = this.$refs.searchInput.value;
-        this.$router.push({
-          query: {
-            ...this.$route.query,
-            search: this.searchInput,
-          },
-        });
+        this.$router
+          .push({
+            query: {
+              ...this.$route.query,
+              search: this.searchInput,
+            },
+          })
+          .then(() => {
+            this.$store.dispatch("fetchQuizzes", this.$route.query);
+          });
       }, 2000);
     },
   },
