@@ -31,14 +31,6 @@ export default {
       type: String,
       required: true,
     },
-    selectedColor: {
-      type: String,
-      required: true,
-    },
-    selectedBackgroundColor: {
-      type: String,
-      required: true,
-    },
   },
 
   methods: {
@@ -63,8 +55,8 @@ export default {
 
       return !selectedItems.includes(this.id)
         ? {
-            color: this.selectedColor,
-            backgroundColor: this.selectedBackgroundColor,
+            color: this.backgroundColor,
+            backgroundColor: this.color,
           }
         : { color: this.color, backgroundColor: this.backgroundColor };
     },

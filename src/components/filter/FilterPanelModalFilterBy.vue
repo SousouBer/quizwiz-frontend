@@ -19,8 +19,6 @@
           :label="level.title"
           :isCategory="false"
           :color="level.color"
-          :selectedBackgroundColor="level.background_color_selected"
-          :selectedColor="level.color_selected"
           :backgroundColor="level.background_color"
         />
       </filter-layout-filter-and-sort-by>
