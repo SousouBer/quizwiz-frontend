@@ -1,5 +1,6 @@
 <template>
   <layouts-blurr
+    v-if="quizResults"
     class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
   >
     <div class="bg-white w-1/4 p-4 rounded-xl">
@@ -12,22 +13,22 @@
       <div>
         <QuizModalResultsItem
           itemTitle="quiz_name"
-          itemResult="Timeline of discoveries"
+          :itemResult="quizResults.title"
         />
         <QuizModalResultsItem
           itemTitle="quiz_level"
-          itemResult="High"
-          color="#F3B63F"
+          :itemResult="quizResults.difficulty_level.title"
+          :color="quizResults.difficulty_level.color"
         />
-        <QuizModalResultsItem itemTitle="time" itemResult="5:30" />
+        <QuizModalResultsItem itemTitle="time" :itemResult="quizResults.time" />
         <QuizModalResultsItem
           itemTitle="wrong_answers"
-          itemResult="7"
+          :itemResult="quizResults.wrong_answers"
           color="#E64646"
         />
         <QuizModalResultsItem
           itemTitle="correct_answers"
-          itemResult="10"
+          :itemResult="quizResults.correct_answers"
           color="#12B76A"
         />
       </div>
@@ -55,7 +56,14 @@ export default {
 
   methods: {
     backToHomePage() {
+      this.$store.commit("setQuizResults");
       this.$router.push({ name: "quizzes" });
+    },
+  },
+
+  computed: {
+    quizResults() {
+      return this.$store.getters.quizResults;
     },
   },
 };

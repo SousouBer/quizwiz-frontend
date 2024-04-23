@@ -95,6 +95,10 @@ export default {
   },
 
   setQuizResults(state, payload) {
-    state.quizResults = payload.results;
+    if (payload) {
+      state.quizResults = payload.results;
+    } else {
+      state.quizResults = null;
+    }
   },
 };
