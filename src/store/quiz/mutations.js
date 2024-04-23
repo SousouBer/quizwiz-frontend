@@ -93,4 +93,12 @@ export default {
   setUser(state, payload) {
     state.user = payload.user;
   },
+
+  setQuizResults(state, payload) {
+    if (payload) {
+      state.quizResults = payload.results;
+    } else {
+      state.quizResults = null;
+    }
+  },
 };
