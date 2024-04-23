@@ -13,9 +13,7 @@ const store = createStore({
 
     selectedCategories: [],
     selectedLevels: [],
-
     selectedSort: null,
-
     completedQuizzes: null,
     myQuizzes: null,
 
@@ -24,6 +22,8 @@ const store = createStore({
     quiz: [],
 
     answers: [],
+
+    user: null,
   },
 
   getters: quizGetters,

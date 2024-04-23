@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full sm:h-auto sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-1/4 sm:-translate-x-24"
+    class="w-full h-full sm:h-auto sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-28 sm:-translate-x-24"
   >
     <div
       class="flex items-center justify-between sm:justify-center gap-4 py-7 px-4 sm:py-4 rounded-2xl bg-very-light-gray"
@@ -19,7 +19,10 @@
       <span class="font-semibold uppercase text-medium-dark-gray sm:hidden"
         >Filters</span
       >
-      <div class="items-center gap-9 relative hidden sm:flex">
+      <div
+        v-if="displayActionButtons"
+        class="items-center gap-9 relative hidden sm:flex"
+      >
         <FilterPanelModalButtonAction
           @click="confirmOptions"
           actionType="confirm"
@@ -31,7 +34,7 @@
           text="Reset all filters"
         />
         <IconMiddleLine
-          class="absolute top-1/2 left-1/2 transform -translate-y-1/2 translate-x-1"
+          class="absolute top-1/2 left-1/2 transform -translate-y-1/2 translate-x-2"
         />
       </div>
       <IconX
@@ -89,6 +92,7 @@ export default {
   data() {
     return {
       showFilter: false,
+      displayActionButtons: false,
     };
   },
 
@@ -97,11 +101,18 @@ export default {
       this.$emit("close-filter-modal");
     },
 
+    showActionButtons() {
+      this.displayActionButtons = true;
+    },
+
     toggleFilterAndSort(value) {
       this.showFilter = value;
     },
 
     confirmOptions() {
+      this.closeFilterModal();
+      this.displayActionButtons = false;
+
       const categories = this.$store.getters.selectedCategories;
       const levels = this.$store.getters.selectedLevels;
       const sort = this.$store.getters.selectedSort;
@@ -125,6 +136,9 @@ export default {
       if (completedQuizzes) {
         query.completed_quizzes = completedQuizzes;
       }
+      if (this.$route.query.search) {
+        query.search = this.$route.query.search;
+      }
 
       this.$router
         .push({
@@ -132,6 +146,7 @@ export default {
         })
         .then(() => {
           this.checkQueryParams();
+          this.$store.dispatch("fetchQuizzes", query);
         });
     },
 
@@ -153,6 +168,7 @@ export default {
 
     resetOptions() {
       this.$store.commit("clearValues");
+      this.displayActionButtons = false;
 
       const urlCategories = this.$route.query.categories;
       const urlLevels = this.$route.query.levels;
@@ -182,6 +198,12 @@ export default {
         this.$store.commit("setCompletedQuizzes");
       }
     },
+  },
+
+  provide() {
+    return {
+      showActionButtons: this.showActionButtons,
+    };
   },
 
   mounted() {

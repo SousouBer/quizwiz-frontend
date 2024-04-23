@@ -10,9 +10,11 @@ export async function getLevels() {
   return await instance.get("/api/difficulty-levels");
 }
 
-export async function getQuizzes() {
+export async function getQuizzes(queryParams = {}) {
   await instance.get("/sanctum/csrf-cookie");
-  return await instance.get("/api/quizzes");
+  return await instance.get("/api/quizzes", {
+    params: queryParams,
+  });
 }
 
 export async function getQuiz(id) {

@@ -10,9 +10,10 @@
         <div class="flex items-center justify-center">
           <iconSearch class="w-full h-full" />
         </div>
-        <input
+        <Input
           @focus="toggleElement"
-          v-model="searchInput"
+          @input="debounce"
+          ref="searchInput"
           class="bg-transparent placeholder:text-sm w-full placeholder:px-1 outline-none transition-all duration-300 ease-out"
           type="text"
           placeholder="Search"
@@ -43,6 +44,7 @@ export default {
       isFirstFocused: false,
       showBurgerAuthModal: false,
       searchInput: "",
+      debounceTimeout: null,
     };
   },
 
@@ -53,7 +55,42 @@ export default {
     closeInputField() {
       this.isFirstFocused = false;
       this.searchInput = "";
+      this.$refs.searchInput.value = "";
+
+      const excistingQuery = { ...this.$route.query };
+
+      delete excistingQuery.search;
+
+      this.$router.push({ query: { ...excistingQuery } });
+      this.$store.dispatch("fetchQuizzes", excistingQuery);
     },
+
+    debounce() {
+      clearTimeout(this.debounceTimeout);
+
+      this.debounceTimeout = setTimeout(() => {
+        this.searchInput = this.$refs.searchInput.value;
+        this.$router
+          .push({
+            query: {
+              ...this.$route.query,
+              search: this.searchInput,
+            },
+          })
+          .then(() => {
+            this.$store.dispatch("fetchQuizzes", this.$route.query);
+          });
+      }, 2000);
+    },
+  },
+
+  mounted() {
+    const search = this.$route.query.search;
+
+    if (search) {
+      this.searchInput = search;
+      this.$refs.searchInput.value = search;
+    }
   },
 };
 </script>
