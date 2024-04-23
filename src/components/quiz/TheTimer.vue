@@ -7,22 +7,26 @@
       >Timer</span
     >
     <div class="pb-4 sm:pb-6 sm:mb-8 border-b border-gray-300 sm:px-20">
-      <div class="flex flex-row gap-4">
-        <QuizQuestionsButtonSubmit
-          @click="onSendResults"
-          class="sm:hidden w-4/6"
-          text="Submit"
-        />
-        <div
-          class="flex flex-col bg-gray-100 sm:bg-white border border-gray-300 sm:border-white rounded-lg py-2 px-4 flex-1"
-        >
-          <span class="font-Railway font-bold text-xs text-black sm:hidden"
-            >Timer</span
-          >
-          <span
-            id="countdown"
-            class="text-gray-600 font-bold sm:font-medium sm:text-7xl text-xl"
-          ></span>
+      <div>
+        <div class="mb-4 sm:hidden">
+          <QuizQuestionsWrapperTimerInfo label="Questions">
+            <span class="font-bold text-green-500">
+              {{ answeredQuestionsCount }}
+            </span>
+          </QuizQuestionsWrapperTimerInfo>
+        </div>
+        <div class="flex flex-row gap-4">
+          <QuizQuestionsButtonSubmit
+            @click="onSendResults"
+            class="sm:hidden w-4/6"
+            text="Submit"
+          />
+          <QuizQuestionsWrapperTimerInfo label="Timer">
+            <span
+              id="countdown"
+              class="text-gray-600 font-bold sm:font-medium sm:text-7xl text-xl"
+            ></span>
+          </QuizQuestionsWrapperTimerInfo>
         </div>
       </div>
     </div>
@@ -36,10 +40,12 @@
 
 <script>
 import QuizQuestionsButtonSubmit from "@/components/quiz/QuizQuestionsButtonSubmit.vue";
+import QuizQuestionsWrapperTimerInfo from "@/components/quiz/QuizQuestionsWrapperTimerInfo.vue";
 
 export default {
   components: {
     QuizQuestionsButtonSubmit,
+    QuizQuestionsWrapperTimerInfo,
   },
 
   props: {
@@ -47,7 +53,12 @@ export default {
       type: Number,
       required: true,
     },
+    questions: {
+      type: Number,
+      required: true,
+    },
   },
+
   methods: {
     onSendResults() {
       const results = this.$store.getters.answers;
@@ -79,6 +90,17 @@ export default {
           this.countdown(minutes, seconds - 1);
         }
       }, 1000);
+    },
+  },
+
+  computed: {
+    answeredQuestionsCount() {
+      // Count how many questions have been answered.
+      const count = [
+        ...new Set(this.$store.getters.answers.map((item) => item.questionId)),
+      ].length;
+
+      return `${count}/${this.questions}`;
     },
   },
 

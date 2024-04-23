@@ -27,7 +27,7 @@
       <div
         class="fixed top-0 right-0 transform translate-y-12 sm:translate-y-80 sm:-translate-x-1/4 w-full sm:w-auto"
       >
-        <TheTimer :duration="quiz.time" />
+        <TheTimer :duration="quiz.time" :questions="quiz.questions" />
       </div>
     </div>
     <Teleport to="body">
