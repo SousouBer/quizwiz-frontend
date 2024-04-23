@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center pt-32">
+  <div class="flex flex-col items-center pt-80 sm:pt-32">
     <span class="font-bold text-black text-5xl px-4 text-center">{{
       title
     }}</span>

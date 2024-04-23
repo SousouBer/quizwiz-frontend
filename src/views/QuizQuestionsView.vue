@@ -1,6 +1,8 @@
 <template>
   <div>
-    <header class="fixed z-10 bg-white border-b-2 py-6 h-20 w-full px-24 flex">
+    <header
+      class="fixed z-10 bg-white border-b-2 py-6 h-20 w-full px-6 sm:px-24 flex"
+    >
       <QuizQuestionsHeaderTitleAndIcons
         v-if="showStatistics"
         class="hidden sm:flex"
