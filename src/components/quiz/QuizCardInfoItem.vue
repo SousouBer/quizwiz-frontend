@@ -72,10 +72,7 @@ export default {
       }
     },
     isGrayText() {
-      return (
-        (this.info === "not_completed" && !this.isCompleted) ||
-        (this.info === "time" && !this.isCompleted)
-      );
+      return this.info === "not_completed" || this.info === "time";
     },
   },
 };

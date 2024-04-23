@@ -4,7 +4,7 @@
       <img :src="image" alt="Quiz card image" />
     </div>
     <div>
-      <div class="my-2 flex gap-4 mt-4 flex-wrap">
+      <div class="flex gap-4 my-4 flex-wrap">
         <span
           class="text-saturated-blue font-semibold"
           v-for="category in categories"
@@ -16,7 +16,7 @@
         title
       }}</span>
     </div>
-    <div class="my-2 flex flex-wrap gap-4 mt-4">
+    <div class="my-2 flex flex-wrap gap-4 mt-6">
       <QuizCardInfoItem
         v-if="!results"
         info="not_completed"
