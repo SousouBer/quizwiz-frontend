@@ -30,8 +30,10 @@
           :answers="question.answers"
         />
       </div>
-      <div>
-        <!-- <TheTimer :duration="quiz.time" /> -->
+      <div
+        class="fixed top-0 right-0 transform translate-y-80 -translate-x-1/4"
+      >
+        <TheTimer :duration="quiz.time" />
       </div>
     </div>
     <Teleport to="body">
@@ -44,7 +46,7 @@
 import QuizQuestionsQuizDetails from "@/components/quiz/QuizQuestionsQuizDetails.vue";
 import QuizQuestionAndAnswers from "@/components/quiz/QuizQuestionAndAnswers.vue";
 import QuizQuestionsHeaderTitleAndIcons from "@/components/quiz/QuizQuestionsHeaderTitleAndIcons.vue";
-// import TheTimer from "@/components/quiz/TheTimer.vue";
+import TheTimer from "@/components/quiz/TheTimer.vue";
 import IconX from "@/components/icons/IconX.vue";
 import QuizModalResults from "@/components/quiz/QuizModalResults.vue";
 
@@ -52,7 +54,7 @@ export default {
   components: {
     QuizQuestionsQuizDetails,
     QuizQuestionAndAnswers,
-    // TheTimer,
+    TheTimer,
     QuizQuestionsHeaderTitleAndIcons,
     IconX,
     QuizModalResults,

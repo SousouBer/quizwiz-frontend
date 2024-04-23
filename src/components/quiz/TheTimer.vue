@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative border border-gray-200 rounded-lg shadow-xl p-8 pt-12 w-96"
+    class="bg-white relative border border-gray-200 rounded-lg shadow-xl p-8 pt-12 w-96"
   >
     <span
       class="bg-white absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 px-12 py-3 rounded-lg border border-gray-200 shadow-sm font-semibold text-base text-gray-600"
