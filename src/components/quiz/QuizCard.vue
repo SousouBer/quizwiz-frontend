@@ -18,29 +18,41 @@
     </div>
     <div class="my-2 flex flex-wrap gap-4 mt-4">
       <QuizCardInfoItem
+        v-if="!results"
         info="not_completed"
         title="Not Completed"
         details="Date time"
-        :isCompleted="isQuizCompleted"
+      />
+      <QuizCardInfoItem
+        v-if="results"
+        info="completed"
+        title="Completed"
+        :details="
+          new Date(results.created_at).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+          })
+        "
       />
       <QuizCardInfoItem
         info="time"
         title="Total time"
-        details="N/A"
-        :isCompleted="isQuizCompleted"
+        :details="results ? `${results.time_taken}Minutes` : 'N/A'"
       />
-      <QuizCardInfoItem
-        title="Total users"
-        :details="`${plays} plays`"
-        :isCompleted="isQuizCompleted"
-      />
+      <QuizCardInfoItem title="Total users" :details="`${plays} plays`" />
       <QuizCardInfoItem
         info="difficulty"
         title="Difficulty Level"
         :color="difficultyLevel.color"
         :backgroundColor="difficultyLevel.background_color"
         :details="difficultyLevel.title"
-        :isCompleted="isQuizCompleted"
+      />
+      <QuizCardInfoItem
+        v-if="results"
+        info="points"
+        title="Points"
+        :details="`${results.score}/${points}`"
       />
     </div>
   </div>
@@ -75,9 +87,9 @@ export default {
       type: Number,
       required: true,
     },
-    isQuizCompleted: {
-      type: Boolean,
-      default: false,
+    results: {
+      type: Array,
+      default: null,
       required: true,
     },
     plays: {

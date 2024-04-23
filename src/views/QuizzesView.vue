@@ -16,6 +16,7 @@
         :plays="quiz.plays"
         :points="quiz.points"
         :image="quiz.image"
+        :results="quiz.results"
       />
     </div>
     <QuizButtonLoadMore />

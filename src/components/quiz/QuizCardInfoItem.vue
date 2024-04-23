@@ -47,11 +47,6 @@ export default {
       type: String,
       required: true,
     },
-    isCompleted: {
-      type: Boolean,
-      default: false,
-      required: true,
-    },
     color: {
       type: String,
       required: true,
@@ -66,11 +61,11 @@ export default {
     iconComponent() {
       if (this.info === "difficulty") {
         return IconDifficultyLevel;
-      } else if (this.info === "completed" && this.isCompleted) {
+      } else if (this.info === "completed") {
         return IconQuizCompleted;
-      } else if (this.info === "not_completed" && !this.isCompleted) {
+      } else if (this.info === "not_completed") {
         return IconQuizNotCompleted;
-      } else if (this.info === "points" && this.isCompleted) {
+      } else if (this.info === "points") {
         return IconQuizPoints;
       } else {
         return null;
