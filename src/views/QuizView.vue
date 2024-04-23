@@ -37,11 +37,12 @@
           />
 
           <div
-            class="flex gap-2 sm:gap-8 items-start justify-between sm:items-center flex-col sm:flex-row my-10"
+            class="flex gap-2 sm:gap-8 items-start sm:items-center flex-col sm:flex-row my-10"
           >
             <QuizInnerStatistic
               statistic="questions"
               :label="`${selectedQuiz.questions} questions`"
+              :notLastItem="false"
             />
             <QuizInnerStatistic
               statistic="points"
