@@ -5,22 +5,21 @@
     <div class="sm:mr-8">
       <div class="flex gap-8 border-b pb-16 mb-4">
         <div class="w-full sm:w-auto">
-          <QuizWrapperCategory
-            v-for="category in selectedQuiz.categories"
-            :key="category.id"
-            :label="category.title"
-            :lastItem="index === selectedQuiz.categories.length - 1"
-            class="mb-4 sm:hidden"
-          />
+          <div class="flex gap-x-8 gap-y-4 my-4 flex-wrap">
+            <QuizWrapperCategory
+              v-for="(category, index) in selectedQuiz.categories"
+              :key="category.id"
+              :label="category.title"
+              :lastItem="index === selectedQuiz.categories.length - 1"
+              class="sm:hidden"
+            />
+          </div>
 
           <h1 class="text-4xl font-bold leading-12 mb-4">
             {{ selectedQuiz.title }}
           </h1>
-          <QuizInnerWrapperImage
-            :link="selectedQuiz.image"
-            class="sm:w-80 sm:hidden mt-4"
-          />
-          <div class="flex gap-x-8 gap-y-2 my-4 flex-wrap">
+
+          <div class="flex gap-x-8 gap-y-2 sm:my-4 flex-wrap">
             <QuizWrapperCategory
               v-for="(category, index) in selectedQuiz.categories"
               :key="category.id"
@@ -32,6 +31,10 @@
           <span class="font-semibold text-sm text-grayish-blue">{{
             selectedQuiz.description
           }}</span>
+          <QuizInnerWrapperImage
+            :link="selectedQuiz.image"
+            class="sm:w-80 sm:hidden mt-4"
+          />
 
           <div
             class="flex gap-2 sm:gap-8 items-start justify-between sm:items-center flex-col sm:flex-row my-10"
