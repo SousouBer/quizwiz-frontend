@@ -1,18 +1,20 @@
 <template>
   <div
-    v-if="showStatistics"
-    class="hidden sm:flex gap-6 items-center rounded-lg border border-light-gray bg-gray-100 pb-2 pt-4 px-6"
+    class="gap-6 items-center rounded-lg border border-light-gray bg-gray-100 pt-2 px-2 sm:pb-2 sm:pt-4 sm:px-6"
   >
-    <span class="font-bold text-base whitespace-nowrap pb-2 pr-4">{{
+    <span class="font-bold text-xs sm:text-base whitespace-nowrap pb-2 pr-4">{{
       title
     }}</span>
-    <span class="pb-2 pr-2">
-      <IconPin color="black" />
-    </span>
-    <QuizInnerStatistic statistic="questions" color="black" />
-    <QuizInnerStatistic statistic="points" color="black" />
-    <QuizInnerStatistic statistic="count" color="black" />
-    <QuizInnerStatistic statistic="time" color="black" />
+    <div class="flex gap-4 mt-2 sm:mt-0">
+      <span class="pb-2 pr-2">
+        <IconPin color="black" class="hidden sm:block" />
+        <IconPin color="black" width="14" class="sm:hidden" />
+      </span>
+      <QuizInnerStatistic statistic="questions" color="black" />
+      <QuizInnerStatistic statistic="points" color="black" />
+      <QuizInnerStatistic statistic="count" color="black" />
+      <QuizInnerStatistic statistic="time" color="black" />
+    </div>
   </div>
 </template>
 
@@ -46,26 +48,6 @@ export default {
     time: {
       type: Number,
       required: true,
-    },
-  },
-
-  data() {
-    return {
-      showStatistics: false,
-    };
-  },
-
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-
-  methods: {
-    handleScroll() {
-      this.showStatistics = window.scrollY > 150;
     },
   },
 };

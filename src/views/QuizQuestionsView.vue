@@ -1,7 +1,11 @@
 <template>
   <div>
     <header class="fixed z-10 bg-white border-b-2 py-6 h-20 w-full px-24 flex">
-      <QuizQuestionsHeaderTitleAndIcons :title="quiz.title" />
+      <QuizQuestionsHeaderTitleAndIcons
+        v-if="showStatistics"
+        class="hidden sm:flex"
+        :title="quiz.title"
+      />
       <IconX width="24" height="24" color="gray" class="ml-auto" />
     </header>
     <QuizQuestionsQuizDetails
@@ -27,7 +31,11 @@
       <div
         class="fixed top-0 right-0 transform translate-y-12 sm:translate-y-80 sm:-translate-x-1/4 w-full sm:w-auto"
       >
-        <TheTimer :duration="quiz.time" :questions="quiz.questions" />
+        <TheTimer
+          :duration="quiz.time"
+          :questions="quiz.questions"
+          :title="quiz.title"
+        />
       </div>
     </div>
     <Teleport to="body">
@@ -54,10 +62,30 @@ export default {
     QuizModalResults,
   },
 
+  data() {
+    return {
+      showStatistics: false,
+    };
+  },
+
   computed: {
     quiz() {
       return this.$store.getters.quiz;
     },
+  },
+
+  methods: {
+    handleScroll() {
+      this.showStatistics = window.scrollY > 150;
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>

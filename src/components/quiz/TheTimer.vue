@@ -8,17 +8,18 @@
     >
     <div class="pb-4 sm:pb-6 sm:mb-8 border-b border-gray-300 sm:px-20">
       <div>
-        <div class="mb-4 sm:hidden">
+        <div class="mb-4 sm:hidden flex gap-3 items-center">
+          <QuizQuestionsHeaderTitleAndIcons :title="title" class="w-full" />
           <QuizQuestionsWrapperTimerInfo label="Questions">
             <span class="font-bold text-green-500">
               {{ answeredQuestionsCount }}
             </span>
           </QuizQuestionsWrapperTimerInfo>
         </div>
-        <div class="flex flex-row gap-4">
+        <div class="flex flex-row gap-3">
           <QuizQuestionsButtonSubmit
             @click="onSendResults"
-            class="sm:hidden w-4/6"
+            class="sm:hidden w-full"
             text="Submit"
           />
           <QuizQuestionsWrapperTimerInfo label="Timer">
@@ -41,16 +42,22 @@
 <script>
 import QuizQuestionsButtonSubmit from "@/components/quiz/QuizQuestionsButtonSubmit.vue";
 import QuizQuestionsWrapperTimerInfo from "@/components/quiz/QuizQuestionsWrapperTimerInfo.vue";
+import QuizQuestionsHeaderTitleAndIcons from "@/components/quiz/QuizQuestionsHeaderTitleAndIcons.vue";
 
 export default {
   components: {
     QuizQuestionsButtonSubmit,
     QuizQuestionsWrapperTimerInfo,
+    QuizQuestionsHeaderTitleAndIcons,
   },
 
   props: {
     duration: {
       type: Number,
+      required: true,
+    },
+    title: {
+      type: String,
       required: true,
     },
     questions: {
