@@ -37,8 +37,11 @@ export default {
     context.commit("setQuiz", { quiz });
   },
 
-  async sendChosenAnswers(_, answers) {
-    await sendAnswers(answers);
+  async sendChosenAnswers(context, answers) {
+    const response = await sendAnswers(answers);
+    const results = response.data.data;
+
+    context.commit("setQuizResults", { results });
   },
 
   async fetchUser(context) {

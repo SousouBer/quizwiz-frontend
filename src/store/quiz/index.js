@@ -24,6 +24,8 @@ const store = createStore({
     answers: [],
 
     user: null,
+
+    quizResults: null,
   },
 
   getters: quizGetters,

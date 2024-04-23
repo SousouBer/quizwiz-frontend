@@ -24,5 +24,5 @@ export async function getQuiz(id) {
 
 export async function sendAnswers(answers) {
   await instance.get("/sanctum/csrf-cookie");
-  return await instance.get("/api/answers", answers);
+  return await instance.post("/api/answers", answers);
 }

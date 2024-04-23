@@ -30,9 +30,16 @@ export default {
   methods: {
     onSendResults() {
       const results = this.$store.getters.answers;
+      const quizId = this.$store.getters.quiz.id;
+      const timeTaken = document.getElementById("countdown").textContent;
+
       const answerIds = results.map((answer) => answer.answerId);
 
-      this.$store.dispatch("sendChosenAnswers", answerIds);
+      this.$store.dispatch("sendChosenAnswers", {
+        quiz_id: quizId,
+        time: timeTaken,
+        answers: answerIds,
+      });
     },
 
     countdown(minutes, seconds) {

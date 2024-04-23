@@ -46,4 +46,8 @@ export default {
   user(state) {
     return state.user;
   },
+
+  quizResults(state) {
+    return state.quizResults;
+  },
 };
