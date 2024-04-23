@@ -53,10 +53,14 @@
           </div>
           <button
             @click="startQuiz"
+            v-if="!selectedQuiz.results"
             class="bg-saturated-blue transition-colors duration-300 hover:bg-blue-500 px-32 text-white py-3 rounded-lg text-base font-semibold w-full sm:w-auto"
           >
             Start quizz
           </button>
+          <span v-else class="font-semibold text-gray-600"
+            >You have already completed the quiz.</span
+          >
         </div>
         <QuizInnerWrapperImage
           :link="selectedQuiz.image"
