@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="showStatistics"
-    class="flex gap-6 items-center rounded-lg border border-light-gray bg-gray-100 pb-2 pt-4 px-6"
+    class="hidden sm:flex gap-6 items-center rounded-lg border border-light-gray bg-gray-100 pb-2 pt-4 px-6"
   >
     <span class="font-bold text-base whitespace-nowrap pb-2 pr-4">{{
       title

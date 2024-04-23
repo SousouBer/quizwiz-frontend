@@ -1,13 +1,7 @@
 <template>
   <div>
     <header class="fixed z-10 bg-white border-b-2 py-6 h-20 w-full px-24 flex">
-      <QuizQuestionsHeaderTitleAndIcons
-        :title="quiz.title"
-        :categories="quiz.categories"
-        :questions="quiz.questions_and_answers.length"
-        :plays="quiz.plays"
-        :time="quiz.time"
-      />
+      <QuizQuestionsHeaderTitleAndIcons :title="quiz.title" />
       <IconX width="24" height="24" color="gray" class="ml-auto" />
     </header>
     <QuizQuestionsQuizDetails
@@ -31,7 +25,7 @@
         />
       </div>
       <div
-        class="fixed top-0 right-0 transform translate-y-80 -translate-x-1/4"
+        class="fixed top-0 right-0 transform translate-y-12 sm:translate-y-80 sm:-translate-x-1/4 w-full sm:w-auto"
       >
         <TheTimer :duration="quiz.time" />
       </div>

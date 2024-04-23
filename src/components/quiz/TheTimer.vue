@@ -1,15 +1,36 @@
 <template>
   <div
-    class="bg-white relative border border-gray-200 rounded-lg shadow-xl p-8 pt-12 w-96"
+    class="bg-white relative border border-gray-200 rounded-lg shadow-xl p-4 sm:p-8 pt-12 sm:w-96 w-full"
   >
     <span
-      class="bg-white absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 px-12 py-3 rounded-lg border border-gray-200 shadow-sm font-semibold text-base text-gray-600"
+      class="bg-white hidden sm:inline absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 px-12 py-3 rounded-lg border border-gray-200 shadow-sm font-semibold text-base text-gray-600"
       >Timer</span
     >
-    <div class="pb-6 mb-8 border-b border-gray-300 px-20">
-      <span id="countdown" class="text-gray-600 font-medium text-7xl"></span>
+    <div class="pb-4 sm:pb-6 sm:mb-8 border-b border-gray-300 sm:px-20">
+      <div class="flex flex-row gap-4">
+        <QuizQuestionsButtonSubmit
+          @click="onSendResults"
+          class="sm:hidden w-4/6"
+          text="Submit"
+        />
+        <div
+          class="flex flex-col bg-gray-100 sm:bg-white border border-gray-300 sm:border-white rounded-lg py-2 px-4 flex-1"
+        >
+          <span class="font-Railway font-bold text-xs text-black sm:hidden"
+            >Timer</span
+          >
+          <span
+            id="countdown"
+            class="text-gray-600 font-bold sm:font-medium sm:text-7xl text-xl"
+          ></span>
+        </div>
+      </div>
     </div>
-    <QuizQuestionsButtonSubmit @click="onSendResults" text="Submit" />
+    <QuizQuestionsButtonSubmit
+      @click="onSendResults"
+      class="hidden sm:block"
+      text="Submit"
+    />
   </div>
 </template>
 
