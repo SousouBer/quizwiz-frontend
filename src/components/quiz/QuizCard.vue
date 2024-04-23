@@ -4,13 +4,13 @@
       <img :src="image" alt="Quiz card image" />
     </div>
     <div>
-      <div class="flex gap-4 my-4 flex-wrap">
-        <span
-          class="text-saturated-blue font-semibold"
-          v-for="category in categories"
+      <div class="flex gap-x-8 gap-y-2 my-4 flex-wrap">
+        <QuizWrapperCategory
+          v-for="(category, index) in categories"
           :key="category.id"
-          >{{ category.title }}</span
-        >
+          :label="category.title"
+          :lastItem="index === categories.length - 1"
+        />
       </div>
       <span class="text-dark-blue-gray font-semibold text-2xl">{{
         title
@@ -60,10 +60,12 @@
 
 <script>
 import QuizCardInfoItem from "@/components/quiz/QuizCardInfoItem.vue";
+import QuizWrapperCategory from "@/components/quiz/QuizWrapperCategory.vue";
 
 export default {
   components: {
     QuizCardInfoItem,
+    QuizWrapperCategory,
   },
 
   props: {

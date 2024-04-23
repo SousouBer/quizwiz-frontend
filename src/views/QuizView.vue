@@ -9,6 +9,7 @@
             v-for="category in selectedQuiz.categories"
             :key="category.id"
             :label="category.title"
+            :lastItem="index === selectedQuiz.categories.length - 1"
             class="mb-4 sm:hidden"
           />
 
@@ -19,11 +20,12 @@
             :link="selectedQuiz.image"
             class="sm:w-80 sm:hidden mt-4"
           />
-          <div class="flex gap-3">
+          <div class="flex gap-x-8 gap-y-2 my-4 flex-wrap">
             <QuizWrapperCategory
-              v-for="category in selectedQuiz.categories"
+              v-for="(category, index) in selectedQuiz.categories"
               :key="category.id"
               :label="category.title"
+              :lastItem="index === selectedQuiz.categories.length - 1"
               class="my-4 hidden sm:flex"
             />
           </div>
