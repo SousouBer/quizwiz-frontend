@@ -103,9 +103,9 @@ export default {
   computed: {
     answeredQuestionsCount() {
       // Count how many questions have been answered.
-      const count = [
-        ...new Set(this.$store.getters.answers.map((item) => item.questionId)),
-      ].length;
+      const count = new Set(
+        this.$store.getters.answers.map((item) => item.questionId),
+      ).size;
 
       return `${count}/${this.questions}`;
     },
