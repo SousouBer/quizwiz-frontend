@@ -4,7 +4,7 @@
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
       <QuizCard
-        class="cursor-pointer"
+        class="cursor-pointer shadow-xl"
         v-for="quiz in quizzes"
         @click="quizDetails(quiz.id)"
         :key="quiz.id"
@@ -16,6 +16,7 @@
         :plays="quiz.plays"
         :points="quiz.points"
         :image="quiz.image"
+        :results="quiz.results"
       />
     </div>
     <QuizButtonLoadMore />

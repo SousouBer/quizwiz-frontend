@@ -6,7 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="2" cy="2" r="2" :fill="color" />
+    <circle cx="2" cy="2" r="2" fill="#D0D5DD" />
   </svg>
 </template>
 
@@ -21,11 +21,6 @@ export default {
     type: String,
     required: true,
     default: "4",
-  },
-  color: {
-    type: String,
-    required: true,
-    default: "#D0D5DD",
   },
 };
 </script>
