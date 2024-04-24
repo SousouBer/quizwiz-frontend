@@ -2,7 +2,7 @@
   <span
     @click="isCategory ? toggleCategory(id) : toggleLevel(id)"
     :style="[dynamicClasses, isIncluded]"
-    class="border-red-500 cursor-pointer rounded-3xl px-4 py-1 font-semibold whitespace-nowrap text-sm"
+    class="cursor-pointer rounded-3xl px-4 py-1 font-semibold whitespace-nowrap text-sm"
   >
     {{ label }}
   </span>
