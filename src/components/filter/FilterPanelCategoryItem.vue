@@ -48,7 +48,9 @@ export default {
           ...this.$route.query,
           categories: categoriesParam.join(","),
         };
-        this.$router.push({ query: queryParams });
+        this.$router.push({ query: queryParams }).then(() => {
+          this.$store.dispatch("fetchQuizzes", queryParams);
+        });
 
         this.$store.commit("toggleSelectedCategory", id);
       }
