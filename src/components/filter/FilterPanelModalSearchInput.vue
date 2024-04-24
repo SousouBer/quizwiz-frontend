@@ -4,6 +4,8 @@
   >
     <IconSearch />
     <input
+      @input="changeSearchInput"
+      v-model="input"
       class="w-full outline-none placeholder:text-medium-dark-gray"
       type="text"
       placeholder="Search"
@@ -16,6 +18,18 @@ import IconSearch from "@/components/icons/IconSearch.vue";
 export default {
   components: {
     IconSearch,
+  },
+
+  data() {
+    return {
+      input: "",
+    };
+  },
+
+  methods: {
+    changeSearchInput() {
+      this.$store.commit("setInnerSearch", this.input);
+    },
   },
 };
 </script>

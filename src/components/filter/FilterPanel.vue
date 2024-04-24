@@ -2,7 +2,8 @@
   <div
     class="flex items-start sm:items-center flex-col sm:flex-row gap-3 sm:px-24 sm:py-12"
   >
-    <div class="flex items-center pt-3 w-11/12 overflow-hidden border-b">
+    <div class="flex items-center gap-4 pt-3 w-11/12 overflow-hidden border-b">
+      <FilterPanelCategoryItem label="All Quizzes" id="all_quizzes" />
       <FilterPanelCategoryItem
         v-for="category in categories"
         :key="category.id"
