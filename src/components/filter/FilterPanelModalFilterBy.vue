@@ -10,7 +10,7 @@
         <FilterPanelModalCheckbox
           @click="showActionButtons"
           labelFor="Not completed"
-          name="completed_quizzes"
+          name="not_completed_quizzes"
         />
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by

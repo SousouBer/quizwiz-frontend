@@ -134,7 +134,7 @@ export default {
         query.my_quizzes = myQuizzes;
       }
       if (completedQuizzes) {
-        query.completed_quizzes = completedQuizzes;
+        query.not_completed_quizzes = completedQuizzes;
       }
       if (this.$route.query.search) {
         query.search = this.$route.query.search;
@@ -174,7 +174,7 @@ export default {
       const urlLevels = this.$route.query.levels;
       const urlSort = this.$route.query.sort;
       const urlMyQuizzes = this.$route.query.my_quizzes;
-      const urlCompletedQuizzes = this.$route.query.completed_quizzes;
+      const urlCompletedQuizzes = this.$route.query.not_completed_quizzes;
 
       if (urlCategories) {
         const categoryIds = urlCategories.split(",").map((id) => parseInt(id));
