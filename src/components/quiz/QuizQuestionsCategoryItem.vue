@@ -1,5 +1,9 @@
 <template>
   <div class="relative">
+    <IconPin
+      v-if="isFirstItem"
+      class="absolute top-0 left-0 transform translate-y-0.5 -translate-x-8"
+    />
     <span class="text-medium-dark-gray text-sm font-semibold">{{ label }}</span>
     <IconDot
       v-if="!isLastItem"
@@ -12,15 +16,21 @@
 
 <script>
 import IconDot from "@/components/icons/IconDot.vue";
+import IconPin from "@/components/icons/IconPin.vue";
 
 export default {
   components: {
     IconDot,
+    IconPin,
   },
   props: {
     label: {
       type: String,
       required: true,
+    },
+    isFirstItem: {
+      type: Boolean,
+      default: false,
     },
     isLastItem: {
       type: Boolean,
