@@ -4,10 +4,13 @@
     <span class="font- Raleway font-black text-4xl sm:text-6xl">Oops!</span>
     <span class="font-bold text-lg">Error 404</span>
     <img src="@/assets/images/not-found-error.svg" alt="404 page" />
-    <div class="flex items-center justify-center gap-2 cursor-pointer">
+    <router-link
+      to="quizzes"
+      class="flex items-center justify-center gap-2 cursor-pointer"
+    >
       <IconGoHome />
       <span class="text-lg text-saturated-blue">Go home</span>
-    </div>
+    </router-link>
   </div>
   <TheFooter />
 </template>
