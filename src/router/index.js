@@ -4,6 +4,7 @@ import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
 import ForgotPasswordView from "@/views/ForgotPasswordView.vue";
 import ResetPasswordView from "@/views/ResetPasswordView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 import QuizzesView from "@/views/QuizzesView.vue";
 import QuizView from "@/views/QuizView.vue";
@@ -51,6 +52,11 @@ const router = createRouter({
       path: "/quizzes/questions/:id",
       name: "quizQuestions",
       component: QuizQuestionsView,
+    },
+    {
+      path: "/:notFound(.*)",
+      name: "404NotFound",
+      component: NotFoundView,
     },
   ],
 });
