@@ -50,4 +50,8 @@ export default {
   quizResults(state) {
     return state.quizResults;
   },
+
+  innerSearch(state) {
+    return state.innerSearch;
+  },
 };

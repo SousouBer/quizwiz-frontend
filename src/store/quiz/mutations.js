@@ -101,4 +101,8 @@ export default {
       state.quizResults = null;
     }
   },
+
+  setInnerSearch(state, payload) {
+    state.innerSearch = payload;
+  },
 };
