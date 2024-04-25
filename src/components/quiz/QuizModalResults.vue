@@ -63,6 +63,9 @@ export default {
       this.$store.commit("setQuizResults");
       this.$store.dispatch("fetchQuizzes").then(() => {
         this.$router.push({ name: "quizzes" });
+
+        // Enable scrolling again when the modal getshidden.
+        document.body.classList.remove("overflow-hidden");
       });
     },
   },

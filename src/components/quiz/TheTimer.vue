@@ -75,6 +75,9 @@ export default {
 
   methods: {
     onSendResults() {
+      // Disable scrolling when submitted quiz smodal is shown.
+      document.body.classList.add("overflow-hidden");
+
       this.quizSubmitted = true;
       clearTimeout(this.timerTimeout);
 
@@ -108,7 +111,7 @@ export default {
         } else {
           this.countdown(minutes, seconds - 1);
         }
-      }, 10);
+      }, 1000);
     },
   },
 
