@@ -4,7 +4,7 @@
     class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
   >
     <div class="bg-white w-1/4 p-4 rounded-xl">
-      <IconX @click="backToHomePage" class="cursor-pointer ml-auto" />
+      <IconX @click="handleQuizResults" class="cursor-pointer ml-auto" />
       <div class="flex flex-col justify-center items-center gap-2">
         <IconQuizResults />
         <span class="font-semibold text-lg">Quiz Finished</span>
@@ -32,7 +32,11 @@
           color="#12B76A"
         />
       </div>
-      <QuizQuestionsButtonSubmit class="mt-3" text="Back to home" />
+      <QuizQuestionsButtonSubmit
+        @click="handleQuizResults"
+        class="mt-3"
+        text="Back to home"
+      />
     </div>
   </layouts-blurr>
 </template>
@@ -55,9 +59,11 @@ export default {
   },
 
   methods: {
-    backToHomePage() {
+    handleQuizResults() {
       this.$store.commit("setQuizResults");
-      this.$router.push({ name: "quizzes" });
+      this.$store.dispatch("fetchQuizzes").then(() => {
+        this.$router.push({ name: "quizzes" });
+      });
     },
   },
 

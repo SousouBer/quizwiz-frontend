@@ -24,7 +24,7 @@
           />
           <QuizQuestionsWrapperTimerInfo label="Timer">
             <span
-              id="countdown"
+              ref="countdown"
               class="text-gray-600 font-bold sm:font-medium sm:text-7xl text-xl"
             ></span>
           </QuizQuestionsWrapperTimerInfo>
@@ -66,11 +66,21 @@ export default {
     },
   },
 
+  data() {
+    return {
+      timerTimeout: null,
+      quizSubmitted: false,
+    };
+  },
+
   methods: {
     onSendResults() {
+      this.quizSubmitted = true;
+      clearTimeout(this.timerTimeout);
+
       const results = this.$store.getters.answers;
       const quizId = this.$store.getters.quiz.id;
-      const timeTaken = document.getElementById("countdown").textContent;
+      const timeTaken = this.$refs.countdown.textContent;
 
       const answerIds = results.map((answer) => answer.answerId);
 
@@ -82,21 +92,23 @@ export default {
     },
 
     countdown(minutes, seconds) {
-      const countdownElement = document.getElementById("countdown");
-      countdownElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+      this.$refs.countdown.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
-      if (minutes === 0 && seconds === 0) {
-        countdownElement.textContent = "00:00";
+      if (this.quizSubmitted) {
         return;
       }
 
-      setTimeout(() => {
+      if (minutes === 0 && seconds === 1) {
+        this.onSendResults();
+      }
+
+      this.timerTimeout = setTimeout(() => {
         if (seconds === 0) {
           this.countdown(minutes - 1, 59);
         } else {
           this.countdown(minutes, seconds - 1);
         }
-      }, 1000);
+      }, 10);
     },
   },
 
