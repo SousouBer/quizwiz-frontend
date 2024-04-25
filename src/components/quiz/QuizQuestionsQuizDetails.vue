@@ -12,9 +12,10 @@
         />
         <QuizQuestionsCategoryItem
           class="pb-2"
-          v-for="category in categories"
+          v-for="(category, index) in categories"
           :key="category.id"
           :label="category.title"
+          :isLastItem="index === categories.length - 1"
         />
         <QuizInnerStatistic
           class="border-none"

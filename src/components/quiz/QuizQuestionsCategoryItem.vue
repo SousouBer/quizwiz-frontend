@@ -2,7 +2,10 @@
   <div class="relative">
     <span class="text-medium-dark-gray text-sm font-semibold">{{ label }}</span>
     <IconDot
-      class="absolute top-0 right-0 transform translate-x-5 translate-y-5"
+      v-if="!isLastItem"
+      width="4"
+      height="4"
+      class="absolute top-0 right-0 transform translate-x-4 translate-y-3"
     />
   </div>
 </template>
@@ -19,9 +22,8 @@ export default {
       type: String,
       required: true,
     },
-    isFirstItem: {
+    isLastItem: {
       type: Boolean,
-      required: true,
       default: false,
     },
   },
