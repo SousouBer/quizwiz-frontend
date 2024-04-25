@@ -3,9 +3,9 @@
     v-if="quizResults"
     class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
   >
-    <div class="bg-white w-1/4 p-4 rounded-xl">
+    <div class="bg-white w-full mx-4 sm:mx-0 sm:w-1/4 p-6 sm:p-4 rounded-xl">
       <IconX @click="handleQuizResults" class="cursor-pointer ml-auto" />
-      <div class="flex flex-col justify-center items-center gap-2">
+      <div class="flex flex-col justify-center items-center gap-2 mb-6">
         <IconQuizResults />
         <span class="font-semibold text-lg">Quiz Finished</span>
         <span class="text-gray-500">Your Results</span>
