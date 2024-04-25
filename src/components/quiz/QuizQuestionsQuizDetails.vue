@@ -1,27 +1,41 @@
 <template>
-  <div class="flex flex-col items-center pt-32">
+  <div class="flex flex-col items-center pt-80 sm:pt-32">
     <span class="font-bold text-black text-5xl px-4 text-center">{{
       title
     }}</span>
-    <div class="flex flex-col sm:flex-row gap-8 my-6">
-      <div class="relative flex items-center justify-center gap-8 pb-2">
+    <div class="flex flex-col sm:flex-row gap-8 my-6 px-12">
+      <div
+        class="relative flex flex-wrap sm:flex-nowrap items-center justify-center gap-y-2 gap-x-8 sm:gap-8 pb-2"
+      >
         <IconPin
-          class="absolute top-0 left-0 transform translate-y-0.5 -translate-x-7"
+          class="absolute top-0 left-0 transform translate-y-0.5 -translate-x-4 sm:-translate-x-7"
         />
         <QuizQuestionsCategoryItem
+          class="pb-2"
           v-for="category in categories"
           :key="category.id"
           :label="category.title"
         />
-      </div>
-      <div class="flex gap-8">
         <QuizInnerStatistic
+          class="border-none"
           statistic="questions"
           :label="`${questions} questions`"
         />
-        <QuizInnerStatistic statistic="points" :label="`${points} points`" />
-        <QuizInnerStatistic statistic="count" :label="`${plays} plays`" />
-        <QuizInnerStatistic statistic="time" :label="`${time}m`" />
+        <QuizInnerStatistic
+          class="border-none"
+          statistic="points"
+          :label="`${points} points`"
+        />
+        <QuizInnerStatistic
+          class="border-none"
+          statistic="count"
+          :label="`${plays} plays`"
+        />
+        <QuizInnerStatistic
+          class="border-none"
+          statistic="time"
+          :label="`${time}m`"
+        />
       </div>
     </div>
   </div>
