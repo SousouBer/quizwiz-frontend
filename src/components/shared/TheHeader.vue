@@ -20,7 +20,7 @@
       class="z-10"
     />
     <div
-      v-if="$route.path !== '/landing'"
+      v-if="route === 'landing' && !userIsAuthenticated"
       class="hidden md:flex justify-center items-center gap-1"
     >
       <button-base
@@ -32,8 +32,8 @@
         >Log in</button-base
       >
     </div>
-    <div class="hidden md:flex justify-center items-center gap-1">
-      <SearchInput />
+    <div v-else class="hidden md:flex justify-center items-center gap-1">
+      <SearchInput v-if="route !== 'landing'" />
       <div>
         <div class="cursor-pointer" @click="openLogoutModal">
           <icon-unauthenticated-user />
@@ -69,11 +69,26 @@ export default {
     SearchInput,
   },
 
+  props: {
+    route: {
+      type: String,
+      required: true,
+      default: "",
+    },
+  },
+
   data() {
     return {
       showBurgerAuthModal: false,
       showLogoutModal: false,
     };
+  },
+
+  computed: {
+    userIsAuthenticated() {
+      console.log(this.$store.getters.user);
+      return this.$store.getters.user;
+    },
   },
 
   methods: {

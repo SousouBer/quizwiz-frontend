@@ -57,8 +57,6 @@ export default {
     // to prevent frequent requests.
     const quizzes = this.$store.getters.quizzes;
 
-    this.$store.dispatch("fetchUser");
-
     if (quizzes.length === 0) {
       this.$store.dispatch("fetchQuizzes", this.$route.query);
       this.$store.dispatch("fetchCategories");

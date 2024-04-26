@@ -47,5 +47,16 @@ export default {
       showToastNotification: this.showToastNotification,
     };
   },
+
+  mounted() {
+    this.$store
+      .dispatch("fetchUser")
+      .then(() => {
+        console.log("fetched success!");
+      })
+      .catch(() => {
+        console.log("User could not be fetched.");
+      });
+  },
 };
 </script>
