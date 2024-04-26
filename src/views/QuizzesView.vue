@@ -1,5 +1,5 @@
 <template>
-  <TheHeader />
+  <TheHeader route="quizzes" />
   <main class="relative pb-32 border-b">
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">

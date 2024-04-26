@@ -21,7 +21,7 @@
     />
 
     <div class="hidden md:flex justify-center items-center gap-1">
-      <SearchInput v-if="route !== 'landing'" />
+      <SearchInput v-if="route === 'quizzes'" />
       <div
         v-if="!userIsAuthenticated"
         class="hidden md:flex justify-center items-center gap-1"
