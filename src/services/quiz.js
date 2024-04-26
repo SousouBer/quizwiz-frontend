@@ -26,3 +26,8 @@ export async function sendAnswers(answers) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.post("/api/answers", answers);
 }
+
+export async function getSimilarQuizzes(id) {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.get(`/api/similar-quizzes/${id}`);
+}

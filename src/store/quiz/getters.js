@@ -35,6 +35,10 @@ export default {
     return state.quizzes;
   },
 
+  similarQuizzes(state) {
+    return state.similarQuizzes;
+  },
+
   quiz(state) {
     return state.quiz;
   },

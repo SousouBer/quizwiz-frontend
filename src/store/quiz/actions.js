@@ -2,6 +2,7 @@ import {
   getCategories,
   getLevels,
   getQuizzes,
+  getSimilarQuizzes,
   getQuiz,
   sendAnswers,
 } from "@/services/quiz";
@@ -30,6 +31,13 @@ export default {
     context.commit("setQuizzes", { quizzes });
   },
 
+  async fetchSimilarQuizzes(context, id) {
+    const response = await getSimilarQuizzes(id);
+    const similarQuizzes = response.data.data;
+
+    context.commit("setSimilarQuizzes", { similarQuizzes });
+  },
+
   async fetchQuiz(context, id) {
     const response = await getQuiz(id);
     const quiz = response.data.data;
@@ -48,7 +56,6 @@ export default {
     const response = await getUser();
     const user = response.data;
 
-    console.log("user", user);
     context.commit("setUser", { user });
   },
 };

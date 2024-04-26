@@ -42,6 +42,10 @@ export default {
     state.quizzes = payload.quizzes;
   },
 
+  setSimilarQuizzes(state, payload) {
+    state.similarQuizzes = payload.similarQuizzes;
+  },
+
   toggleSelectedCategory(state, category_id) {
     const categories = state.selectedCategories;
 
