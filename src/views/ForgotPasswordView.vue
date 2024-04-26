@@ -67,7 +67,7 @@ export default {
           response.data.message,
         );
       } catch (err) {
-        setErrors(err.response.data);
+        setErrors(err.response.data.errors);
       }
     },
   },
