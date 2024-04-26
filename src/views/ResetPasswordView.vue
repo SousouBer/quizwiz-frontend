@@ -116,7 +116,11 @@ export default {
   },
 
   mounted() {
-    this.checkPasswordResetExpiration();
+    if (!this.email || !this.token) {
+      this.$router.push({ name: "login" });
+    } else {
+      this.checkPasswordResetExpiration();
+    }
   },
 };
 </script>
