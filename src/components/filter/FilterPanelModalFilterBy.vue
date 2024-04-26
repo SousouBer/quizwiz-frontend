@@ -1,7 +1,10 @@
 <template>
   <filter-layout-rounded-border>
     <div class="w-full sm:w-auto">
-      <filter-layout-filter-and-sort-by filterType="Filter by">
+      <filter-layout-filter-and-sort-by
+        v-if="isAuthenticated"
+        filterType="Filter by"
+      >
         <FilterPanelModalCheckbox
           @click="showActionButtons"
           labelFor="My quizzes"
@@ -69,6 +72,10 @@ export default {
 
     levels() {
       return this.$store.getters.levels;
+    },
+
+    isAuthenticated() {
+      return this.$store.getters.user;
     },
   },
 };
