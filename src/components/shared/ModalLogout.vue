@@ -37,6 +37,9 @@ export default {
     closeLogoutModal() {
       this.$emit("close-logout-modal");
       this.onLogout().then(() => {
+        this.$store.commit("setUserIsAuthenticated", false);
+        localStorage.removeItem("userIsAuthenticated");
+
         this.$router.push({ name: "login" });
       });
     },

@@ -87,8 +87,7 @@ export default {
 
   computed: {
     userIsAuthenticated() {
-      console.log(this.$store.getters.user);
-      return this.$store.getters.user;
+      return this.$store.getters.userIsAuthenticated;
     },
   },
 

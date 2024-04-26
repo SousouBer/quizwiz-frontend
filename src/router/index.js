@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import getters from "@/store/quiz/getters";
+import store from "@/store/quiz/index.js";
 
 import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
@@ -71,9 +71,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== "quizzes" && to.meta.inauthenticated && getters.user)
+  console.log(store.getters.userIsAuthenticated);
+  if (
+    to.name !== "quizzes" &&
+    to.meta.inauthenticated &&
+    store.getters.userIsAuthenticated
+  ) {
     next({ name: "quizzes" });
-  else next();
+  } else {
+    next();
+  }
 });
 
 export default router;

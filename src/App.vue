@@ -49,14 +49,12 @@ export default {
   },
 
   mounted() {
-    this.$store
-      .dispatch("fetchUser")
-      .then(() => {
-        console.log("fetched success!");
-      })
-      .catch(() => {
-        console.log("User could not be fetched.");
-      });
+    const user = localStorage.getItem("userIsAuthenticated");
+
+    if (user) {
+      this.$store.commit("setUserIsAuthenticated", true);
+      this.$store.dispatch("fetchUser");
+    }
   },
 };
 </script>

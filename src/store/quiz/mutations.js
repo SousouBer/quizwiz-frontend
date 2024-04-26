@@ -94,6 +94,10 @@ export default {
     state.user = payload.user;
   },
 
+  setUserIsAuthenticated(state, payload) {
+    state.userIsAuthenticated = payload;
+  },
+
   setQuizResults(state, payload) {
     if (payload) {
       state.quizResults = payload.results;
