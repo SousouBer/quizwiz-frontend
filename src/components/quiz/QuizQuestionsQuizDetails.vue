@@ -7,14 +7,13 @@
       <div
         class="relative flex flex-wrap sm:flex-nowrap items-center justify-center gap-y-2 gap-x-8 sm:gap-8 pb-2"
       >
-        <IconPin
-          class="absolute top-0 left-0 transform translate-y-0.5 -translate-x-4 sm:-translate-x-7"
-        />
         <QuizQuestionsCategoryItem
           class="pb-2"
-          v-for="category in categories"
+          v-for="(category, index) in categories"
           :key="category.id"
           :label="category.title"
+          :isFirstItem="index === 0"
+          :isLastItem="index === categories.length - 1"
         />
         <QuizInnerStatistic
           class="border-none"
@@ -44,13 +43,11 @@
 <script>
 import QuizInnerStatistic from "@/components/quiz/QuizInnerStatistic.vue";
 import QuizQuestionsCategoryItem from "@/components/quiz/QuizQuestionsCategoryItem.vue";
-import IconPin from "@/components/icons/IconPin.vue";
 
 export default {
   components: {
     QuizInnerStatistic,
     QuizQuestionsCategoryItem,
-    IconPin,
   },
 
   props: {

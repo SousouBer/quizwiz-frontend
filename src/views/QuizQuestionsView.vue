@@ -8,7 +8,13 @@
         class="hidden sm:flex"
         :title="quiz.title"
       />
-      <IconX width="24" height="24" color="gray" class="ml-auto" />
+      <IconX
+        @click="onCancelQuiz"
+        width="24"
+        height="24"
+        color="gray"
+        class="ml-auto"
+      />
     </header>
     <QuizQuestionsQuizDetails
       :categories="quiz.categories"
@@ -79,6 +85,10 @@ export default {
   methods: {
     handleScroll() {
       this.showStatistics = window.scrollY > 150;
+    },
+
+    onCancelQuiz() {
+      this.$router.back(-1);
     },
   },
 

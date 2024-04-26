@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex gap-2 items-center border-b sm:border-b-0 border-gray-100 pb-2 sm:w-full relative w-5 sm:auto"
+    class="flex gap-2 items-center border-b sm:border-b-0 border-gray-100 pb-2 sm:w-full relative sm:auto"
   >
     <component :is="iconComponent" v-if="iconComponent" :color="color" />
     <span

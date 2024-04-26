@@ -69,7 +69,7 @@ export default {
     const urlLevels = this.$route.query.levels;
     const urlSort = this.$route.query.sort;
     const urlMyQuizzes = this.$route.query.my_quizzes;
-    const urlCompletedQuizzes = this.$route.query.completed_quizzes;
+    const urlCompletedQuizzes = this.$route.query.not_completed_quizzes;
 
     if (urlCategories) {
       const categoryIds = urlCategories.split(",").map((id) => parseInt(id));
@@ -84,11 +84,10 @@ export default {
       this.$store.commit("setSelectedSort", urlSort);
     }
 
-    if (urlMyQuizzes)
-      this.$store.commit("setMyQuizzes", urlMyQuizzes === "true");
+    if (urlMyQuizzes) this.$store.commit("setMyQuizzes", urlMyQuizzes === true);
 
     if (urlCompletedQuizzes) {
-      this.$store.commit("setCompletedQuizzes", urlCompletedQuizzes === "true");
+      this.$store.commit("setCompletedQuizzes", urlCompletedQuizzes === true);
     }
   },
 };

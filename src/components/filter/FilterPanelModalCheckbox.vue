@@ -62,7 +62,7 @@ export default {
     checkbox() {
       if (this.name === "my_quizzes") {
         return this.$store.getters.myQuizzes;
-      } else if (this.name === "completed_quizzes") {
+      } else if (this.name === "not_completed_quizzes") {
         return this.$store.getters.completedQuizzes;
       }
       return "";
