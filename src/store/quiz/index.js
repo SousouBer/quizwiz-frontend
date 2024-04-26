@@ -19,6 +19,8 @@ const store = createStore({
 
     quizzes: [],
 
+    similarQuizzes: [],
+
     quiz: [],
 
     answers: [],

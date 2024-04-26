@@ -2,7 +2,7 @@
   <TheHeader />
   <LinkBack class="px-4 sm:px-24 my-4 mb-2 sm:mb-12" />
   <div class="flex justify-between px-4 sm:px-24 my-3 sm:my-6">
-    <div class="sm:mr-8">
+    <div class="sm:mr-14">
       <div class="flex gap-8 border-b pb-16 mb-4">
         <div class="w-full sm:w-auto">
           <div class="flex gap-x-8 gap-y-4 my-4 flex-wrap">
@@ -78,8 +78,19 @@
         {{ selectedQuiz.instructions }}
       </p>
     </div>
-    <div class="hidden sm:flex flex-col gap-6">
-      <!-- <QuizCard class="border border-light-gray bg-gray-100 rounded-lg" /> -->
+    <div class="flex flex-col gap-6 cursor-pointer">
+      <QuizCard
+        @click="quizDetails(similarQuiz.id)"
+        v-for="similarQuiz in similarQuizzes"
+        :key="similarQuiz.id"
+        :id="similarQuiz.id"
+        :title="similarQuiz.title"
+        :categories="similarQuiz.categories"
+        :difficultyLevel="similarQuiz.difficulty_level"
+        :plays="similarQuiz.plays"
+        :image="similarQuiz.image"
+        class="border border-light-gray bg-gray-100 rounded-lg"
+      />
     </div>
   </div>
   <TheFooter />
@@ -91,7 +102,7 @@ import TheHeader from "@/components/shared/TheHeader.vue";
 import LinkBack from "@/components/shared/LinkBack.vue";
 import QuizWrapperCategory from "@/components/quiz/QuizWrapperCategory.vue";
 import QuizInnerStatistic from "@/components/quiz/QuizInnerStatistic.vue";
-// import QuizCard from "@/components/quiz/QuizCard.vue";
+import QuizCard from "@/components/quiz/QuizCard.vue";
 import QuizInnerWrapperImage from "@/components/quiz/QuizInnerWrapperImage.vue";
 
 export default {
@@ -101,7 +112,7 @@ export default {
     TheHeader,
     QuizWrapperCategory,
     QuizInnerStatistic,
-    // QuizCard,
+    QuizCard,
     QuizInnerWrapperImage,
   },
 
@@ -112,17 +123,35 @@ export default {
         params: { id: this.selectedQuiz.id },
       });
     },
+
+    quizDetails(id) {
+      this.$router.push({ name: "quiz", params: { id: id } });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 
   computed: {
     selectedQuiz() {
       return this.$store.getters.quiz;
     },
+
+    similarQuizzes() {
+      return this.$store.getters.similarQuizzes;
+    },
+  },
+
+  watch: {
+    $route(to) {
+      const quizId = to.params.id;
+      this.$store.dispatch("fetchSimilarQuizzes", quizId);
+      this.$store.dispatch("fetchQuiz", quizId);
+    },
   },
 
   mounted() {
     const quizId = this.$route.params.id;
 
+    this.$store.dispatch("fetchSimilarQuizzes", quizId);
     this.$store.dispatch("fetchQuiz", quizId);
   },
 };
