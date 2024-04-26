@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
+import getters from "@/store/quiz/getters";
+
 import LandingView from "@/views/LandingView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
@@ -16,21 +18,28 @@ const router = createRouter({
     {
       path: "/register",
       name: "register",
+      meta: { inauthenticated: true },
       component: RegisterView,
     },
     {
       path: "/login",
       name: "login",
+      meta: { inauthenticated: true },
+
       component: LoginView,
     },
     {
       path: "/forgot-password",
       name: "forgotPassword",
+      meta: { inauthenticated: true },
+
       component: ForgotPasswordView,
     },
     {
       path: "/reset-password",
       name: "resetPassword",
+      meta: { inauthenticated: true },
+
       component: ResetPasswordView,
     },
     {
@@ -59,6 +68,12 @@ const router = createRouter({
       component: NotFoundView,
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== "quizzes" && to.meta.inauthenticated && getters.user)
+    next({ name: "quizzes" });
+  else next();
 });
 
 export default router;
