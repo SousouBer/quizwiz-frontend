@@ -22,10 +22,16 @@ export default {
     LinksLanding,
   },
 
-  data() {
-    return {
-      isAuthenticated: true,
-    };
+  // data() {
+  //   return {
+  //     isAuthenticated: true,
+  //   };
+  // },
+
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.user;
+    },
   },
 
   methods: {
