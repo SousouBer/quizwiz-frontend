@@ -55,7 +55,6 @@ export default {
 
     if (user) {
       this.$store.commit("setUserIsAuthenticated", true);
-      this.$store.dispatch("fetchUser");
     }
   },
 };
