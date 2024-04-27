@@ -17,7 +17,6 @@ instance.interceptors.response.use(
       localStorage.removeItem("userIsAuthenticated");
 
       store.commit("setUserIsAuthenticated", false);
-      router.push({ name: "login" });
     }
 
     if (error.message === "Network Error") {
