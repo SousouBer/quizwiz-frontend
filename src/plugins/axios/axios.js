@@ -19,6 +19,10 @@ instance.interceptors.response.use(
       store.commit("setUserIsAuthenticated", false);
       router.push({ name: "login" });
     }
+
+    if (error.message === "Network Error") {
+      router.push({ name: "500ServerError" });
+    }
     return Promise.reject(error);
   },
 );

@@ -7,6 +7,7 @@ import LoginView from "@/views/LoginView.vue";
 import ForgotPasswordView from "@/views/ForgotPasswordView.vue";
 import ResetPasswordView from "@/views/ResetPasswordView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import ServerErrorView from "@/views/ServerErrorView.vue";
 
 import QuizzesView from "@/views/QuizzesView.vue";
 import QuizView from "@/views/QuizView.vue";
@@ -66,6 +67,11 @@ const router = createRouter({
       path: "/:notFound(.*)",
       name: "404NotFound",
       component: NotFoundView,
+    },
+    {
+      path: "/server-error",
+      name: "500ServerError",
+      component: ServerErrorView,
     },
   ],
 });

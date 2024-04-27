@@ -51,6 +51,8 @@ export default {
   mounted() {
     const user = localStorage.getItem("userIsAuthenticated");
 
+    this.$store.dispatch("fetchUser");
+
     if (user) {
       this.$store.commit("setUserIsAuthenticated", true);
       this.$store.dispatch("fetchUser");
