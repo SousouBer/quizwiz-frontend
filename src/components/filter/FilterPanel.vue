@@ -31,10 +31,12 @@
     </div>
 
     <FilterPanelToggleFilter @click="toggleFilterModal" />
-    <FilterPanelModal
-      v-if="showFilterModal"
-      @close-filter-modal="toggleFilterModal"
-    />
+    <div class="overflow-hidden">
+      <FilterPanelModal
+        v-if="showFilterModal"
+        @close-filter-modal="toggleFilterModal"
+      />
+    </div>
   </div>
 </template>
 
