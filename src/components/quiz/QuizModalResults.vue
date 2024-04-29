@@ -1,7 +1,8 @@
 <template>
   <layouts-blurr
     v-if="quizResults"
-    class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
+    ref="resultsModal"
+    class="absolute left-0 w-full h-full z-10 flex items-center justify-center"
   >
     <div class="bg-white w-full mx-4 sm:mx-0 sm:w-1/4 p-6 sm:p-4 rounded-xl">
       <IconX @click="handleQuizResults" class="cursor-pointer ml-auto" />
@@ -68,11 +69,29 @@ export default {
         document.body.classList.remove("overflow-hidden");
       });
     },
+
+    // Center the results modal when submitted and when scrolled.
+    positionModal() {
+      const modal = this.$refs.resultsModal.$el;
+      this.scrollPosition = window.scrollY;
+
+      modal.style.top = `${this.scrollPosition}px`;
+    },
   },
 
   computed: {
     quizResults() {
       return this.$store.getters.quizResults;
+    },
+  },
+
+  watch: {
+    quizResults(newValue) {
+      if (newValue) {
+        this.$nextTick(() => {
+          this.positionModal();
+        });
+      }
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full sm:h-auto sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-28 sm:-translate-x-24"
+    class="w-full h-screen sm:h-auto sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-28 sm:-translate-x-24"
   >
     <div
       class="flex items-center justify-between sm:justify-center gap-4 py-7 px-4 sm:py-4 rounded-2xl bg-very-light-gray"
@@ -51,13 +51,16 @@
       <FilterPanelModalButtonsFilterAndSort
         @toggle-selection-buttons="toggleFilterAndSort"
       />
-      <FilterPanelModalFilterBy v-if="!showFilter" class="sm:hidden" />
+      <FilterPanelModalFilterBy v-if="showFilter" class="sm:hidden" />
       <FilterPanelModalSortBy v-else class="sm:hidden" />
       <FilterPanelModalFilterBy class="hidden sm:flex sm:w-3/5" />
       <FilterPanelModalSortBy class="hidden sm:flex sm:flex-grow" />
     </div>
-    <div class="sm:hidden absolute bottom-0 left-0 w-full p-4 bg-white">
+    <div
+      class="sm:hidden fixed bottom-0 left-0 transform -translate-y-1/2 w-full p-4 bg-white"
+    >
       <FilterPanelModalButtonAction
+        v-if="displayActionButtons"
         @click="confirmOptions"
         actionType="confirm"
         text="Confirm"
@@ -91,7 +94,7 @@ export default {
 
   data() {
     return {
-      showFilter: false,
+      showFilter: true,
       displayActionButtons: false,
     };
   },

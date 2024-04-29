@@ -83,7 +83,7 @@ export default {
 
       const results = this.$store.getters.answers;
       const quizId = this.$store.getters.quiz.id;
-      const timeTaken = this.$refs.countdown.textContent;
+      const timeTaken = this.timeTaken();
 
       const answerIds = results.map((answer) => answer.answerId);
 
@@ -112,6 +112,23 @@ export default {
           this.countdown(minutes, seconds - 1);
         }
       }, 1000);
+    },
+
+    timeTaken() {
+      const testDuration = this.duration;
+      const timePassed = this.$refs.countdown.textContent.split(":");
+
+      const startMinutes = parseInt(testDuration * 60);
+      const endMinutes = parseInt(timePassed[0]) * 60 + parseInt(timePassed[1]);
+
+      const differenceInMinutes = startMinutes - endMinutes;
+
+      const minutes = Math.floor(differenceInMinutes / 60);
+      const seconds = Math.abs(differenceInMinutes % 60);
+
+      const result = `${minutes}:${seconds}`;
+
+      return result;
     },
   },
 

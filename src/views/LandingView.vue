@@ -23,13 +23,13 @@
       <layouts-quiz-listing
         statistics="200+"
         title="Quiz games"
-        link="landing"
+        link="quizzes"
         class="bg-vibrant-orange py-14 px-10"
       />
       <layouts-quiz-listing
         statistics="25+"
         title="Different genre"
-        link="landing"
+        link="quizzes"
         class="bg-saturated-blue py-10 px-10 pr-24"
       />
       <layouts-landing class="hidden sm:block">

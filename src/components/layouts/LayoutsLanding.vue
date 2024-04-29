@@ -4,7 +4,9 @@
   >
     <div class="relative">
       <div class="absolute heading-position-mobile sm:heading-position">
-        <h1 class="text-white text-5xl sm:text-7xl font-bold leading-12">
+        <h1
+          class="text-white text-5xl sm:text-8xl font-bold leading-12 sm:transform sm:translate-y-32 sm:translate-x-28"
+        >
           Our mission is<br />
           to entertain<br />
           & educate.
