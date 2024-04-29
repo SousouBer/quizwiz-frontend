@@ -8,6 +8,7 @@ export default async function auth({ next, store }) {
       });
     }
   } catch {
+    store.commit("setUser", {});
     return next();
   }
 }

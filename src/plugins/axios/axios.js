@@ -15,6 +15,7 @@ instance.interceptors.response.use(
   function (error) {
     if (error.response && error.response.status === 401) {
       store.commit("setUser", {});
+      this.$route.push({ name: "login" });
     }
 
     if (error.message === "Network Error") {
