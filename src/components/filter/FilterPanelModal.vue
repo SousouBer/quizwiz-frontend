@@ -57,7 +57,9 @@
       <FilterPanelModalFilterBy class="hidden sm:flex sm:w-3/5" />
       <FilterPanelModalSortBy class="hidden sm:flex sm:flex-grow" />
     </div>
-    <div class="sm:hidden fixed bottom-0 left-0 w-full p-4 bg-white">
+    <div
+      class="sm:hidden fixed bottom-0 left-0 transform -translate-y-1/2 w-full p-4 bg-white"
+    >
       <FilterPanelModalButtonAction
         v-if="displayActionButtons"
         @click="confirmOptions"
