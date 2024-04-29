@@ -47,10 +47,6 @@ export default {
     return state.user;
   },
 
-  userIsAuthenticated(state) {
-    return state.userIsAuthenticated;
-  },
-
   quizResults(state) {
     return state.quizResults;
   },

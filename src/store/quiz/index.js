@@ -25,8 +25,6 @@ const store = createStore({
 
     user: null,
 
-    userIsAuthenticated: false,
-
     quizResults: null,
 
     innerSearch: "",

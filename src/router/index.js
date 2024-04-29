@@ -77,19 +77,6 @@ const router = createRouter({
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   console.log(store.getters.userIsAuthenticated);
-//   if (
-//     to.name !== "quizzes" &&
-//     to.meta.inauthenticated &&
-//     store.getters.userIsAuthenticated
-//   ) {
-//     next({ name: "quizzes" });
-//   } else {
-//     next();
-//   }
-// });
-
 router.beforeEach((to, from, next) => {
   if (!to.meta.middleware) {
     return next();
