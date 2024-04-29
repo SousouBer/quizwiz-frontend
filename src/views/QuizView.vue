@@ -37,22 +37,26 @@
           />
 
           <div
-            class="flex gap-2 sm:gap-8 items-start sm:items-center flex-col sm:flex-row my-10"
+            class="flex gap-2 sm:gap-8 items-start sm:items-center flex-col sm:flex-row my-10 w-full"
           >
             <QuizInnerStatistic
+              class="w-full"
               statistic="questions"
               :label="`${selectedQuiz.questions} questions`"
               :notLastItem="false"
             />
             <QuizInnerStatistic
+              class="w-full"
               statistic="points"
               :label="`${selectedQuiz.points} points`"
             />
             <QuizInnerStatistic
+              class="w-full"
               statistic="count"
               :label="`${selectedQuiz.plays} plays`"
             />
             <QuizInnerStatistic
+              class="w-full"
               statistic="time"
               :label="`${selectedQuiz.time}m`"
             />
