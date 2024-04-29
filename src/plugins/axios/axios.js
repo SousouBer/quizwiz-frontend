@@ -14,9 +14,7 @@ instance.interceptors.response.use(
   },
   function (error) {
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem("userIsAuthenticated");
-
-      store.commit("setUserIsAuthenticated", false);
+      store.commit("setUser", {});
     }
 
     if (error.message === "Network Error") {

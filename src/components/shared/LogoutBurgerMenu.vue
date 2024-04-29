@@ -38,9 +38,6 @@ export default {
     async onLogout() {
       await logout();
 
-      this.$store.commit("setUserIsAuthenticated", false);
-      localStorage.removeItem("userIsAuthenticated");
-
       this.$router.push({ name: "login" });
     },
   },

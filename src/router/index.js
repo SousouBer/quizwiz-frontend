@@ -12,6 +12,7 @@ import ServerErrorView from "@/views/ServerErrorView.vue";
 import QuizzesView from "@/views/QuizzesView.vue";
 import QuizView from "@/views/QuizView.vue";
 import QuizQuestionsView from "@/views/QuizQuestionsView.vue";
+import auth from "@/router/middleware/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,27 +20,27 @@ const router = createRouter({
     {
       path: "/register",
       name: "register",
-      meta: { inauthenticated: true },
+      meta: { middleware: [auth] },
       component: RegisterView,
     },
     {
       path: "/login",
       name: "login",
-      meta: { inauthenticated: true },
+      meta: { middleware: [auth] },
 
       component: LoginView,
     },
     {
       path: "/forgot-password",
       name: "forgotPassword",
-      meta: { inauthenticated: true },
+      meta: { middleware: [auth] },
 
       component: ForgotPasswordView,
     },
     {
       path: "/reset-password",
       name: "resetPassword",
-      meta: { inauthenticated: true },
+      meta: { middleware: [auth] },
 
       component: ResetPasswordView,
     },
@@ -76,17 +77,34 @@ const router = createRouter({
   ],
 });
 
+// router.beforeEach((to, from, next) => {
+//   console.log(store.getters.userIsAuthenticated);
+//   if (
+//     to.name !== "quizzes" &&
+//     to.meta.inauthenticated &&
+//     store.getters.userIsAuthenticated
+//   ) {
+//     next({ name: "quizzes" });
+//   } else {
+//     next();
+//   }
+// });
+
 router.beforeEach((to, from, next) => {
-  console.log(store.getters.userIsAuthenticated);
-  if (
-    to.name !== "quizzes" &&
-    to.meta.inauthenticated &&
-    store.getters.userIsAuthenticated
-  ) {
-    next({ name: "quizzes" });
-  } else {
-    next();
+  if (!to.meta.middleware) {
+    return next();
   }
+  const middleware = to.meta.middleware;
+
+  const context = {
+    to,
+    from,
+    next,
+    store,
+  };
+  return middleware[0]({
+    ...context,
+  });
 });
 
 export default router;

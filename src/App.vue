@@ -49,12 +49,10 @@ export default {
   },
 
   mounted() {
-    const user = localStorage.getItem("userIsAuthenticated");
+    const user = this.$store.getters.user;
 
-    this.$store.dispatch("fetchUser");
-
-    if (user) {
-      this.$store.commit("setUserIsAuthenticated", true);
+    if (!user) {
+      this.$store.dispatch("fetchUser");
     }
   },
 };

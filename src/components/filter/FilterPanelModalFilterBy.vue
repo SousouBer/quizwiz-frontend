@@ -75,7 +75,7 @@ export default {
     },
 
     isAuthenticated() {
-      return this.$store.getters.userIsAuthenticated;
+      return this.$store.getters.user;
     },
   },
 };

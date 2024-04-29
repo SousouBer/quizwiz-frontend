@@ -119,10 +119,6 @@ export default {
 
         this.$store.dispatch("fetchUser");
 
-        this.$store.commit("setUserIsAuthenticated", true);
-
-        localStorage.setItem("userIsAuthenticated", 1);
-
         this.$router.push({ name: "quizzes" });
       } catch (err) {
         if (err.response.status === 409) {
