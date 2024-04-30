@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute left-0 bg-gray-800 bg-opacity-50 backdrop-blur h-screen w-screen"
+    class="absolute top-0 left-0 bg-gray-800 bg-opacity-50 backdrop-blur h-screen w-screen"
   >
     <slot />
   </div>
