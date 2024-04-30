@@ -1,5 +1,5 @@
 <template>
-  <TheHeader />
+  <TheHeader route="quizzes" />
   <main class="relative pb-32 border-b">
     <FilterPanel />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
@@ -56,8 +56,6 @@ export default {
     // Fetch quizzes, levels, and categories only if quizzes' state is empty
     // to prevent frequent requests.
     const quizzes = this.$store.getters.quizzes;
-
-    this.$store.dispatch("fetchUser");
 
     if (quizzes.length === 0) {
       this.$store.dispatch("fetchQuizzes", this.$route.query);

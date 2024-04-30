@@ -19,22 +19,23 @@
       v-if="showBurgerAuthModal"
       class="z-10"
     />
-    <div
-      v-if="$route.path !== '/landing'"
-      class="hidden md:flex justify-center items-center gap-1"
-    >
-      <button-base
-        view="/register"
-        class="text-white bg-black hover:bg-gray-900"
-        >Sign up</button-base
-      >
-      <button-base view="/login" class="text-blue-500 hover:text-blue-600"
-        >Log in</button-base
-      >
-    </div>
+
     <div class="hidden md:flex justify-center items-center gap-1">
-      <SearchInput />
-      <div>
+      <SearchInput v-if="route === 'quizzes'" />
+      <div
+        v-if="!userIsAuthenticated"
+        class="hidden md:flex justify-center items-center gap-1"
+      >
+        <button-base
+          view="/register"
+          class="text-white bg-black hover:bg-gray-900"
+          >Sign up</button-base
+        >
+        <button-base view="/login" class="text-blue-500 hover:text-blue-600"
+          >Log in</button-base
+        >
+      </div>
+      <div v-else>
         <div class="cursor-pointer" @click="openLogoutModal">
           <icon-unauthenticated-user />
         </div>
@@ -69,11 +70,25 @@ export default {
     SearchInput,
   },
 
+  props: {
+    route: {
+      type: String,
+      required: true,
+      default: "",
+    },
+  },
+
   data() {
     return {
       showBurgerAuthModal: false,
       showLogoutModal: false,
     };
+  },
+
+  computed: {
+    userIsAuthenticated() {
+      return this.$store.getters.user;
+    },
   },
 
   methods: {

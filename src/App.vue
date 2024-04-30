@@ -47,5 +47,13 @@ export default {
       showToastNotification: this.showToastNotification,
     };
   },
+
+  mounted() {
+    const user = this.$store.getters.user;
+
+    if (!user) {
+      this.$store.dispatch("fetchUser");
+    }
+  },
 };
 </script>

@@ -117,6 +117,8 @@ export default {
           response.data.message,
         );
 
+        this.$store.dispatch("fetchUser");
+
         this.$router.push({ name: "quizzes" });
       } catch (err) {
         if (err.response.status === 409) {

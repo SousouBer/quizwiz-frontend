@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader />
+    <TheHeader route="landing" />
     <main class="relative overflow-hidden">
       <div
         class="h-screen overflow-hidden md:h-auto py-6 px-16 md:px-24 md:pt-6 md:pb-32 relative"
