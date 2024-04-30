@@ -36,12 +36,12 @@
         >
       </div>
       <div v-else>
-        <div class="cursor-pointer" @click="openLogoutModal">
+        <div class="cursor-pointer" @click="toggleLogoutModal">
           <icon-unauthenticated-user />
         </div>
         <modal-logout
           v-if="showLogoutModal"
-          @close-logout-modal="closeLogoutModal"
+          @close-logout-modal="toggleLogoutModal"
         />
       </div>
     </div>
@@ -100,11 +100,8 @@ export default {
       this.showBurgerAuthModal = false;
       document.body.classList.remove("overflow-hidden");
     },
-    openLogoutModal() {
-      this.showLogoutModal = true;
-    },
-    closeLogoutModal() {
-      this.showLogoutModal = false;
+    toggleLogoutModal() {
+      this.showLogoutModal = !this.showLogoutModal;
     },
   },
 };
