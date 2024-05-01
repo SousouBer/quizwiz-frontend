@@ -1,11 +1,11 @@
 <template>
   <div class="mb-4">
-    <router-link
-      :to="link"
+    <a
+      :href="link"
       class="text-xs text-gray-500 font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
     >
-      <slot></slot>
-    </router-link>
+      <slot />
+    </a>
   </div>
 </template>
 

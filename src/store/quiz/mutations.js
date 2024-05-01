@@ -119,6 +119,6 @@ export default {
   },
 
   setContacts(state, payload) {
-    state.contacts = payload;
+    state.contacts = payload.contacts;
   },
 };
