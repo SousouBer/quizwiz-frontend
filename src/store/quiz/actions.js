@@ -5,6 +5,7 @@ import {
   getSimilarQuizzes,
   getQuiz,
   sendAnswers,
+  getContacts,
 } from "@/services/quiz";
 
 import { getUser } from "@/services/auth";
@@ -71,5 +72,12 @@ export default {
     const user = response.data;
 
     context.commit("setUser", { user });
+  },
+
+  async fetchContacts(context) {
+    const response = await getContacts();
+    const contacts = response.data.data;
+
+    context.commit("setContacts", { contacts });
   },
 };

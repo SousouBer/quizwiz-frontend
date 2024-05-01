@@ -117,4 +117,8 @@ export default {
   setInnerSearch(state, payload) {
     state.innerSearch = payload;
   },
+
+  setContacts(state, payload) {
+    state.contacts = payload;
+  },
 };

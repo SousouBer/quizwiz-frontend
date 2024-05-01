@@ -50,6 +50,7 @@ export default {
 
   mounted() {
     const user = this.$store.getters.user;
+    this.$store.dispatch("fetchContacts");
 
     if (!user) {
       this.$store.dispatch("fetchUser");

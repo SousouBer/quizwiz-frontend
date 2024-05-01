@@ -31,3 +31,8 @@ export async function getSimilarQuizzes(id) {
   await instance.get("/sanctum/csrf-cookie");
   return await instance.get(`/api/similar-quizzes/${id}`);
 }
+
+export async function getContacts() {
+  await instance.get("/sanctum/csrf-cookie");
+  return await instance.get("/api/contacts");
+}

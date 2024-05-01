@@ -62,4 +62,8 @@ export default {
   innerSearch(state) {
     return state.innerSearch;
   },
+
+  contacts(state) {
+    return state.contacts;
+  },
 };

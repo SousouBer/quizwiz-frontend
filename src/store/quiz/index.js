@@ -32,6 +32,8 @@ const store = createStore({
     quizResults: null,
 
     innerSearch: "",
+
+    contacts: null,
   },
 
   getters: quizGetters,
