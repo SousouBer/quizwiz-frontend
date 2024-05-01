@@ -1,7 +1,9 @@
 <template>
   <footer class="px-8 py-8 sm:px-24">
     <div class="flex flex-col gap-10 sm:gap-20 sm:flex-row">
-      <icon-quiz-wiz-main />
+      <routerLink to="landing">
+        <icon-quiz-wiz-main />
+      </routerLink>
       <div>
         <h4 class="text-sm font-semibold mb-4">Content</h4>
         <link-quizzes class="text-xs" />
