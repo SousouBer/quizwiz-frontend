@@ -21,13 +21,13 @@
         /></layouts-landing>
       </div>
       <layouts-quiz-listing
-        statistics="200+"
+        :statistics="`${quizListings.quizzes_count}+`"
         title="Quiz games"
         link="quizzes"
         class="bg-vibrant-orange py-14 px-10"
       />
       <layouts-quiz-listing
-        statistics="25+"
+        :statistics="`${quizListings.categories_count}+`"
         title="Different genre"
         link="quizzes"
         class="bg-saturated-blue py-10 px-10 pr-24"
@@ -56,6 +56,12 @@ export default {
     TheFooter,
     LayoutsLanding,
     LayoutsQuizListing,
+  },
+
+  computed: {
+    quizListings() {
+      return this.$store.getters.contacts;
+    },
   },
 };
 </script>
