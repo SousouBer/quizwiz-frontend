@@ -28,7 +28,21 @@ export default {
     const response = await getQuizzes(queryParams);
     const quizzes = response.data.data;
 
+    const currentPage = response.data.meta.current_page;
+    context.commit("setCurrentPage", { currentPage });
     context.commit("setQuizzes", { quizzes });
+  },
+
+  async paginateQuizzes(context, payload) {
+    const { queryParams, paginate } = payload;
+
+    const response = await getQuizzes(queryParams, paginate);
+    const quizzes = response.data.data;
+
+    const currentPage = response.data.meta.current_page;
+
+    context.commit("setCurrentPage", { currentPage });
+    context.commit("paginateQuizzes", { quizzes });
   },
 
   async fetchSimilarQuizzes(context, id) {

@@ -42,6 +42,14 @@ export default {
     state.quizzes = payload.quizzes;
   },
 
+  setCurrentPage(state, payload) {
+    state.currentPage = payload.currentPage;
+  },
+
+  paginateQuizzes(state, payload) {
+    state.quizzes = [...state.quizzes, ...payload.quizzes];
+  },
+
   setSimilarQuizzes(state, payload) {
     state.similarQuizzes = payload.similarQuizzes;
   },

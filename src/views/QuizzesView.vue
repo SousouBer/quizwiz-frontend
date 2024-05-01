@@ -19,7 +19,7 @@
         :results="quiz.results"
       />
     </div>
-    <QuizButtonLoadMore />
+    <QuizButtonLoadMore @click="loadMoreQuizzes" />
   </main>
   <TheFooter />
 </template>
@@ -40,6 +40,12 @@ export default {
     QuizButtonLoadMore,
   },
 
+  data() {
+    return {
+      page: 1,
+    };
+  },
+
   computed: {
     quizzes() {
       return this.$store.getters.quizzes;
@@ -49,6 +55,16 @@ export default {
   methods: {
     quizDetails(id) {
       this.$router.push({ name: "quiz", params: { id: id } });
+    },
+
+    loadMoreQuizzes() {
+      const currentPage = this.$store.getters.currentPage;
+
+      console.log(currentPage);
+      this.$store.dispatch("paginateQuizzes", {
+        queryParams: this.$route.query,
+        paginate: currentPage + 1,
+      });
     },
   },
 

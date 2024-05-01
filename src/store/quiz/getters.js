@@ -43,6 +43,10 @@ export default {
     return state.quiz;
   },
 
+  currentPage(state) {
+    return state.currentPage;
+  },
+
   answers(state) {
     return state.answers;
   },
