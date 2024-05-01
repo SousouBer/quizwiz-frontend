@@ -40,12 +40,6 @@ export default {
     QuizButtonLoadMore,
   },
 
-  data() {
-    return {
-      page: 1,
-    };
-  },
-
   computed: {
     quizzes() {
       return this.$store.getters.quizzes;
@@ -60,7 +54,6 @@ export default {
     loadMoreQuizzes() {
       const currentPage = this.$store.getters.currentPage;
 
-      console.log(currentPage);
       this.$store.dispatch("paginateQuizzes", {
         queryParams: this.$route.query,
         paginate: currentPage + 1,
