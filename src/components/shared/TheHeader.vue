@@ -2,14 +2,20 @@
   <header
     class="flex justify-between items-center p-4 border-b relative md:px-24"
   >
-    <div class="flex items-center gap-14">
+    <div v-if="showBurgerMenuAndQuizIcon" class="flex items-center gap-14">
       <routerLink to="landing" class="w-24">
         <icon-quiz-wiz-main class="h-full w-full" />
       </routerLink>
       <link-quizzes class="hidden md:block" />
     </div>
-    <div>
+    <div class="flex items-center">
+      <SearchInput
+        v-if="route === 'quizzes'"
+        class="sm:hidden"
+        :isMobileSearch="true"
+      />
       <icon-burger-menu
+        v-if="showBurgerMenuAndQuizIcon"
         @click="openBurgerAuthModal"
         class="cursor-pointer md:hidden"
       />
@@ -82,6 +88,7 @@ export default {
     return {
       showBurgerAuthModal: false,
       showLogoutModal: false,
+      showBurgerMenuAndQuizIcon: true,
     };
   },
 
@@ -103,6 +110,15 @@ export default {
     toggleLogoutModal() {
       this.showLogoutModal = !this.showLogoutModal;
     },
+    toggleBurgerMenuAndQuizIcon(isFirstFocused) {
+      this.showBurgerMenuAndQuizIcon = isFirstFocused;
+    },
+  },
+
+  provide() {
+    return {
+      toggleBurgerMenuAndQuizIcon: this.toggleBurgerMenuAndQuizIcon,
+    };
   },
 };
 </script>
