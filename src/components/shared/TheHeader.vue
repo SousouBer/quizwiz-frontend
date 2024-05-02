@@ -2,14 +2,20 @@
   <header
     class="flex justify-between items-center p-4 border-b relative md:px-24"
   >
-    <div class="flex items-center gap-14">
-      <div class="w-24">
+    <div v-if="showBurgerMenuAndQuizIcon" class="flex items-center gap-14">
+      <routerLink to="landing" class="w-24">
         <icon-quiz-wiz-main class="h-full w-full" />
-      </div>
+      </routerLink>
       <link-quizzes class="hidden md:block" />
     </div>
-    <div>
+    <div class="flex items-center">
+      <SearchInput
+        v-if="route === 'quizzes'"
+        class="sm:hidden"
+        :isMobileSearch="true"
+      />
       <icon-burger-menu
+        v-if="showBurgerMenuAndQuizIcon"
         @click="openBurgerAuthModal"
         class="cursor-pointer md:hidden"
       />
@@ -36,12 +42,12 @@
         >
       </div>
       <div v-else>
-        <div class="cursor-pointer" @click="openLogoutModal">
+        <div class="cursor-pointer" @click="toggleLogoutModal">
           <icon-unauthenticated-user />
         </div>
         <modal-logout
           v-if="showLogoutModal"
-          @close-logout-modal="closeLogoutModal"
+          @close-logout-modal="toggleLogoutModal"
         />
       </div>
     </div>
@@ -82,6 +88,7 @@ export default {
     return {
       showBurgerAuthModal: false,
       showLogoutModal: false,
+      showBurgerMenuAndQuizIcon: true,
     };
   },
 
@@ -100,12 +107,18 @@ export default {
       this.showBurgerAuthModal = false;
       document.body.classList.remove("overflow-hidden");
     },
-    openLogoutModal() {
-      this.showLogoutModal = true;
+    toggleLogoutModal() {
+      this.showLogoutModal = !this.showLogoutModal;
     },
-    closeLogoutModal() {
-      this.showLogoutModal = false;
+    toggleBurgerMenuAndQuizIcon(isFirstFocused) {
+      this.showBurgerMenuAndQuizIcon = isFirstFocused;
     },
+  },
+
+  provide() {
+    return {
+      toggleBurgerMenuAndQuizIcon: this.toggleBurgerMenuAndQuizIcon,
+    };
   },
 };
 </script>

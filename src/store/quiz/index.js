@@ -19,6 +19,8 @@ const store = createStore({
 
     quizzes: [],
 
+    currentPage: null,
+
     similarQuizzes: [],
 
     quiz: [],
@@ -30,6 +32,8 @@ const store = createStore({
     quizResults: null,
 
     innerSearch: "",
+
+    contacts: null,
   },
 
   getters: quizGetters,

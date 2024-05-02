@@ -1,7 +1,9 @@
 <template>
   <footer class="px-8 py-8 sm:px-24">
     <div class="flex flex-col gap-10 sm:gap-20 sm:flex-row">
-      <icon-quiz-wiz-main />
+      <routerLink to="landing">
+        <icon-quiz-wiz-main />
+      </routerLink>
       <div>
         <h4 class="text-sm font-semibold mb-4">Content</h4>
         <link-quizzes class="text-xs" />
@@ -9,16 +11,24 @@
       <div>
         <h4 class="text-sm font-semibold mb-4">Contact us</h4>
         <div class="mb-4">
-          <span class="text-xs text-gray-500">Email: example@mail.com</span>
+          <span class="text-xs text-gray-500"
+            >Email: {{ contacts?.email }}</span
+          >
         </div>
         <div>
-          <span class="text-xs text-gray-500">Tel: example +55555555</span>
+          <span class="text-xs text-gray-500"
+            >Tel: {{ contacts?.telephone }}</span
+          >
         </div>
       </div>
       <div>
         <h4 class="text-sm font-semibold mb-4">Social media</h4>
-        <link-social-media link="/landing">Facebook</link-social-media>
-        <link-social-media link="/landing">Linked In</link-social-media>
+        <link-social-media :link="contacts?.facebook"
+          >Facebook</link-social-media
+        >
+        <link-social-media :link="contacts?.linkedin"
+          >Linked In</link-social-media
+        >
       </div>
     </div>
     <div class="pt-6 border-t flex sm:justify-end">
@@ -39,6 +49,12 @@ export default {
     LinkSocialMedia,
     LinkQuizzes,
     IconQuizWizMain,
+  },
+
+  computed: {
+    contacts() {
+      return this.$store.getters.contacts;
+    },
   },
 };
 </script>

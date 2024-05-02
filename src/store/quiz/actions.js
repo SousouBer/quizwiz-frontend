@@ -5,6 +5,7 @@ import {
   getSimilarQuizzes,
   getQuiz,
   sendAnswers,
+  getContacts,
 } from "@/services/quiz";
 
 import { getUser } from "@/services/auth";
@@ -28,7 +29,21 @@ export default {
     const response = await getQuizzes(queryParams);
     const quizzes = response.data.data;
 
+    const currentPage = response.data.meta.current_page;
+    context.commit("setCurrentPage", { currentPage });
     context.commit("setQuizzes", { quizzes });
+  },
+
+  async paginateQuizzes(context, payload) {
+    const { queryParams, paginate } = payload;
+
+    const response = await getQuizzes(queryParams, paginate);
+    const quizzes = response.data.data;
+
+    const currentPage = response.data.meta.current_page;
+
+    context.commit("setCurrentPage", { currentPage });
+    context.commit("paginateQuizzes", { quizzes });
   },
 
   async fetchSimilarQuizzes(context, id) {
@@ -57,5 +72,12 @@ export default {
     const user = response.data;
 
     context.commit("setUser", { user });
+  },
+
+  async fetchContacts(context) {
+    const response = await getContacts();
+    const contacts = response.data.data;
+
+    context.commit("setContacts", { contacts });
   },
 };

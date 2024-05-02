@@ -13,32 +13,32 @@
         <h2 class="text-lg sm:text-4xl font-semibold text-gray-500">
           Play with us, Explore with us
         </h2>
-        <layouts-landing class="sm:hidden">
+        <LayoutsLanding class="sm:hidden">
           <img
             class="w-full"
             src="@/assets/images/black-background-mobile.svg"
             alt="Black background"
-        /></layouts-landing>
+        /></LayoutsLanding>
       </div>
-      <layouts-quiz-listing
-        statistics="200+"
+      <LayoutsQuizListing
+        :statistics="`${quizListings.quizzes_count}+`"
         title="Quiz games"
         link="quizzes"
         class="bg-vibrant-orange py-14 px-10"
       />
-      <layouts-quiz-listing
-        statistics="25+"
+      <LayoutsQuizListing
+        :statistics="`${quizListings.categories_count}+`"
         title="Different genre"
         link="quizzes"
         class="bg-saturated-blue py-10 px-10 pr-24"
       />
-      <layouts-landing class="hidden sm:block">
+      <LayoutsLanding class="hidden sm:block">
         <img
           class="w-full"
           src="@/assets/images/black-background.svg"
           alt="Black background"
         />
-      </layouts-landing>
+      </LayoutsLanding>
     </main>
     <TheFooter />
   </div>
@@ -56,6 +56,12 @@ export default {
     TheFooter,
     LayoutsLanding,
     LayoutsQuizListing,
+  },
+
+  computed: {
+    quizListings() {
+      return this.$store.getters.contacts;
+    },
   },
 };
 </script>

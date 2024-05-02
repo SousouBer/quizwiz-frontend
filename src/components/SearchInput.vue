@@ -35,10 +35,19 @@ import IconX from "@/components/icons/IconX.vue";
 import IconSearch from "@/components/icons/IconSearch.vue";
 
 export default {
+  inject: ["toggleBurgerMenuAndQuizIcon"],
   components: {
     IconX,
     IconSearch,
   },
+
+  props: {
+    isMobileSearch: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   data() {
     return {
       isFirstFocused: false,
@@ -51,9 +60,16 @@ export default {
   methods: {
     toggleElement() {
       this.isFirstFocused = true;
+      if (this.isMobileSearch) {
+        this.toggleBurgerMenuAndQuizIcon(false);
+      }
     },
     closeInputField() {
       this.isFirstFocused = false;
+      if (this.isMobileSearch) {
+        this.toggleBurgerMenuAndQuizIcon(true);
+      }
+
       this.searchInput = "";
       this.$refs.searchInput.value = "";
 

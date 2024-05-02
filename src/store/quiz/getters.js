@@ -43,6 +43,10 @@ export default {
     return state.quiz;
   },
 
+  currentPage(state) {
+    return state.currentPage;
+  },
+
   answers(state) {
     return state.answers;
   },
@@ -57,5 +61,9 @@ export default {
 
   innerSearch(state) {
     return state.innerSearch;
+  },
+
+  contacts(state) {
+    return state.contacts;
   },
 };
