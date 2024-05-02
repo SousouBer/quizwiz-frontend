@@ -101,17 +101,29 @@ export default {
   methods: {
     openBurgerAuthModal() {
       this.showBurgerAuthModal = true;
-      document.body.classList.add("overflow-hidden");
     },
     closeBurgerAuthModal() {
       this.showBurgerAuthModal = false;
-      document.body.classList.remove("overflow-hidden");
     },
     toggleLogoutModal() {
       this.showLogoutModal = !this.showLogoutModal;
     },
     toggleBurgerMenuAndQuizIcon(isFirstFocused) {
       this.showBurgerMenuAndQuizIcon = isFirstFocused;
+    },
+  },
+
+  beforeUnmount() {
+    document.body.classList.remove("overflow-hidden");
+  },
+
+  watch: {
+    showBurgerAuthModal(newValue) {
+      if (newValue) {
+        document.body.classList.add("overflow-hidden");
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
     },
   },
 
