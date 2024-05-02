@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-screen sm:h-auto sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-28 sm:-translate-x-24"
+    class="w-full sm:w-2/3 sm:p-2 sm:border sm:rounded-xl border-black bg-white absolute z-50 top-0 right-0 transform sm:translate-y-28 sm:-translate-x-24"
   >
     <div
       class="flex items-center justify-between sm:justify-center gap-4 py-7 px-4 sm:py-4 rounded-2xl bg-very-light-gray"
