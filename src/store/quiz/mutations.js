@@ -121,4 +121,8 @@ export default {
   setContacts(state, payload) {
     state.contacts = payload.contacts;
   },
+
+  clearSelectedAnswers(state) {
+    state.answers = [];
+  },
 };
