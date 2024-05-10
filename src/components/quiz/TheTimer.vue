@@ -92,6 +92,8 @@ export default {
         time: timeTaken,
         answers: answerIds,
       });
+
+      this.$store.commit("clearSelectedAnswers");
     },
 
     countdown(minutes, seconds) {
