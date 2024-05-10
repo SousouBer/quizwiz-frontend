@@ -62,12 +62,10 @@ export default {
   },
 
   mounted() {
-    // Fetch quizzes, levels, and categories only if quizzes' state is empty
-    // to prevent frequent requests.
     const quizzes = this.$store.getters.quizzes;
 
+    this.$store.dispatch("fetchQuizzes", this.$route.query);
     if (quizzes.length === 0) {
-      this.$store.dispatch("fetchQuizzes", this.$route.query);
       this.$store.dispatch("fetchCategories");
       this.$store.dispatch("fetchLevels");
     }
