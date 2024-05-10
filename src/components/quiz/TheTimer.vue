@@ -87,7 +87,6 @@ export default {
 
       const answerIds = results.map((answer) => answer.answerId);
 
-      console.log("this are resuls", results);
       this.$store.dispatch("sendChosenAnswers", {
         quiz_id: quizId,
         time: timeTaken,
