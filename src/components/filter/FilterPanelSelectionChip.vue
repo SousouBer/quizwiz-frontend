@@ -55,10 +55,13 @@ export default {
 
       return !selectedItems.includes(this.id)
         ? {
-            color: this.backgroundColor,
-            backgroundColor: this.color,
+            color: this.isCategory ? "#475467" : this.color,
+            backgroundColor: this.isCategory ? "#fff" : this.backgroundColor,
           }
-        : { color: this.color, backgroundColor: this.backgroundColor };
+        : {
+            color: this.isCategory ? "#fff" : this.backgroundColor,
+            backgroundColor: this.isCategory ? "#000" : this.color,
+          };
     },
 
     // Highlight filter chips if any of them includes input from inner search.
