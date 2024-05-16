@@ -6,7 +6,7 @@
       <routerLink :to="{ name: 'landing' }" class="w-24">
         <icon-quiz-wiz-main class="h-full w-full" />
       </routerLink>
-      <link-quizzes class="hidden md:block" />
+      <link-quizzes class="hidden md:block" :isHeaderLink="true" />
     </div>
     <div class="flex items-center">
       <SearchInput

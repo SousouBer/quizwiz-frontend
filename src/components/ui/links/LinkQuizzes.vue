@@ -28,11 +28,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    isHeaderLink: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
     showBlueDot() {
-      return this.$route.name === "quizzes" && !this.isFooterLink;
+      return (
+        this.$route.name === "quizzes" &&
+        !this.isFooterLink &&
+        this.isHeaderLink
+      );
     },
 
     footerOrHeaderClasses() {
