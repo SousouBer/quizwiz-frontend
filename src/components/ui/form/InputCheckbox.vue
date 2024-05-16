@@ -12,7 +12,7 @@
       <IconTick
         width="15"
         height="15"
-        class="pointer-events-none absolute hidden show-tick-icon top-0 left-0 transform translate-x-1/4 translate-y-1/3"
+        class="pointer-events-none absolute hidden show-tick-icon top-0 left-0 transform translate-x-[3px] translate-y-1/3"
       />
       <label :for="name">{{ label }}</label>
     </div>

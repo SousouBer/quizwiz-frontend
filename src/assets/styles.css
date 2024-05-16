@@ -29,8 +29,13 @@
   border-radius: 50%;
 }
 
+.input-checkbox {
+  border: 0.5px solid #ccc;
+}
+
 .input-checkbox:checked {
   background-color: #000;
+  border: none;
 }
 
 .input-checkbox:checked + .show-tick-icon,
