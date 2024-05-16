@@ -2,7 +2,7 @@
   <header
     class="flex justify-between items-center p-4 border-b relative md:px-24"
   >
-    <div v-if="showBurgerMenuAndQuizIcon" class="flex items-center gap-14">
+    <div v-if="showBurgerMenuAndQuizIcon" class="flex items-center gap-16">
       <routerLink :to="{ name: 'landing' }" class="w-24">
         <icon-quiz-wiz-main class="h-full w-full" />
       </routerLink>

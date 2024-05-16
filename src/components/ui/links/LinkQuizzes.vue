@@ -2,13 +2,14 @@
   <div class="relative">
     <IconDotBlue
       v-if="showBlueDot"
-      width="12"
-      height="12"
-      class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-5"
+      width="10"
+      height="10"
+      class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-[18px]"
     />
     <router-link
       :to="{ name: 'quizzes' }"
-      class="text-dark-blue-gray text-lg font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
+      :class="footerOrHeaderClasses"
+      class="font-semibold hover:text-gray-600 transition-colors duration-300 ease-in-out"
       >Quizzes</router-link
     >
   </div>
@@ -22,9 +23,22 @@ export default {
     IconDotBlue,
   },
 
+  props: {
+    isFooterLink: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   computed: {
     showBlueDot() {
-      return this.$route.name === "quizzes";
+      return this.$route.name === "quizzes" && !this.isFooterLink;
+    },
+
+    footerOrHeaderClasses() {
+      return this.isFooterLink
+        ? "text-medium-dark-gray text-xs"
+        : "text-gray-600 text-sm ";
     },
   },
 };

@@ -6,7 +6,7 @@
       </routerLink>
       <div>
         <h4 class="text-sm font-semibold mb-4">Content</h4>
-        <link-quizzes class="text-xs" />
+        <link-quizzes class="text-xs" :isFooterLink="true" />
       </div>
       <div>
         <h4 class="text-sm font-semibold mb-4">Contact us</h4>
