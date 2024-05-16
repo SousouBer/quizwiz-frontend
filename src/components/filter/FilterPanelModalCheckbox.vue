@@ -12,9 +12,8 @@
         @change="uncheckCheckbox"
       />
       <IconCheck
-        @click="toggleIcon"
         :color="tickIconColor"
-        class="cursor-pointer hidden absolute show-tick-icon top-0 left-0 transform translate-x-1/3 translate-y-1"
+        class="pointer-events-none hidden absolute show-tick-icon top-0 left-0 transform translate-x-1/3 translate-y-1"
       />
     </div>
   </div>
@@ -24,6 +23,7 @@
 import IconCheck from "@/components/icons/IconCheck.vue";
 
 export default {
+  inject: ["showActionButtons"],
   props: {
     labelFor: {
       type: String,
@@ -52,11 +52,7 @@ export default {
       } else {
         this.$store.commit("setCompletedQuizzes");
       }
-    },
-
-    toggleIcon(event) {
-      event.stopPropagation();
-      this.uncheckCheckbox();
+      this.showActionButtons();
     },
   },
 

@@ -5,13 +5,8 @@
         v-if="isAuthenticated"
         filterType="Filter by"
       >
+        <FilterPanelModalCheckbox labelFor="My quizzes" name="my_quizzes" />
         <FilterPanelModalCheckbox
-          @click="showActionButtons"
-          labelFor="My quizzes"
-          name="my_quizzes"
-        />
-        <FilterPanelModalCheckbox
-          @click="showActionButtons"
           labelFor="Not completed"
           name="not_completed_quizzes"
         />
