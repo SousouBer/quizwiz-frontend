@@ -19,7 +19,7 @@
         :results="quiz.results"
       />
     </div>
-    <QuizButtonLoadMore @click="loadMoreQuizzes" />
+    <QuizButtonLoadMore v-if="!showLoadMoreButton" @click="loadMoreQuizzes" />
   </main>
   <TheFooter />
 </template>
@@ -43,6 +43,14 @@ export default {
   computed: {
     quizzes() {
       return this.$store.getters.quizzes;
+    },
+
+    showLoadMoreButton() {
+      const lastPage = this.$store.getters.lastPage;
+      const currentPage = this.$store.getters.currentPage;
+
+      console.log(lastPage, currentPage);
+      return lastPage === currentPage;
     },
   },
 

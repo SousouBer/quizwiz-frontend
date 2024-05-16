@@ -46,6 +46,10 @@ export default {
     state.currentPage = payload.currentPage;
   },
 
+  setLastPage(state, payload) {
+    state.lastPage = payload.lastPage;
+  },
+
   paginateQuizzes(state, payload) {
     state.quizzes = [...state.quizzes, ...payload.quizzes];
   },

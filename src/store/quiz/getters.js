@@ -47,6 +47,10 @@ export default {
     return state.currentPage;
   },
 
+  lastPage(state) {
+    return state.lastPage;
+  },
+
   answers(state) {
     return state.answers;
   },

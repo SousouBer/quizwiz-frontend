@@ -30,7 +30,11 @@ export default {
     const quizzes = response.data.data;
 
     const currentPage = response.data.meta.current_page;
+    const lastPage = response.data.meta.last_page;
+    console.log(lastPage);
+
     context.commit("setCurrentPage", { currentPage });
+    context.commit("setLastPage", { lastPage });
     context.commit("setQuizzes", { quizzes });
   },
 
