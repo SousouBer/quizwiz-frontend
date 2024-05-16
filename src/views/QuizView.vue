@@ -1,7 +1,10 @@
 <template>
   <TheHeader />
   <LinkBack class="px-4 sm:px-24 my-4 mb-2 sm:mb-12" />
-  <div class="flex justify-between px-4 sm:px-24 my-3 pb-12 sm:my-6">
+  <div
+    v-if="!isLoading"
+    class="flex justify-between px-4 sm:px-24 my-3 pb-12 sm:my-6"
+  >
     <div class="sm:mr-14">
       <div class="flex gap-8 border-b pb-16 mb-4">
         <div class="w-full sm:w-auto">
@@ -120,6 +123,12 @@ export default {
     QuizInnerWrapperImage,
   },
 
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
+
   methods: {
     startQuiz() {
       this.$router.push({
@@ -156,7 +165,9 @@ export default {
     const quizId = this.$route.params.id;
 
     this.$store.dispatch("fetchSimilarQuizzes", quizId);
-    this.$store.dispatch("fetchQuiz", quizId);
+    this.$store.dispatch("fetchQuiz", quizId).then(() => {
+      this.isLoading = false;
+    });
   },
 };
 </script>
