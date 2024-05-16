@@ -4,8 +4,13 @@
     ref="resultsModal"
     class="absolute left-0 w-full h-full z-10 flex items-center justify-center"
   >
-    <div class="bg-white w-full mx-4 sm:mx-0 sm:w-1/4 p-6 sm:p-4 rounded-xl">
-      <IconX @click="handleQuizResults" class="cursor-pointer ml-auto" />
+    <div class="bg-white w-full mx-4 sm:mx-0 sm:w-2/6 p-6 sm:p-8 rounded-xl">
+      <IconX
+        @click="handleQuizResults"
+        width="20"
+        height="20"
+        class="cursor-pointer ml-auto"
+      />
       <div class="flex flex-col justify-center items-center gap-2 mb-6">
         <IconQuizResults />
         <span class="font-semibold text-lg">Quiz Finished</span>
