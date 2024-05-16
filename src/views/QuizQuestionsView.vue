@@ -19,13 +19,13 @@
     <QuizQuestionsQuizDetails
       :categories="quiz.categories"
       :title="quiz.title"
-      :questions="quiz.questions_and_answers.length"
+      :questions="quiz.questions_and_answers?.length"
       :points="quiz.points"
       :plays="quiz.plays"
       :time="quiz.time"
     />
     <div class="flex justify-between px-6 sm:px-24 py-16">
-      <div>
+      <div class="sm:w-[65%]">
         <QuizQuestionAndAnswers
           v-for="(question, index) in quiz.questions_and_answers"
           :key="question.id"
