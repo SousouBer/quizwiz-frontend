@@ -1,6 +1,6 @@
 <template>
   <footer class="px-8 py-8 sm:px-24">
-    <div class="flex flex-col gap-10 sm:gap-20 sm:flex-row">
+    <div class="flex flex-col gap-10 sm:gap-20 sm:flex-row pt-4 pb-8">
       <routerLink :to="{ name: 'landing' }">
         <icon-quiz-wiz-main />
       </routerLink>
