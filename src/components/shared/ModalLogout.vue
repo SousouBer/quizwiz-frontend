@@ -37,7 +37,8 @@ export default {
     closeLogoutModal() {
       this.$emit("close-logout-modal");
       this.onLogout().then(() => {
-        this.$router.push({ name: "login" });
+        this.$store.dispatch("fetchQuizzes");
+        this.$store.commit("setUser", {});
       });
     },
   },

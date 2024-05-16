@@ -38,7 +38,8 @@ export default {
     async onLogout() {
       await logout();
 
-      this.$router.push({ name: "login" });
+      this.$store.dispatch("fetchQuizzes");
+      this.$store.commit("setUser", {});
     },
   },
 };
