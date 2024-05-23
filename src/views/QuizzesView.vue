@@ -67,9 +67,26 @@ export default {
         paginate: currentPage + 1,
       });
     },
+
+    checkQueryParams() {
+      const queries = this.$route.query;
+
+      let selectedOptionsCount = Object.keys(this.$route.query).length;
+
+      if (queries.categories) {
+        selectedOptionsCount += queries.categories.split(",").length - 1;
+      }
+
+      if (queries.levels) {
+        selectedOptionsCount += queries.levels.split(",").length - 1;
+      }
+
+      this.$store.commit("setSelectedOptionsCount", selectedOptionsCount);
+    },
   },
 
   mounted() {
+    this.checkQueryParams();
     const quizzes = this.$store.getters.quizzes;
 
     this.$store.dispatch("fetchQuizzes", this.$route.query);
@@ -102,6 +119,14 @@ export default {
     if (urlCompletedQuizzes) {
       this.$store.commit("setCompletedQuizzes", urlCompletedQuizzes === true);
     }
+  },
+
+  watch: {
+    "$route.query": {
+      handler: "checkQueryParams",
+      immediate: true,
+      deep: true,
+    },
   },
 };
 </script>
