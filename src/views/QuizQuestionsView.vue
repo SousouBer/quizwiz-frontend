@@ -32,7 +32,7 @@
           :id="question.id"
           :order="index + 1"
           :points="question.points"
-          :question="question.question"
+          :question="question.text"
           :answers="question.answers"
         />
       </div>
