@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-3">
     <component
       :is="iconComponent"
       :color="color"
@@ -7,14 +7,14 @@
       v-if="iconComponent"
     />
     <div class="flex flex-col">
-      <span class="text-dark-blue-gray font-semibold select-none">{{
+      <span class="text-dark-blue-gray font-semibold select-none text-sm">{{
         title
       }}</span>
       <span
         :class="{
-          'text-gray-300': isGrayText,
+          'text-inactive-gray': isGrayText,
         }"
-        class="text-gray-800 select-none"
+        class="text-gray-800 select-none text-sm"
         >{{ details }}</span
       >
     </div>
@@ -72,7 +72,7 @@ export default {
       }
     },
     isGrayText() {
-      return this.info === "not_completed" || this.info === "time";
+      return this.info === "not_completed" || this.details === "N/A";
     },
   },
 };
