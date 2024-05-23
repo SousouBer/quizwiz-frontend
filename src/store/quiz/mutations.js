@@ -39,7 +39,9 @@ export default {
   },
 
   setQuizzes(state, payload) {
-    state.quizzes = payload.quizzes;
+    state.quizzes = payload.quizzes.filter(
+      (quiz) => quiz.categories.length > 0 && quiz.points > 0,
+    );
   },
 
   setCurrentPage(state, payload) {
