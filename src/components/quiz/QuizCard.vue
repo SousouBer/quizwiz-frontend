@@ -18,7 +18,7 @@
         title
       }}</span>
     </div>
-    <div class="my-2 flex flex-wrap gap-6 mt-6">
+    <div class="my-2 flex flex-wrap gap-5 sm:gap-6 mt-6">
       <QuizCardInfoItem
         v-if="!results"
         info="not_completed"
