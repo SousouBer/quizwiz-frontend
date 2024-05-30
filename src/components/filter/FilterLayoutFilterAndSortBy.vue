@@ -4,10 +4,11 @@
       :class="{
         hidden: filterType === 'Filter by' || filterType === 'Sort by',
       }"
-      class="font-semibold text-blue-500 select-none sm:inline"
+      class="font-semibold select-none sm:inline text-sm"
+      :style="{ color: filterTypeColor }"
       >{{ filterType }}</span
     >
-    <div :class="classNames" class="mt-3">
+    <div :class="classNames" class="mt-4">
       <slot />
     </div>
   </div>
@@ -24,6 +25,10 @@ export default {
     classNames: {
       type: String,
       required: true,
+    },
+    filterTypeColor: {
+      type: String,
+      default: "#4B69FD",
     },
   },
 };

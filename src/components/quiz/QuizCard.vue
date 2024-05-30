@@ -1,7 +1,9 @@
 <template>
   <div class="p-5 inline-block content-center">
-    <div class="mb-1 rounded-2xl overflow-hidden">
-      <img :src="image" alt="Quiz card image" />
+    <div
+      class="mb-1 rounded-2xl overflow-hidden flex items-center justify-center h-[15rem]"
+    >
+      <img :src="image" class="object-cover h-full" alt="Quiz card image" />
     </div>
     <div>
       <div class="flex gap-x-8 gap-y-2 my-4 flex-wrap">
@@ -16,7 +18,7 @@
         title
       }}</span>
     </div>
-    <div class="my-2 flex flex-wrap gap-4 mt-6">
+    <div class="my-2 flex flex-wrap gap-5 sm:gap-6 mt-6">
       <QuizCardInfoItem
         v-if="!results"
         info="not_completed"

@@ -21,6 +21,8 @@ const store = createStore({
 
     currentPage: null,
 
+    lastPage: null,
+
     similarQuizzes: [],
 
     quiz: [],

@@ -103,6 +103,7 @@ export default {
     },
 
     showActionButtons() {
+      console.log("clicked");
       this.displayActionButtons = true;
     },
 

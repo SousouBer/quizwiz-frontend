@@ -19,7 +19,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      redirect: { name: "quizzes" },
+      redirect: { name: "landing" },
     },
     {
       path: "/register",

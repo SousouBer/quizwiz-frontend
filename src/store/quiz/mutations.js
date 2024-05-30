@@ -39,11 +39,17 @@ export default {
   },
 
   setQuizzes(state, payload) {
-    state.quizzes = payload.quizzes;
+    state.quizzes = payload.quizzes.filter(
+      (quiz) => quiz.categories.length > 0 && quiz.points > 0,
+    );
   },
 
   setCurrentPage(state, payload) {
     state.currentPage = payload.currentPage;
+  },
+
+  setLastPage(state, payload) {
+    state.lastPage = payload.lastPage;
   },
 
   paginateQuizzes(state, payload) {

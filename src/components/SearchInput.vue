@@ -96,7 +96,7 @@ export default {
           .then(() => {
             this.$store.dispatch("fetchQuizzes", this.$route.query);
           });
-      }, 2000);
+      }, 500);
     },
   },
 

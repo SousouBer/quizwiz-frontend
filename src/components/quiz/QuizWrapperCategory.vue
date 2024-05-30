@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <span class="text-saturated-blue font-semibold">{{ label }}</span>
+    <span class="text-saturated-blue font-semibold text-sm">{{ label }}</span>
     <iconDot
       v-if="!lastItem"
       width="4"

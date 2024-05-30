@@ -28,6 +28,7 @@ export default {
         "pinkish-mangeta": "#E72A8B",
         "light-green": "#039855",
         "dark-green": "#027A48",
+        "inactive-gray": "#4754674D",
       },
       width: {
         "custom-45": "45%",

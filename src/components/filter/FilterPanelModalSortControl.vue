@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ 'rounded-xl bg-gray-100': isSelected }"
-    class="flex items-center gap-4 w-full px-3 py-2 cursor-pointer"
+    class="flex items-center gap-4 w-full px-3 py-2 cursor-pointer text-gray-500"
     @click="selectCriteria"
   >
     <slot />

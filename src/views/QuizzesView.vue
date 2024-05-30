@@ -1,7 +1,8 @@
 <template>
   <TheHeader route="quizzes" />
-  <main class="relative pb-32 border-b">
+  <main class="relative pb-32">
     <FilterPanel />
+    <TheLoader v-if="!quizzes.length" />
     <div class="px-6 sm:px-24 grid md:grid-cols-3 gap-8 relative">
       <QuizCard
         class="cursor-pointer shadow-xl"
@@ -19,7 +20,7 @@
         :results="quiz.results"
       />
     </div>
-    <QuizButtonLoadMore @click="loadMoreQuizzes" />
+    <QuizButtonLoadMore v-if="!showLoadMoreButton" @click="loadMoreQuizzes" />
   </main>
   <TheFooter />
 </template>
@@ -30,6 +31,7 @@ import TheFooter from "@/components/shared/TheFooter.vue";
 import FilterPanel from "@/components/filter/FilterPanel.vue";
 import QuizCard from "@/components/quiz/QuizCard.vue";
 import QuizButtonLoadMore from "@/components/quiz/QuizButtonLoadMore.vue";
+import TheLoader from "@/components/shared/TheLoader.vue";
 
 export default {
   components: {
@@ -38,11 +40,20 @@ export default {
     FilterPanel,
     QuizCard,
     QuizButtonLoadMore,
+    TheLoader,
   },
 
   computed: {
     quizzes() {
       return this.$store.getters.quizzes;
+    },
+
+    showLoadMoreButton() {
+      const lastPage = this.$store.getters.lastPage;
+      const currentPage = this.$store.getters.currentPage;
+
+      console.log(lastPage, currentPage);
+      return lastPage === currentPage;
     },
   },
 
@@ -59,9 +70,26 @@ export default {
         paginate: currentPage + 1,
       });
     },
+
+    checkQueryParams() {
+      const queries = this.$route.query;
+
+      let selectedOptionsCount = Object.keys(this.$route.query).length;
+
+      if (queries.categories) {
+        selectedOptionsCount += queries.categories.split(",").length - 1;
+      }
+
+      if (queries.levels) {
+        selectedOptionsCount += queries.levels.split(",").length - 1;
+      }
+
+      this.$store.commit("setSelectedOptionsCount", selectedOptionsCount);
+    },
   },
 
   mounted() {
+    this.checkQueryParams();
     const quizzes = this.$store.getters.quizzes;
 
     this.$store.dispatch("fetchQuizzes", this.$route.query);
@@ -94,6 +122,14 @@ export default {
     if (urlCompletedQuizzes) {
       this.$store.commit("setCompletedQuizzes", urlCompletedQuizzes === true);
     }
+  },
+
+  watch: {
+    "$route.query": {
+      handler: "checkQueryParams",
+      immediate: true,
+      deep: true,
+    },
   },
 };
 </script>

@@ -5,19 +5,15 @@
         v-if="isAuthenticated"
         filterType="Filter by"
       >
+        <FilterPanelModalCheckbox labelFor="My quizzes" name="my_quizzes" />
         <FilterPanelModalCheckbox
-          @click="showActionButtons"
-          labelFor="My quizzes"
-          name="my_quizzes"
-        />
-        <FilterPanelModalCheckbox
-          @click="showActionButtons"
           labelFor="Not completed"
           name="not_completed_quizzes"
         />
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by
         filterType="Levels"
+        filterTypeColor="#000"
         classNames="flex flex-wrap gap-2"
       >
         <FilterPanelSelectionChip
@@ -33,16 +29,16 @@
       </filter-layout-filter-and-sort-by>
       <filter-layout-filter-and-sort-by
         filterType="Categories"
-        classNames="flex flex-wrap gap-2"
+        filterTypeColor="#000"
+        classNames="flex flex-wrap gap-2.5 gap-y-3"
       >
         <FilterPanelSelectionChip
           @click="showActionButtons"
+          class="px-5 py-1.5"
           v-for="category in categories"
           :key="category.id"
           :id="category.id"
           :label="category.title"
-          color="white"
-          backgroundColor="black"
           :isCategory="true"
         />
       </filter-layout-filter-and-sort-by>
