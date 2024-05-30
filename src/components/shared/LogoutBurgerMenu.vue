@@ -2,7 +2,8 @@
   <div>
     <div class="flex flex-row gap-4 items-center border-b mb-4">
       <div class="w-16 py-6">
-        <icon-unauthenticated-user class="w-full h-full" />
+        <img v-if="user.avatar" class="w-full h-full" :src="user.avatar" />
+        <icon-unauthenticated-user v-else class="w-full h-full" />
       </div>
       <div class="flex flex-col">
         <span class="text-base font-semibold">{{ user.username }}</span>
