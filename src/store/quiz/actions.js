@@ -73,7 +73,7 @@ export default {
 
   async fetchUser(context) {
     const response = await getUser();
-    const user = response.data;
+    const user = response.data.data;
 
     context.commit("setUser", { user });
   },

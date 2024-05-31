@@ -42,8 +42,13 @@
         >
       </div>
       <div v-else>
-        <div class="cursor-pointer" @click="toggleLogoutModal">
-          <icon-unauthenticated-user />
+        <div class="cursor-pointer w-8 h-8" @click="toggleLogoutModal">
+          <img
+            class="h-full w-full"
+            v-if="userIsAuthenticated.avatar"
+            :src="userIsAuthenticated.avatar"
+          />
+          <icon-unauthenticated-user v-else />
         </div>
         <modal-logout
           v-if="showLogoutModal"

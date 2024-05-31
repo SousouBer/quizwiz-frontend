@@ -3,7 +3,8 @@
     class="z-10 absolute top-0 right-0 transform -translate-x-1/4 translate-y-1/4 w-80 bg-white border p-7 border-light-gray rounded-lg shadow-sm"
   >
     <div class="mb-4 w-10 h-10">
-      <icon-unauthenticated-user class="h-full w-full" />
+      <img v-if="user.avatar" class="h-full w-full" :src="user.avatar" />
+      <icon-unauthenticated-user v-else class="h-full w-full" />
     </div>
     <div class="flex justify-between">
       <div class="flex flex-col justify-center gap-1">
